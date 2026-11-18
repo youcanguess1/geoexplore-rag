@@ -40,9 +40,16 @@ async def test_missing_usage_is_explicitly_unknown() -> None:
 
 
 @pytest.mark.asyncio
-async def test_transport_diagnostics_preserve_errno_without_exception_text() -> None:
+@pytest.mark.parametrize(
+    ("error_type", "error_number"),
+    [(OSError, 12345), (ConnectionRefusedError, 111), (ConnectionRefusedError, 10061)],
+    ids=["generic-os-error", "posix-connection-refused", "windows-connection-refused"],
+)
+async def test_transport_diagnostics_preserve_errno_without_exception_text(
+    error_type: type[OSError], error_number: int
+) -> None:
     async def handler(request: httpx.Request) -> httpx.Response:
-        error = OSError(10061, "credential-like-proxy-value-must-not-leak")
+        error = error_type(error_number, "credential-like-proxy-value-must-not-leak")
         raise httpx.ConnectError("https://secret.example.invalid", request=request) from error
 
     settings = Settings(
@@ -66,9 +73,9 @@ async def test_transport_diagnostics_preserve_errno_without_exception_text() -> 
     assert error.error_code is ErrorCode.LLM_PROVIDER_UNAVAILABLE
     assert error.diagnostics == {
         "failure_stage": "connect",
-        "exception_types": ["ConnectError", "ConnectionRefusedError"],
+        "exception_types": ["ConnectError", error_type.__name__],
         "target_host": "deepseek.test",
-        "errno": 10061,
+        "errno": error_number,
     }
     assert "secret" not in str(error.diagnostics)
 
