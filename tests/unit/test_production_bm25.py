@@ -65,7 +65,9 @@ async def test_bm25_ingest_does_not_build_vector_records(monkeypatch) -> None:
         raise AssertionError("production BM25 ingest must not build vector records")
 
     monkeypatch.setattr(KnowledgeIngestor, "load_chunks", fake_load_chunks)
-    monkeypatch.setattr(KnowledgeIngestor, "build_vector_records", fail_if_vectorized, raising=False)
+    monkeypatch.setattr(
+        KnowledgeIngestor, "build_vector_records", fail_if_vectorized, raising=False
+    )
 
     bm25, chunks = await ingest_bm25("unused", settings=Settings(app_env="testing"))
 
@@ -131,9 +133,7 @@ def test_context_expansion_adds_overlapping_predecessor_within_limit() -> None:
 def test_bm25_recovers_english_terms_embedded_by_pdf_whitespace_loss() -> None:
     fused = _chunk(
         "fused",
-        content=(
-            "The seismicrefraction profile follows a dippingboundary for a singlearray."
-        ),
+        content=("The seismicrefraction profile follows a dippingboundary for a singlearray."),
     )
     clean = _chunk(
         "clean",
@@ -141,21 +141,20 @@ def test_bm25_recovers_english_terms_embedded_by_pdf_whitespace_loss() -> None:
     )
     retriever = BM25Retriever([fused, clean])
 
-    hits = retriever.search(
-        "dipping seismic refraction boundary single array", top_k=2
-    )
+    hits = retriever.search("dipping seismic refraction boundary single array", top_k=2)
 
     assert [chunk.chunk_id for chunk in hits] == ["fused", "clean"]
-    assert _embedded_query_term_count(
-        ["dipping", "seismic", "refraction", "boundary", "single", "array"],
-        ["seismicrefraction", "dippingboundary", "singlearray"],
-    ) == 6
+    assert (
+        _embedded_query_term_count(
+            ["dipping", "seismic", "refraction", "boundary", "single", "array"],
+            ["seismicrefraction", "dippingboundary", "singlearray"],
+        )
+        == 6
+    )
 
 
 def test_bm25_embedded_term_bonus_ignores_short_and_exact_tokens() -> None:
-    assert _embedded_query_term_count(
-        ["for", "seismic", "array"], ["for", "seismic", "array"]
-    ) == 0
+    assert _embedded_query_term_count(["for", "seismic", "array"], ["for", "seismic", "array"]) == 0
 
 
 def test_context_expansion_never_crosses_page_or_filter_boundary() -> None:

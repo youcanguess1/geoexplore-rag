@@ -35,12 +35,8 @@ def test_filters_are_or_within_field_and_and_across_fields() -> None:
     assert filters.languages == ["en"]
     assert matches_retrieval_filters(_chunk("paper"), filters)
     assert matches_retrieval_filters(_chunk("review", document_type="review"), filters)
-    assert not matches_retrieval_filters(
-        _chunk("zh", language="zh"), filters
-    )
-    assert not matches_retrieval_filters(
-        _chunk("report", document_type="report"), filters
-    )
+    assert not matches_retrieval_filters(_chunk("zh", language="zh"), filters)
+    assert not matches_retrieval_filters(_chunk("report", document_type="report"), filters)
 
 
 def test_duplicate_filter_values_are_normalised() -> None:

@@ -12,10 +12,6 @@ from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
-SCRIPT_DIR = Path(__file__).resolve().parent
-if str(SCRIPT_DIR) not in sys.path:
-    sys.path.insert(0, str(SCRIPT_DIR))
-
 from app.core.ids import new_trace_id
 from app.retrieval.filters import matches_retrieval_filters
 from app.schemas.chat import ChatRequest
@@ -23,7 +19,7 @@ from app.schemas.retrieval import RetrievedChunk
 from app.services.chat_service import ChatService
 from app.services.container import build_container
 from eval.geological_generation import canonical_sha256, load_question_set, question_filters
-from run_generation_eval import (
+from scripts.run_generation_eval import (
     InstrumentedLLM,
     _physical_page,
     _response_payload,
@@ -98,7 +94,9 @@ def _retrieval_audit(question: dict[str, Any], retriever: CapturingRetriever) ->
     filters = question_filters(question)
     corpus = list(retriever._retriever._bm25._chunks)
     filtered = [chunk for chunk in corpus if matches_retrieval_filters(chunk, filters)]
-    full = retriever._retriever._bm25.search(question["question"], top_k=len(filtered), filters=filters)
+    full = retriever._retriever._bm25.search(
+        question["question"], top_k=len(filtered), filters=filters
+    )
     ranks = {chunk.chunk_id: chunk.rank for chunk in full}
     bounded = retriever.bounded()
     seed_ids = {chunk.chunk_id for chunk in retriever.seeds}
@@ -115,8 +113,12 @@ def _retrieval_audit(question: dict[str, Any], retriever: CapturingRetriever) ->
         "expanded_chunks": [_chunk(chunk) for chunk in retriever.expanded],
         "final_bounded_context": [_chunk(chunk) for chunk in bounded],
         "gold_in_top_k_seed": {chunk_id: chunk_id in seed_ids for chunk_id in gold_ids},
-        "gold_in_expanded_candidates": {chunk_id: chunk_id in expanded_ids for chunk_id in gold_ids},
-        "gold_in_final_bounded_context": {chunk_id: chunk_id in bounded_ids for chunk_id in gold_ids},
+        "gold_in_expanded_candidates": {
+            chunk_id: chunk_id in expanded_ids for chunk_id in gold_ids
+        },
+        "gold_in_final_bounded_context": {
+            chunk_id: chunk_id in bounded_ids for chunk_id in gold_ids
+        },
         "final_context_supports_all_preannotated_gold_chunks": bool(gold_ids)
         and all(chunk_id in bounded_ids for chunk_id in gold_ids),
         "filter_compliant": all(matches_retrieval_filters(chunk, filters) for chunk in bounded),
@@ -171,7 +173,11 @@ async def _build(dataset: dict[str, Any]) -> tuple[Any, CapturingRetriever, Any]
     if identity is None or identity.model_dump(mode="json") != dataset["corpus_identity"]:
         await container.aclose()
         raise RuntimeError("runtime corpus identity does not match frozen questions")
-    return container, CapturingRetriever(container.retriever, settings.geological_context_chunks), settings
+    return (
+        container,
+        CapturingRetriever(container.retriever, settings.geological_context_chunks),
+        settings,
+    )
 
 
 async def retrieval(dataset: dict[str, Any], output_dir: Path) -> None:
@@ -180,21 +186,35 @@ async def retrieval(dataset: dict[str, Any], output_dir: Path) -> None:
         rows: list[dict[str, Any]] = []
         for question in dataset["questions"]:
             retriever.begin_question()
-            await retriever.retrieve(question["question"], top_k=settings.geological_top_k, filters=question_filters(question))
-            rows.append({
-                "question_id": question["question_id"],
-                "question": question["question"],
-                "expected_status": question["expected_status"],
-                "filters": question["filters"],
-                "retrieval": _retrieval_audit(question, retriever),
-            })
-        (output_dir / "retrieval-results.json").write_text(json.dumps({
-            "protocol": "day3-new-question-check-v1",
-            "phase": "retrieval_preflight",
-            "question_set_canonical_sha256": canonical_sha256(dataset),
-            "corpus_identity": dataset["corpus_identity"],
-            "rows": rows,
-        }, indent=2, ensure_ascii=True) + "\n", encoding="utf-8")
+            await retriever.retrieve(
+                question["question"],
+                top_k=settings.geological_top_k,
+                filters=question_filters(question),
+            )
+            rows.append(
+                {
+                    "question_id": question["question_id"],
+                    "question": question["question"],
+                    "expected_status": question["expected_status"],
+                    "filters": question["filters"],
+                    "retrieval": _retrieval_audit(question, retriever),
+                }
+            )
+        (output_dir / "retrieval-results.json").write_text(
+            json.dumps(
+                {
+                    "protocol": "day3-new-question-check-v1",
+                    "phase": "retrieval_preflight",
+                    "question_set_canonical_sha256": canonical_sha256(dataset),
+                    "corpus_identity": dataset["corpus_identity"],
+                    "rows": rows,
+                },
+                indent=2,
+                ensure_ascii=True,
+            )
+            + "\n",
+            encoding="utf-8",
+        )
     finally:
         await container.aclose()
 
@@ -203,7 +223,9 @@ async def generation(dataset: dict[str, Any], output_dir: Path) -> None:
     retrieval_path = output_dir / "retrieval-results.json"
     if not retrieval_path.exists():
         raise RuntimeError("run retrieval first")
-    if json.loads(retrieval_path.read_text(encoding="utf-8")).get("question_set_canonical_sha256") != canonical_sha256(dataset):
+    if json.loads(retrieval_path.read_text(encoding="utf-8")).get(
+        "question_set_canonical_sha256"
+    ) != canonical_sha256(dataset):
         raise RuntimeError("retrieval result does not match frozen question set")
     container, retriever, settings = await _build(dataset)
     if not settings.llm_configured:
@@ -212,7 +234,9 @@ async def generation(dataset: dict[str, Any], output_dir: Path) -> None:
     try:
         llm = InstrumentedLLM(container.llm, max_retries=settings.llm_max_retries)
         service = ChatService(
-            settings=settings, llm=llm, retriever=retriever,
+            settings=settings,
+            llm=llm,
+            retriever=retriever,
             session_factory=container.session_factory,
             rate_limiter=container.chat_service._rate_limiter,
             registry=container.chat_service.registry,
@@ -221,32 +245,62 @@ async def generation(dataset: dict[str, Any], output_dir: Path) -> None:
         systemic_failure = False
         for question in dataset["questions"]:
             if systemic_failure:
-                rows.append({"question_id": question["question_id"], "execution": "not_executed_after_systemic_error"})
+                rows.append(
+                    {
+                        "question_id": question["question_id"],
+                        "execution": "not_executed_after_systemic_error",
+                    }
+                )
                 continue
             llm.begin_question()
             retriever.begin_question()
             trace_id = new_trace_id()
-            response = await service.chat(ChatRequest(
-                message=question["question"], user_id="day3_new_question_check",
-                filters=question_filters(question),
-            ), trace_id=trace_id)
+            response = await service.chat(
+                ChatRequest(
+                    message=question["question"],
+                    user_id="day3_new_question_check",
+                    filters=question_filters(question),
+                ),
+                trace_id=trace_id,
+            )
             events = list(llm.events)
-            rows.append({
-                "question_id": question["question_id"], "question": question["question"],
-                "expected_status": question["expected_status"], "filters": question["filters"],
-                "trace_id": trace_id, "response": _response_payload(response),
-                "llm_call_events": events, "usage_state": _usage_state(events),
-                "retrieval": _retrieval_audit(question, retriever),
-            })
-            systemic_failure = response.status == "execution_failed" and any(event.get("status") == "error" for event in events)
-        (output_dir / "generation-results.json").write_text(json.dumps({
-            "protocol": "day3-new-question-check-v1", "phase": "generation",
-            "run_started_at": datetime.now(UTC).isoformat(),
-            "question_set_canonical_sha256": canonical_sha256(dataset),
-            "corpus_identity": dataset["corpus_identity"],
-            "runtime": {"model": settings.deepseek_model, "temperature": 0.0, "llm_max_retries": settings.llm_max_retries},
-            "rows": rows,
-        }, indent=2, ensure_ascii=True) + "\n", encoding="utf-8")
+            rows.append(
+                {
+                    "question_id": question["question_id"],
+                    "question": question["question"],
+                    "expected_status": question["expected_status"],
+                    "filters": question["filters"],
+                    "trace_id": trace_id,
+                    "response": _response_payload(response),
+                    "llm_call_events": events,
+                    "usage_state": _usage_state(events),
+                    "retrieval": _retrieval_audit(question, retriever),
+                }
+            )
+            systemic_failure = response.status == "execution_failed" and any(
+                event.get("status") == "error" for event in events
+            )
+        (output_dir / "generation-results.json").write_text(
+            json.dumps(
+                {
+                    "protocol": "day3-new-question-check-v1",
+                    "phase": "generation",
+                    "run_started_at": datetime.now(UTC).isoformat(),
+                    "question_set_canonical_sha256": canonical_sha256(dataset),
+                    "corpus_identity": dataset["corpus_identity"],
+                    "runtime": {
+                        "model": settings.deepseek_model,
+                        "temperature": 0.0,
+                        "llm_max_retries": settings.llm_max_retries,
+                    },
+                    "rows": rows,
+                },
+                indent=2,
+                ensure_ascii=True,
+            )
+            + "\n",
+            encoding="utf-8",
+        )
     finally:
         await container.aclose()
 
@@ -261,11 +315,15 @@ async def main() -> None:
     dataset = load_question_set(question_path, expected_split="dev")
     settings = _runtime_settings()
     if args.phase == "retrieval":
-        if (output_dir / "run-manifest.json").exists() or (output_dir / "retrieval-results.json").exists():
+        if (output_dir / "run-manifest.json").exists() or (
+            output_dir / "retrieval-results.json"
+        ).exists():
             raise RuntimeError("refusing to overwrite existing retrieval artifacts")
-        (output_dir / "run-manifest.json").write_text(json.dumps(
-            _manifest(dataset, question_path, settings), indent=2, ensure_ascii=True
-        ) + "\n", encoding="utf-8")
+        (output_dir / "run-manifest.json").write_text(
+            json.dumps(_manifest(dataset, question_path, settings), indent=2, ensure_ascii=True)
+            + "\n",
+            encoding="utf-8",
+        )
         await retrieval(dataset, output_dir)
     elif (output_dir / "generation-results.json").exists():
         raise RuntimeError("refusing to overwrite generation results")

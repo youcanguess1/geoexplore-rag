@@ -26,6 +26,6 @@ The [summary](evaluation-summary.md), [protocol](evaluation-protocol.md), and [e
 
 ## Validation And Release Limits
 
-Runnable unit subsets and synthetic runtime checks are distinct from real-provider evaluation and browser E2E. Full unit-test collection has two existing missing imports, `app.guardrails.boundary` and `eval.runner`; see [CONTRIBUTING.md](../CONTRIBUTING.md). A checked-in CI workflow is not a record of passing hosted checks. No available screenshot bundle or current browser E2E evidence is claimed by this release.
+Unit tests and synthetic HTTP API integration checks run without source PDFs or a real provider. Stale assertions against the absent general-purpose boundary and old evaluation runner have been removed while retaining injection and metric tests. Incomplete unused prompt-dependent research modules have also been removed. The API integration fixture substitutes ingestion and uses an in-memory database; it does not replace real-provider evaluation or browser E2E. See [CONTRIBUTING.md](../CONTRIBUTING.md) for commands and scope. Hosted CI results are recorded by Actions; this release does not provide a browser screenshot evidence bundle.
 
 This is a local demonstration and controlled-validation baseline. It does not establish production readiness, a public authentication boundary, a passing Acceptance suite, or performance beyond the recorded corpus. New retrieval or context-planning experiments require independent outputs and fresh evidence.

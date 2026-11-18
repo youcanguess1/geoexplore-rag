@@ -1,7 +1,6 @@
 import pytest
 
 from app.agents.geological import (
-    build_geological_graph,
     geological_answer_node,
     geological_retrieval_node,
 )
@@ -128,9 +127,7 @@ async def test_generation_context_restores_source_order_within_each_document() -
     )
 
     evidence_prompt = llm.calls[0][-1]["content"]
-    assert evidence_prompt.index("[geo-1996-21_10]") < evidence_prompt.index(
-        "[geo-1996-21_11]"
-    )
+    assert evidence_prompt.index("[geo-1996-21_10]") < evidence_prompt.index("[geo-1996-21_11]")
     assert result["status"] == "answered"
 
 
@@ -167,7 +164,9 @@ async def test_answered_without_citations_repairs_once_then_fails_closed() -> No
 
 @pytest.mark.asyncio
 async def test_insufficient_evidence_with_citations_repairs_once_then_fails_closed() -> None:
-    invalid = '{"status":"insufficient_evidence","answer":"","citation_chunk_ids":["geo-1996-21_10"]}'
+    invalid = (
+        '{"status":"insufficient_evidence","answer":"","citation_chunk_ids":["geo-1996-21_10"]}'
+    )
     llm = SequenceLLMProvider([invalid, invalid])
     result = await geological_answer_node(
         {"user_query": "What is the BLIMP procedure?", "retrieved_chunks": [_chunk()]},
@@ -216,7 +215,9 @@ async def test_malformed_primary_output_can_be_repaired_with_usage_accumulated()
     )
     assert result["status"] == "answered"
     assert len(llm.calls) == 2
-    assert result["token_usage"] == TokenUsage(prompt_tokens=6, completion_tokens=8, total_tokens=14)
+    assert result["token_usage"] == TokenUsage(
+        prompt_tokens=6, completion_tokens=8, total_tokens=14
+    )
 
 
 @pytest.mark.asyncio
@@ -292,25 +293,33 @@ async def test_provider_error_returns_execution_failed_without_repair() -> None:
 @pytest.mark.parametrize(
     ("outputs", "expected_phase"),
     [
-        ([LLMProviderError(
-            "sensitive raw exception text",
-            diagnostics={
-                "failure_stage": "connect",
-                "exception_types": ["ConnectError", "credential=secret"],
-                "target_host": "deepseek.test",
-                "errno": 10061,
-                "winerror": 10061,
-                "http_status": 999,
-                "proxy_url": "http://user:password@proxy.local",
-            },
-        )], "primary"),
-        ([
-            "not valid json",
-            LLMProviderError(
-                "sensitive repair exception text",
-                diagnostics={"failure_stage": "read", "exception_types": ["ReadTimeout"]},
-            ),
-        ], "repair"),
+        (
+            [
+                LLMProviderError(
+                    "sensitive raw exception text",
+                    diagnostics={
+                        "failure_stage": "connect",
+                        "exception_types": ["ConnectError", "credential=secret"],
+                        "target_host": "deepseek.test",
+                        "errno": 10061,
+                        "winerror": 10061,
+                        "http_status": 999,
+                        "proxy_url": "http://user:password@proxy.local",
+                    },
+                )
+            ],
+            "primary",
+        ),
+        (
+            [
+                "not valid json",
+                LLMProviderError(
+                    "sensitive repair exception text",
+                    diagnostics={"failure_stage": "read", "exception_types": ["ReadTimeout"]},
+                ),
+            ],
+            "repair",
+        ),
     ],
 )
 async def test_provider_failure_logs_safe_diagnostics_and_call_phase(
@@ -335,7 +344,8 @@ async def test_provider_failure_logs_safe_diagnostics_and_call_phase(
     assert result["status"] == "execution_failed"
     assert result["error"] == "generation_failed"
     records = [
-        record for record in caplog.records
+        record
+        for record in caplog.records
         if record.getMessage() == "geological_generation_provider_failed"
     ]
     assert len(records) == 1
@@ -343,7 +353,11 @@ async def test_provider_failure_logs_safe_diagnostics_and_call_phase(
     assert record.trace_id == "tr-test-456"
     assert record.request_id == "req-test-123"
     assert record.generation_phase == expected_phase
-    assert record.target_host == "deepseek.test" if expected_phase == "primary" else not hasattr(record, "target_host")
+    assert (
+        record.target_host == "deepseek.test"
+        if expected_phase == "primary"
+        else not hasattr(record, "target_host")
+    )
     assert "sensitive" not in caplog.text
     assert "credential" not in caplog.text
     assert "password" not in caplog.text

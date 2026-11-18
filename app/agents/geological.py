@@ -111,7 +111,9 @@ def _evidence_text(chunks: list[RetrievedChunk], settings: Settings) -> str:
         page = _page_number(chunk)
         page_label = f"p. {page}" if page is not None else "page unavailable"
         excerpt = chunk.content[: settings.geological_context_chars]
-        pieces.append(f"[{chunk.chunk_id}] {chunk.title} | {_source_file(chunk)} | {page_label}\n{excerpt}")
+        pieces.append(
+            f"[{chunk.chunk_id}] {chunk.title} | {_source_file(chunk)} | {page_label}\n{excerpt}"
+        )
     return "\n\n".join(pieces) or "(no supporting evidence)"
 
 
@@ -170,15 +172,27 @@ def _validated_citation_ids(
 
 def _merged_usage(previous: TokenUsage, responses: list[LLMResponse]) -> TokenUsage:
     return TokenUsage(
-        prompt_tokens=previous.prompt_tokens + sum(response.usage.prompt_tokens for response in responses),
+        prompt_tokens=previous.prompt_tokens
+        + sum(response.usage.prompt_tokens for response in responses),
         completion_tokens=previous.completion_tokens
         + sum(response.usage.completion_tokens for response in responses),
-        total_tokens=previous.total_tokens + sum(response.usage.total_tokens for response in responses),
-        usage_known=previous.usage_known and all(response.usage.usage_known for response in responses),
+        total_tokens=previous.total_tokens
+        + sum(response.usage.total_tokens for response in responses),
+        usage_known=previous.usage_known
+        and all(response.usage.usage_known for response in responses),
     )
 
 
-_SAFE_FAILURE_STAGES = {"connect", "proxy", "read", "write", "pool", "timeout", "transport", "http_response"}
+_SAFE_FAILURE_STAGES = {
+    "connect",
+    "proxy",
+    "read",
+    "write",
+    "pool",
+    "timeout",
+    "transport",
+    "http_response",
+}
 _SAFE_HOST_PATTERN = re.compile(
     r"^(?:[A-Za-z0-9](?:[A-Za-z0-9-]{0,61}[A-Za-z0-9])?\.)*[A-Za-z0-9](?:[A-Za-z0-9-]{0,61}[A-Za-z0-9])?$"
 )
@@ -195,7 +209,8 @@ def _log_provider_failure(exc: LLMProviderError, *, phase: str, state: AgentStat
     exception_types = raw.get("exception_types")
     if isinstance(exception_types, list):
         safe_types = [
-            value for value in exception_types[:8]
+            value
+            for value in exception_types[:8]
             if isinstance(value, str) and _SAFE_EXCEPTION_TYPE_PATTERN.fullmatch(value)
         ]
         if safe_types:
@@ -309,7 +324,9 @@ async def geological_retrieval_node(
     }
 
 
-async def geological_answer_node(state: AgentState, *, llm: LLMProvider, settings: Settings) -> dict:
+async def geological_answer_node(
+    state: AgentState, *, llm: LLMProvider, settings: Settings
+) -> dict:
     started = time.perf_counter()
     generation_backend = _backend_name(llm)
     if state.get("status") == "execution_failed":
@@ -345,7 +362,9 @@ async def geological_answer_node(state: AgentState, *, llm: LLMProvider, setting
             excerpt = chunk.content[: settings.geological_context_chars]
             page = _page_number(chunk)
             page_label = f"物理页 {page}" if page is not None else "物理页未知"
-            lines.append(f"\n[{chunk.chunk_id}] {chunk.title}，{_source_file(chunk)}，{page_label}\n> {excerpt}")
+            lines.append(
+                f"\n[{chunk.chunk_id}] {chunk.title}，{_source_file(chunk)}，{page_label}\n> {excerpt}"
+            )
             citations.append(citation_for_chunk(chunk, excerpt=excerpt))
         return {
             "status": "evidence_only",
@@ -440,7 +459,9 @@ async def geological_answer_node(state: AgentState, *, llm: LLMProvider, setting
     }
 
 
-async def geological_refuse_node(state: AgentState, *, llm: LLMProvider, retriever: Retriever) -> dict:
+async def geological_refuse_node(
+    state: AgentState, *, llm: LLMProvider, retriever: Retriever
+) -> dict:
     return {
         "status": "execution_failed",
         "generation_backend": _backend_name(llm),
@@ -471,7 +492,9 @@ def build_geological_graph(
     )
 
     def after_guardrail(state: AgentState) -> str:
-        return "refuse_geological_question" if state.get("refused") else "retrieve_geological_evidence"
+        return (
+            "refuse_geological_question" if state.get("refused") else "retrieve_geological_evidence"
+        )
 
     graph.add_edge(START, "apply_guardrail")
     graph.add_conditional_edges(

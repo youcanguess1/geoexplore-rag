@@ -252,11 +252,18 @@ class ChatService:
             answer=answer,
             session_id=session_id,
             trace_id=trace_id,
-            status=result.get("status") or ("execution_failed" if result.get("error") else "answered"),
-            generation_backend=result.get("generation_backend")
-            or getattr(self._llm, "backend", self._llm.__class__.__name__.lower()),
-            retrieval_backend=result.get("retrieval_backend")
-            or getattr(self._retriever, "backend", "unknown"),
+            status=result.get("status")
+            or ("execution_failed" if result.get("error") else "answered"),
+            generation_backend=str(
+                result.get("generation_backend")
+                or getattr(self._llm, "backend", None)
+                or self._llm.__class__.__name__.lower()
+            ),
+            retrieval_backend=str(
+                result.get("retrieval_backend")
+                or getattr(self._retriever, "backend", None)
+                or "unknown"
+            ),
             intent=intent.label if intent else None,
             complexity=result.get("query_complexity"),
             strategy=strategy,

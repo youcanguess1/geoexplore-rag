@@ -58,10 +58,10 @@ uv sync --locked --extra dev --extra postgres
 
 Compose 显式的 SQLite/Redis 值覆盖 `.env` 中同名设置，便于保持这份本机演示配置的含义。若要连接外部数据库或缓存，需要自行维护单独的 Compose override，并为镜像安装相应 extras；本仓库不将其当作已验证部署。
 
-[.dockerignore](../.dockerignore)排除本地审计归档和 `output/`，避免它们进入镜像构建上下文。CI 使用锁定 dev 环境，检查命令经 `uv run --no-sync` 使用该环境；这不消除既存测试错误，也不证明 GitHub 托管检查已成功。
+[.dockerignore](../.dockerignore)排除本地审计归档和 `output/`，避免它们进入镜像构建上下文。CI 使用锁定 dev 环境，检查命令经 `uv run --no-sync` 使用该环境；并检查前端测试与构建；GitHub 托管运行结果以 Actions 为准。
 
 ## 验证边界
 
 基础 dev 安装应不含 Qdrant、asyncpg、sentence-transformers、torch、Unstructured 或 ModelScope。现有 runtime isolation 测试在合成语料和响应下验证正式入口、JSON/SSE、过滤与持久化，同时拒绝研究 SDK 的导入。默认环境对 Qdrant filter SDK 测试明确跳过；加装 `vector` 后再核对其本地 payload 映射，不接触真实 Qdrant 服务。
 
-这类验证不调用真实 Provider、不下载模型，也不证明六 PDF 启动、浏览器 E2E、PostgreSQL/Redis 外部服务或容器部署通过。全量 unit 收集仍有 `app.guardrails.boundary` 和 `eval.runner` 两项既存缺失导入；参见 [CONTRIBUTING](../CONTRIBUTING.md)。评测结论继续以[历史摘要](evaluation-summary.md)为准。
+这类验证不调用真实 Provider、不下载模型，也不证明六 PDF 启动、浏览器 E2E、PostgreSQL/Redis 外部服务或容器部署通过。旧测试中对缺失通用模块的断言已移除，当前检查覆盖实际保留组件与合成 HTTP API；参见 [CONTRIBUTING](../CONTRIBUTING.md)。评测结论继续以[历史摘要](evaluation-summary.md)为准。

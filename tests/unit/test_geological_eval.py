@@ -27,7 +27,9 @@ def _question(
         "question": "What is tested?",
         "language": "en",
         "answerability": answerability,
-        "expected_status": "evidence_only" if answerability == "answerable" else "insufficient_evidence",
+        "expected_status": "evidence_only"
+        if answerability == "answerable"
+        else "insufficient_evidence",
         "allowed_document_ids": allowed_document_ids or [],
         "gold_sources": gold_sources or [],
         "filter": filter_payload or {},

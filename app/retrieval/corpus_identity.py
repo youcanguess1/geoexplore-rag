@@ -27,7 +27,9 @@ def build_corpus_identity(
     chunks: Iterable[RetrievedChunk],
 ) -> CorpusIdentity:
     """Hash canonical corpus facts only; local paths and runtime state are excluded."""
-    ordered_chunks = sorted(chunks, key=lambda chunk: (chunk.document_id, chunk.chunk_index, chunk.chunk_id))
+    ordered_chunks = sorted(
+        chunks, key=lambda chunk: (chunk.document_id, chunk.chunk_index, chunk.chunk_id)
+    )
     document_records = sorted(
         (
             {"document_id": document.document_id, "sha256": document.sha256.lower()}

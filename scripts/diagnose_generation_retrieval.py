@@ -71,27 +71,21 @@ def _keyword_signals(
             {
                 "chunk_id": chunk.chunk_id,
                 "keyword_groups_present": [
-                    all(keyword.lower() in lowered for keyword in group)
-                    for group in keyword_groups
+                    all(keyword.lower() in lowered for keyword in group) for group in keyword_groups
                 ],
             }
         )
     return signals
 
 
-def _aggregate_keyword_coverage(
-    signals: list[dict[str, object]], group_count: int
-) -> list[bool]:
+def _aggregate_keyword_coverage(signals: list[dict[str, object]], group_count: int) -> list[bool]:
     return [
-        any(row["keyword_groups_present"][index] for row in signals)
-        for index in range(group_count)
+        any(row["keyword_groups_present"][index] for row in signals) for index in range(group_count)
     ]
 
 
 def _git_commit() -> str:
-    return subprocess.check_output(
-        ["git", "rev-parse", "HEAD"], cwd=ROOT, text=True
-    ).strip()
+    return subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip()
 
 
 def _resolve_questions_path(path: str | Path) -> Path:
@@ -117,9 +111,7 @@ def _diagnose_question(
 ) -> dict[str, object]:
     filters: RetrievalFilters | None = question_filters(question)
     ranked = bm25.search(question["question"], top_k=len(chunks), filters=filters)
-    returned = bm25.search(
-        question["question"], top_k=settings.geological_top_k, filters=filters
-    )
+    returned = bm25.search(question["question"], top_k=settings.geological_top_k, filters=filters)
     returned = bm25.expand_overlapping_predecessors(
         returned, limit=settings.geological_top_k, filters=filters
     )
@@ -183,9 +175,7 @@ def _diagnose_question(
         "gold_chunk_in_expanded_candidates": any(
             chunk.chunk_id in gold_chunk_ids for chunk in returned
         ),
-        "gold_chunk_in_bounded_context": any(
-            chunk.chunk_id in gold_chunk_ids for chunk in bounded
-        ),
+        "gold_chunk_in_bounded_context": any(chunk.chunk_id in gold_chunk_ids for chunk in bounded),
         "gold_evidence_in_filtered_candidates": any(
             (chunk.document_id, _page(chunk)) in gold_pairs for chunk in ranked
         ),
@@ -208,9 +198,7 @@ def _diagnose_question(
     }
 
 
-async def run(
-    question_id: str, *, questions_path: str | Path = QUESTIONS
-) -> dict[str, object]:
+async def run(question_id: str, *, questions_path: str | Path = QUESTIONS) -> dict[str, object]:
     """Retain the focused single-question diagnostic for local investigation."""
     dataset, _, _ = _load_dataset(questions_path)
     question = next(
@@ -287,9 +275,7 @@ if __name__ == "__main__":
         if output.exists():
             raise SystemExit(f"refusing to overwrite existing output: {output}")
         output.parent.mkdir(parents=True, exist_ok=True)
-        output.write_text(
-            json.dumps(payload, indent=2, ensure_ascii=True) + "\n", encoding="utf-8"
-        )
+        output.write_text(json.dumps(payload, indent=2, ensure_ascii=True) + "\n", encoding="utf-8")
         print(f"wrote {output.relative_to(ROOT)}")
     else:
         print(json.dumps(payload, indent=2, ensure_ascii=True))

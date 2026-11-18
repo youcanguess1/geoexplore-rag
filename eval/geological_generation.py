@@ -226,12 +226,17 @@ def _validate_question(
         if any(not isinstance(group, list) or not group for group in keywords):
             raise ValueError(f"required keyword groups are invalid: {question_id}")
     elif documents or pages or evidence or facts or keywords:
-        raise ValueError(f"insufficient-evidence question must not register gold facts: {question_id}")
+        raise ValueError(
+            f"insufficient-evidence question must not register gold facts: {question_id}"
+        )
     if not isinstance(question["forbidden_claims"], list):
         raise ValueError(f"forbidden claims are invalid: {question_id}")
     if not isinstance(question["manual_evidence_note"], str):
         raise ValueError(f"manual evidence note is invalid: {question_id}")
-    if question.get("corpus_fingerprint", identity.corpus_fingerprint) != identity.corpus_fingerprint:
+    if (
+        question.get("corpus_fingerprint", identity.corpus_fingerprint)
+        != identity.corpus_fingerprint
+    ):
         raise ValueError(f"question corpus fingerprint is not frozen: {question_id}")
 
 
@@ -244,11 +249,7 @@ def _all_source_pairs(questions: list[dict[str, Any]]) -> set[tuple[str, int]]:
 
 
 def _all_normalized_facts(questions: list[dict[str, Any]]) -> set[str]:
-    return {
-        _normalise_text(fact)
-        for question in questions
-        for fact in question["required_facts"]
-    }
+    return {_normalise_text(fact) for question in questions for fact in question["required_facts"]}
 
 
 def _citation_matches_filters(citation: Citation, filters: RetrievalFilters | None) -> bool:
@@ -314,15 +315,9 @@ def _summarize_group(rows: list[dict[str, Any]]) -> dict[str, Any]:
         row for row in rows if row["response"]["status"] == "insufficient_evidence"
     ]
     reviews = [row["automatic_review"] for row in rows]
-    citation_rows = [
-        citation
-        for review in reviews
-        for citation in review["citation_checks"]
-    ]
+    citation_rows = [citation for review in reviews for citation in review["citation_checks"]]
     fact_signals = [
-        signal
-        for review in reviews
-        for signal in review["required_fact_keyword_signals"]
+        signal for review in reviews for signal in review["required_fact_keyword_signals"]
     ]
     latencies = [float(row["response"]["latency"]["total_ms"]) for row in rows]
     return {
@@ -333,14 +328,14 @@ def _summarize_group(rows: list[dict[str, Any]]) -> dict[str, Any]:
             len(expected_answerable),
         ),
         "insufficient_evidence_precision": _rate(
-            sum(
-                row["expected_status"] == "insufficient_evidence"
-                for row in returned_insufficient
-            ),
+            sum(row["expected_status"] == "insufficient_evidence" for row in returned_insufficient),
             len(returned_insufficient),
         ),
         "insufficient_evidence_recall": _rate(
-            sum(row["response"]["status"] == "insufficient_evidence" for row in expected_insufficient),
+            sum(
+                row["response"]["status"] == "insufficient_evidence"
+                for row in expected_insufficient
+            ),
             len(expected_insufficient),
         ),
         "required_fact_candidate_coverage": _rate(sum(fact_signals), len(fact_signals)),
@@ -358,7 +353,5 @@ def _summarize_group(rows: list[dict[str, Any]]) -> dict[str, Any]:
             sum(row["response"]["status"] == "execution_failed" for row in rows), count
         ),
         "median_latency_ms": statistics.median(latencies) if latencies else None,
-        "usage_missing_rate": _rate(
-            sum(row["usage_state"] == "unknown" for row in rows), count
-        ),
+        "usage_missing_rate": _rate(sum(row["usage_state"] == "unknown" for row in rows), count),
     }

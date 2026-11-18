@@ -17,9 +17,7 @@ EMBEDDED_TERM_MIN_CHARS = 5
 EMBEDDED_TERM_MATCH_BONUS = 2.0
 
 
-def _embedded_query_term_count(
-    query_tokens: list[str], document_tokens: list[str]
-) -> int:
+def _embedded_query_term_count(query_tokens: list[str], document_tokens: list[str]) -> int:
     """Count query words recoverable inside whitespace-corrupted English tokens.
 
     PDF extraction can join adjacent English words (for example,
@@ -32,8 +30,7 @@ def _embedded_query_term_count(
         if len(token) >= EMBEDDED_TERM_MIN_CHARS and token.isascii() and token.isalpha()
     }
     return sum(
-        any(term != token and term in token for token in document_tokens)
-        for term in query_terms
+        any(term != token and term in token for token in document_tokens) for term in query_terms
     )
 
 
@@ -126,9 +123,7 @@ class BM25Retriever:
 
         for seed in seeds:
             append(seed)
-            predecessor = self._chunks_by_position.get(
-                (seed.document_id, seed.chunk_index - 1)
-            )
+            predecessor = self._chunks_by_position.get((seed.document_id, seed.chunk_index - 1))
             if predecessor is not None and _is_overlapping_predecessor(predecessor, seed):
                 if matches_retrieval_filters(predecessor, filters):
                     ranked_predecessor = ranked_seeds.get(predecessor.chunk_id)

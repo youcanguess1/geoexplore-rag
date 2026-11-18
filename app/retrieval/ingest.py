@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import asyncio
 from pathlib import Path
+from typing import Any, Literal
 
 from app.config.settings import Settings, get_settings
 from app.core.enums import DocumentCategory
@@ -40,6 +41,7 @@ class KnowledgeIngestor:
         """Parse, manifest-validate, enrich, and deduplicate source chunks."""
         chunks: list[RetrievedChunk] = []
         corpus_manifest = None
+        sources: list[tuple[Path, str, str, str, dict[str, Any], Literal["auto", "pypdf"]]]
         if self._manifest_path:
             resolved_corpus = resolve_geological_documents(self._knowledge_dir, self._manifest_path)
             corpus_manifest = resolved_corpus.manifest

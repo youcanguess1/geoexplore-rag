@@ -22,9 +22,7 @@ These implementations remain at their existing paths for research callers. Reten
 
 - `app/providers/embeddings.py`, `device.py`, `reranker.py`: dense embedding and reranking implementations.
 - `app/retrieval/vector.py`, `hybrid.py`, `fusion.py`, `reranker.py`: vector stores, hybrid retrieval, RRF, and reranking.
-- `app/retrieval/query_rewrite.py`, `self_rag.py`, `app/memory/`, and `app/guardrails/hallucination.py`: experimental rewrite, retrieval grading, summary memory, and faithfulness logic.
-
-The last group references missing `app.prompts` modules (`query_rewrite`, `self_rag`, `summary`, and `faithfulness`). These experimental paths are incomplete and are not enabled or repaired by this separation. Database conversation persistence in the production service is separate from experimental summary memory.
+Incomplete query-rewrite, self-RAG, summary-memory, and faithfulness implementations that referenced unavailable prompt modules have been removed from the public scope. Production database conversation persistence remains in `ChatService` and is independent of those experiments.
 
 The base install excludes the Qdrant SDK and PostgreSQL driver. Install the `vector` extra for Qdrant experiments, `postgres` for the optional async database driver, `rerank` for local sentence-transformers, and `docs` for generic Unstructured parsing. The unused ModelScope declaration has been removed. See [dependencies and configuration](../../docs/dependencies-and-configuration.md). Experimental Qdrant ingestion can contact a configured server; dense providers can load models or call APIs when explicitly used. Production currently does none of those through these modules.
 

@@ -43,9 +43,7 @@ def test_generation_sets_reject_shared_gold_physical_pages() -> None:
     dev, acceptance = _sets()
     changed = copy.deepcopy(acceptance)
     changed["questions"][0]["gold_physical_pages"] = [2]
-    changed["questions"][0]["gold_evidence"] = [
-        {"document_id": "geo-fs11503", "physical_page": 2}
-    ]
+    changed["questions"][0]["gold_evidence"] = [{"document_id": "geo-fs11503", "physical_page": 2}]
 
     with pytest.raises(ValueError, match="gold physical pages overlap"):
         validate_split_independence(dev, changed)

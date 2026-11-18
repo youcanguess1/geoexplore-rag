@@ -61,7 +61,7 @@ These checks do not prove that a configured provider, a local corpus, or browser
 
 ## Validation Boundary And Evaluation
 
-The unit command above selects available tests. Full unit-test collection currently has two existing legacy import errors: `tests/unit/test_guardrails.py` imports the absent `app.guardrails.boundary`, and `tests/unit/test_metrics.py` imports the absent `eval.runner`. Do not describe this subset as a passing full suite or hosted CI run.
+The full test command is `uv run --no-sync python -m pytest -q`. Unit tests and HTTP API integration tests use synthetic data without PDFs or real providers. The API fixture replaces ingestion and uses an in-memory database while retaining the application lifecycle and request path. See [CONTRIBUTING.md](../CONTRIBUTING.md) for coverage and optional SDK checks; hosted CI status is shown in Actions.
 
 The evaluation helper tests can be run without PDFs or provider calls:
 

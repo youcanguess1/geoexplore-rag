@@ -25,10 +25,7 @@ def matches_retrieval_filters(
     if filters is None:
         return True
     return all(
-        (
-            not allowed
-            or actual in allowed
-        )
+        (not allowed or actual in allowed)
         for allowed, actual in (
             (filters.document_ids, chunk.document_id),
             (filters.data_types, _metadata_value(chunk, "data_type")),

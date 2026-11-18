@@ -4,7 +4,7 @@ from typing import Any, TypedDict
 
 from app.core.enums import QueryComplexity, RetrievalStrategy
 from app.schemas.agent import AgentPlan, ComplexityResult, IntentResult, ToolResult
-from app.schemas.chat import ActionProposal, ChatMessage
+from app.schemas.chat import ActionProposal, ChatMessage, ChatStatus
 from app.schemas.common import LatencyBreakdown, TokenUsage
 from app.schemas.retrieval import Citation, RetrievalFilters, RetrievedChunk
 
@@ -12,8 +12,8 @@ from app.schemas.retrieval import Citation, RetrievalFilters, RetrievedChunk
 class AgentState(TypedDict, total=False):
     """LangGraph state. Partial updates replace listed keys; no infinite append reducer.
 
-    Messages are compressed explicitly in the memory node instead of Annotated[add]
-    so the graph cannot silently blow the 128k budget.
+    Nodes return partial state updates. Conversation persistence is handled by
+    ChatService; retrieval context is bounded by the geological graph.
     """
 
     trace_id: str
@@ -36,7 +36,7 @@ class AgentState(TypedDict, total=False):
     confirm_action_id: str | None
     idempotency_key: str | None
     final_answer: str | None
-    status: str
+    status: ChatStatus
     generation_backend: str
     retrieval_backend: str
     citations: list[Citation]

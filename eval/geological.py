@@ -60,7 +60,9 @@ def load_questions(path: str | Path) -> list[dict[str, Any]]:
             or any(not isinstance(chunk_id, str) or not chunk_id for chunk_id in required_chunk_ids)
             or len(required_chunk_ids) != len(set(required_chunk_ids))
         ):
-            raise ValueError(f"required_chunk_ids must contain unique non-empty strings: {question_id}")
+            raise ValueError(
+                f"required_chunk_ids must contain unique non-empty strings: {question_id}"
+            )
         if required_chunk_ids and item["answerability"] != "answerable":
             raise ValueError(f"unanswerable question cannot require evidence chunks: {question_id}")
         seen.add(question_id)
@@ -77,10 +79,7 @@ def filters_for_question(question: dict[str, Any]) -> RetrievalFilters | None:
 
 
 def _source_pairs(question: dict[str, Any]) -> set[tuple[str, int]]:
-    return {
-        (source["document_id"], source["page_number"])
-        for source in question["gold_sources"]
-    }
+    return {(source["document_id"], source["page_number"]) for source in question["gold_sources"]}
 
 
 def _result_page(chunk: RetrievedChunk) -> int | None:
@@ -122,9 +121,7 @@ def classify_failure(
         return "wrong_document"
     gold_pages = _source_pairs(question)
     result_pairs = {
-        (chunk.document_id, page)
-        for chunk in results
-        if (page := _result_page(chunk)) is not None
+        (chunk.document_id, page) for chunk in results if (page := _result_page(chunk)) is not None
     }
     if not result_pairs & gold_pages:
         return "wrong_page"
@@ -148,9 +145,7 @@ def score_results(
     gold_sources = _source_pairs(question)
     result_documents = {chunk.document_id for chunk in top}
     result_sources = {
-        (chunk.document_id, page)
-        for chunk in top
-        if (page := _result_page(chunk)) is not None
+        (chunk.document_id, page) for chunk in top if (page := _result_page(chunk)) is not None
     }
     filter_violation = any(not matches_retrieval_filters(chunk, filters) for chunk in top)
     citation_validity = bool(top) and all(
@@ -162,9 +157,7 @@ def score_results(
         retrieval_status = "insufficient_evidence"
     else:
         retrieval_status = "evidence_only"
-    source_recall = (
-        len(result_sources & gold_sources) / len(gold_sources) if gold_sources else None
-    )
+    source_recall = len(result_sources & gold_sources) / len(gold_sources) if gold_sources else None
     required_chunk_ids = set(question.get("required_chunk_ids", []))
     evidence_coverage = (
         len(required_chunk_ids & {chunk.chunk_id for chunk in top}) / len(required_chunk_ids)
@@ -219,11 +212,7 @@ def summarise(rows: list[dict[str, Any]]) -> dict[str, Any]:
     evidence_coverages = values("evidence_coverage", answerable)
     filter_violations = values("filter_violation", rows)
     citation_validities = values("citation_validity", rows)
-    status_rows = [
-        row
-        for row in rows
-        if row.get("retrieval_status") != "execution_failed"
-    ]
+    status_rows = [row for row in rows if row.get("retrieval_status") != "execution_failed"]
     return {
         "n": len(rows),
         "answerable_n": len(answerable),
@@ -240,10 +229,7 @@ def summarise(rows: list[dict[str, Any]]) -> dict[str, Any]:
         "citation_validity": _mean(citation_validities),
         "citation_validity_n": len(citation_validities),
         "status_accuracy": _mean(
-            [
-                float(row["retrieval_status"] == row["expected_status"])
-                for row in status_rows
-            ]
+            [float(row["retrieval_status"] == row["expected_status"]) for row in status_rows]
         ),
         "status_accuracy_n": len(status_rows),
         "failure_counts": dict(sorted(failures.items())),

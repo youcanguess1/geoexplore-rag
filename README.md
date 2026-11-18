@@ -1,36 +1,39 @@
-# GeoExplore
+# GeoExplore · 地学文献 RAG 问答
 
-GeoExplore is a geological PDF question-answering prototype adapted from an existing open-source application foundation. It is a scoped demonstration project, not a claim that the entire underlying application was written from scratch.
+面向地学 PDF 的问答原型：按文档类型、语言和文档 ID 筛选资料，通过 BM25 检索与受限上下文生成回答，并展示来源文档和物理 PDF 页码。后端使用 FastAPI / LangGraph，前端使用 React / TypeScript。
 
-## Current Release Scope
+## 项目看点
 
-The formal query path in this release is **BM25-only**:
+- **检索范围可控**：先应用元数据过滤，再进行 BM25 检索；同文档前序块扩展补足跨块证据。
+- **答案可以核对来源**：保留文档、chunk、物理页码和语料指纹，前端展示引用。
+- **区分回答与证据**：配置模型时生成结构化答案；未配置模型时返回检索证据，证据不足与执行失败有独立状态。
+- **完整交互链路**：支持 JSON / SSE、会话持久化和前端历史记录。
+- **评测可追溯**：保留冻结题集、历史输出、失败案例及结果校验和；离线测试使用合成数据。
 
-1. PDFs are parsed with `pypdf` and split into fixed 500-character chunks with 60-character overlap.
-2. Document metadata filters are applied before lexical retrieval.
-3. BM25 returns the top 5 seed chunks.
-4. The current production assembler extends retrieval with predecessor overlap, then limits model context to at most 4 chunks and at most 900 characters per chunk.
-5. The generation response carries source metadata used to display a document ID and physical PDF page citation.
+## 核心链路
 
-Dense retrieval, hybrid retrieval, vector storage, and reranking code may remain as inactive research or compatibility modules in this repository. They are **not integrated into the formal GeoExplore production query path**.
+```text
+React → FastAPI → 元数据过滤 → BM25 top-5
+      → 同文档前序块扩展 → 上下文预算 → 结构化回答 / 引用
+                              ↘ JSON / SSE → 会话持久化
+```
 
-See [the experimental code boundary](app/experiments/README.md) for retained research modules, relocated APIs, and their limitations.
+历史基线采用 `pypdf`、500 字符分块与 60 字符重叠；生成上下文最多 4 个块，每块最多 900 字符。正式路径使用 BM25；Dense、Hybrid 和 reranker 的兼容实验代码不作为已完成的正式功能展示。实现与边界见[架构说明](docs/ARCHITECTURE.md)。
 
-## Corpus Identity
+## 评测结果与改进方向
 
-This release expects the following frozen corpus identity:
+| 题集 | 已记录结果 | 解释 |
+| --- | --- | --- |
+| Acceptance，10 题 | 状态匹配 8/10；未整体通过验收 | 两个失败案例仍有证据召回或最终上下文覆盖问题 |
+| Day 3，另行冻结的 8 题 | 同语料检查状态匹配 8/8 | 小样本、同语料检查，不代表新文档泛化 |
 
-- Documents: 6
-- Chunks: 1006
-- Corpus fingerprint: `07931977ad3ff8a5ae743b5ed96ea92d0c87f0b4a8fb6a1aaa1be7e72ef2575f`
-- Parser: `pypdf`
-- Chunk policy: 500 characters with 60-character overlap
+Acceptance 的历史人工汇总为可回答题 6/8 正确且完整、拒答题 2/2 正确；原始 JSON 仍标注 PDF 人工复核待完成，本次发布未重新复核。Day 3 报告分别记录 6/6 可回答题完整、2/2 正确拒答，两组成绩不合并。
 
-The document manifest is [data/manifests/geological_documents.json](data/manifests/geological_documents.json). Original PDFs are intentionally not included in this release copy unless their redistribution permissions have been independently verified. Obtain them from the sources named in that manifest, verify the listed SHA-256 values, then place them in the configured geological knowledge directory before running corpus-dependent commands.
+下一步需要改进多证据召回与上下文覆盖，并扩展到独立文档和更大题集。详见[评测摘要与失败案例](docs/evaluation-summary.md)、[历史结果](evals/results/README.md)及[复现实验协议](docs/evaluation-protocol.md)。
 
-## Setup
+## 本地启动
 
-Requirements: Python 3.11+, Node.js 20.19+ or 22.12+, and `npm`.
+需要 Python 3.11+、Node.js 20.19+ 或 22.12+。以下命令在仓库根目录运行，示例使用 PowerShell：
 
 ```powershell
 python -m pip install uv==0.13.1
@@ -38,17 +41,15 @@ uv sync --locked --extra dev
 Copy-Item .env.example .env
 ```
 
-The locked development install includes the formal BM25 runtime and test tools. Qdrant and PostgreSQL drivers are separate extras; local dense/rerank and additional parsing dependencies remain optional. See [dependencies and configuration](docs/dependencies-and-configuration.md) for the supported choices.
+仓库**不附带 PDF**。后端启动需要按[语料说明](data/README.md)自行取得允许使用的资料，核对 manifest 中的哈希。历史基线为 6 份文档 / 1006 个块；manifest 不等于已提供语料。需要真实生成时，仅在本机 `.env` 填写 `DEEPSEEK_API_KEY`。
 
-Set `DEEPSEEK_API_KEY` only in your local `.env`. Never commit it. The service needs an available, verified geological corpus to answer questions; an API key is not required for static checks or offline unit tests.
-
-Start the API on the documented local port:
+启动 API：
 
 ```powershell
-.\.venv\Scripts\python.exe -m uvicorn app.asgi:app --host 127.0.0.1 --port 9101 --log-level info
+.\.venv\Scripts\python.exe -m uvicorn app.asgi:app --host 127.0.0.1 --port 9101
 ```
 
-In a second terminal, start the web client:
+另开终端启动前端：
 
 ```powershell
 Set-Location frontend
@@ -56,53 +57,30 @@ npm ci
 npm run dev
 ```
 
-The Vite development server uses `http://127.0.0.1:5180` and proxies `/api` to `http://127.0.0.1:9101`. The frontend client ID is a local browser identifier, not authentication; do not expose the prototype to untrusted users without an authentication layer.
+打开 `http://127.0.0.1:5180`，前端将 `/api` 转发至 `127.0.0.1:9101`。前端可独立启动查看界面，真实问答需要可用后端与已验证语料。本项目定位为本机演示原型，浏览器 client ID 不提供用户认证。
 
-## Verification
+## 离线验证
 
-The release copy is designed to support local static and unit validation without calling a model provider:
+无需 PDF 或真实模型服务即可运行单元测试及使用合成语料的 HTTP API 集成测试：
 
 ```powershell
-.\.venv\Scripts\python.exe -m compileall -q app eval scripts
-.\.venv\Scripts\python.exe -m pytest tests/unit/test_geological_chain.py tests/unit/test_geological_manifest.py tests/unit/test_metadata_filters.py tests/unit/test_production_bm25.py tests/unit/test_runtime_isolation.py tests/unit/test_geological_generation_eval.py
-Set-Location frontend
-npm run build
+uv run --no-sync python -m ruff format --check .
+uv run --no-sync python -m ruff check .
+uv run --no-sync python -m mypy
+uv run --no-sync python -m pytest -q --cov=app --cov=eval --cov-fail-under=70
 ```
 
-See [docs/02-getting-started.md](docs/02-getting-started.md) for local data preparation and [docs/release-scope.md](docs/release-scope.md) for provenance, evaluation evidence, and known limitations.
+前端在 `frontend` 目录执行 `npm test` 和 `npm run build`。CI 覆盖 Python 3.11 / 3.12 的格式、类型和测试检查，以及前端测试与构建；实际运行状态见仓库的 Actions 页面。合成数据测试通过不等于六份 PDF 上的真实问答评测通过。
 
-## Evaluation Evidence And Limits
+## 阅读入口
 
-The preserved 10-question Acceptance evaluation did **not** pass as a whole:
-
-- Expected-status results: 8/10
-- Answerable questions with correct, complete answers: 6/8
-- Correct refusals: 2/2
-- `accept-007` and `accept-008` retain evidence-recall or final-context coverage gaps.
-
-These results must not be restated as a passing Acceptance result or production-readiness claim. The 6/8 correctness figure is a historical manual-summary claim; the preserved result JSON still marks PDF-based human review as pending. This release preparation did not repeat that review. See the [evaluation summary](docs/evaluation-summary.md) for the distinction between automatic status checks and manual judgments.
-
-A separate Day 3 check used eight newly frozen questions against the same six-document corpus. It recorded 8/8 expected outcomes: 6/6 answerable questions were judged complete and 2/2 refusal cases were correct. This was a small same-corpus check, not blind testing, not evidence of new-document generalization, and not a score that may be combined with the historical Acceptance figures.
-
-## Provenance And License
-
-This repository retains the upstream [MIT License](LICENSE). GeoExplore adapts an existing open-source application foundation into a constrained geological PDF RAG prototype. This release does not assert sole authorship of the upstream foundation. The source URLs and copyright or redistribution status of every PDF must be checked independently before publishing any corpus files.
-
-## Non-Goals
-
-This release does not provide a production deployment, authentication boundary, hybrid retrieval, dense retrieval, reranking in the formal query path, or a claim that the historical Acceptance suite passed. It should be evaluated within the corpus and validation limits described above.
-
-## Documentation
-
-| Entry | Purpose |
+| 内容 | 入口 |
 | --- | --- |
-| [Local setup](docs/02-getting-started.md) | Environment, corpus preparation, and available checks |
-| [Dependencies and configuration](docs/dependencies-and-configuration.md) | Locked installs, extras, SQLite/Redis, and container settings |
-| [Architecture](docs/ARCHITECTURE.md) | Active request path and experimental boundary |
-| [Evaluation summary](docs/evaluation-summary.md) | Independent historical outcomes and known failures |
-| [Evaluation assets](evals/README.md) | Frozen question sets, schemas, and scoring code |
-| [Evaluation protocol](docs/evaluation-protocol.md) | Preconditions, scoring rules, and separate rerun outputs |
-| [Evidence index](evals/results/README.md) | Preserved result files and integrity checks |
-| [Local demonstration](docs/project-delivery.md) | Demonstration steps and interpretation limits |
+| 环境、语料与配置 | [快速开始](docs/02-getting-started.md) · [依赖与配置](docs/dependencies-and-configuration.md) |
+| 正式请求路径与实验边界 | [架构](docs/ARCHITECTURE.md) · [实验代码说明](app/experiments/README.md) |
+| 题集、指标与复现实验 | [评测资产](evals/README.md) · [评测协议](docs/evaluation-protocol.md) |
+| 本地演示与发布范围 | [演示指南](docs/project-delivery.md) · [发布范围](docs/release-scope.md) |
 
-The commands above cover a runnable subset, not a passing full test suite. Two existing legacy modules fail full unit-test collection because `app.guardrails.boundary` and `eval.runner` are missing. The checked-in CI workflow is configuration, not evidence of a successful hosted CI run. See [CONTRIBUTING.md](CONTRIBUTING.md) for the current validation boundary.
+## 来源与许可
+
+本项目基于既有开源应用基础改造成地学文献 RAG 原型，保留原 [MIT License](LICENSE)。本仓库展示正式 BM25 问答链路、元数据过滤、引用与语料身份、前端交互及评测记录；不将继承的全部基础代码声明为从零原创。PDF 的来源与再分发权限需独立核实。

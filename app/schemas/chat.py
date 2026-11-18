@@ -9,6 +9,8 @@ from app.schemas.common import LatencyBreakdown, TokenUsage
 from app.schemas.geological import CorpusIdentity
 from app.schemas.retrieval import Citation, RetrievalFilters
 
+ChatStatus = Literal["answered", "evidence_only", "insufficient_evidence", "execution_failed"]
+
 
 class ChatMessage(BaseModel):
     role: Literal["user", "assistant", "system", "tool"]
@@ -38,12 +40,7 @@ class ChatResponse(BaseModel):
     answer: str
     session_id: str
     trace_id: str
-    status: Literal[
-        "answered",
-        "evidence_only",
-        "insufficient_evidence",
-        "execution_failed",
-    ] = "execution_failed"
+    status: ChatStatus = "execution_failed"
     generation_backend: str = "unknown"
     retrieval_backend: str = "unknown"
     intent: IntentLabel | None = None

@@ -53,7 +53,9 @@ def load_geological_manifest(path: str | Path) -> GeologicalCorpusManifest:
     for record in records:
         filename = Path(record.filename)
         if filename.name != record.filename or filename.suffix.lower() != ".pdf":
-            raise ValueError(f"geological manifest filename must be a PDF basename: {record.filename}")
+            raise ValueError(
+                f"geological manifest filename must be a PDF basename: {record.filename}"
+            )
     return manifest
 
 

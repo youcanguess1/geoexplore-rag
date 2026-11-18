@@ -96,7 +96,11 @@ def test_same_file_in_different_directory_resolves_to_same_manifest_id(tmp_path:
     first = resolve_geological_documents(first_dir, manifest_path)
     second = resolve_geological_documents(second_dir, manifest_path)
 
-    assert first.documents[0].manifest.document_id == second.documents[0].manifest.document_id == "geo-1996-21"
+    assert (
+        first.documents[0].manifest.document_id
+        == second.documents[0].manifest.document_id
+        == "geo-1996-21"
+    )
     assert sha256_file(first.documents[0].path) == sha256_file(second.documents[0].path)
 
 
@@ -292,14 +296,18 @@ def test_corpus_fingerprint_is_stable_and_excludes_absolute_paths() -> None:
 def test_corpus_fingerprint_changes_for_chunk_content_page_or_chunking_version() -> None:
     manifest = _fingerprint_manifest()
     baseline = build_corpus_identity(manifest, [_fingerprint_chunk()])
-    changed_content = build_corpus_identity(manifest, [_fingerprint_chunk(content="changed evidence")])
+    changed_content = build_corpus_identity(
+        manifest, [_fingerprint_chunk(content="changed evidence")]
+    )
     changed_page = build_corpus_identity(manifest, [_fingerprint_chunk(page_number="4")])
     changed_title = build_corpus_identity(
         manifest,
         [_fingerprint_chunk().model_copy(update={"title": "Changed BLIMP title"})],
     )
     changed_policy = build_corpus_identity(
-        manifest.model_copy(update={"chunking": manifest.chunking.model_copy(update={"policy_version": "v2"})}),
+        manifest.model_copy(
+            update={"chunking": manifest.chunking.model_copy(update={"policy_version": "v2"})}
+        ),
         [_fingerprint_chunk()],
     )
 
@@ -318,7 +326,9 @@ def test_corpus_fingerprint_ignores_document_and_chunk_input_order() -> None:
     }
     payload["documents"].append(second_document)
     manifest = GeologicalCorpusManifest.model_validate(payload)
-    reversed_manifest = manifest.model_copy(update={"documents": list(reversed(manifest.documents))})
+    reversed_manifest = manifest.model_copy(
+        update={"documents": list(reversed(manifest.documents))}
+    )
     first_chunk = _fingerprint_chunk()
     second_chunk = first_chunk.model_copy(
         update={"document_id": "geo-other", "chunk_id": "geo-other_00", "chunk_index": 0}

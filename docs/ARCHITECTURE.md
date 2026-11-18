@@ -31,6 +31,6 @@ The container selects DeepSeek when configured and otherwise selects `OfflineLLM
 
 ## Experimental Boundary
 
-The formal runtime builds a BM25 retriever. Dense, hybrid, vector, reranking, query rewriting, self-RAG, and experimental summary-memory implementations are outside this path. Some retained research modules reference missing prompt modules; retaining them does not make them supported features. See [the experimental code boundary](../app/experiments/README.md).
+The formal runtime builds a BM25 retriever. Retained dense, hybrid, vector, and reranking implementations are outside this path. Incomplete query-rewrite, self-RAG, summary-memory, and faithfulness modules have been removed; no corresponding production feature is claimed. See [the experimental code boundary](../app/experiments/README.md).
 
 [Release scope](release-scope.md) defines the public boundary; [evaluation protocol](evaluation-protocol.md) and [evaluation summary](evaluation-summary.md) separate historical evidence from current validation.
