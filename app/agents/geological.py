@@ -11,7 +11,7 @@ import logging
 import re
 import time
 from functools import partial
-from pathlib import Path
+from pathlib import PurePosixPath
 from typing import Literal
 
 from langgraph.graph import END, START, StateGraph
@@ -64,7 +64,7 @@ def _backend_name(provider: object) -> str:
 
 def _source_file(chunk: RetrievedChunk) -> str:
     source = chunk.metadata.get("source_file") or chunk.metadata.get("source", "")
-    return Path(source).name if source else f"{chunk.title}.pdf"
+    return PurePosixPath(source.replace("\\", "/")).name if source else f"{chunk.title}.pdf"
 
 
 def _page_number(chunk: RetrievedChunk) -> int | None:

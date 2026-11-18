@@ -64,9 +64,25 @@ def _settings() -> Settings:
 
 
 @pytest.mark.asyncio
-async def test_offline_mode_is_evidence_only_with_physical_page_and_excerpt() -> None:
+@pytest.mark.parametrize("metadata_key", ["source", "source_file"])
+@pytest.mark.parametrize(
+    "source_path",
+    [
+        r"C:\runtime\1996-21.pdf",
+        r"\\server\share\1996-21.pdf",
+        "/runtime/1996-21.pdf",
+        "C:/runtime/1996-21.pdf",
+        "1996-21.pdf",
+    ],
+)
+async def test_offline_mode_is_evidence_only_with_physical_page_and_excerpt(
+    metadata_key: str, source_path: str
+) -> None:
+    chunk = _chunk()
+    chunk.metadata.pop("source")
+    chunk.metadata[metadata_key] = source_path
     result = await geological_answer_node(
-        {"user_query": "What is the BLIMP procedure?", "retrieved_chunks": [_chunk()]},
+        {"user_query": "What is the BLIMP procedure?", "retrieved_chunks": [chunk]},
         llm=OfflineLLMProvider(),
         settings=_settings(),
     )
