@@ -59,6 +59,24 @@ jobs:
           --cov=app --cov=eval
           --cov-report=term:skip-covered
           --cov-fail-under=70
+          --junitxml=pytest-results.xml
+
+      - name: Report test failures
+        if: failure()
+        run: |
+          python - <<'PY'
+          import xml.etree.ElementTree as ET
+          from pathlib import Path
+
+          report = Path("pytest-results.xml")
+          if report.exists():
+              for case in ET.parse(report).iter("testcase"):
+                  for result in case:
+                      if result.tag in {"failure", "error"}:
+                          detail = f"{case.get('classname')}.{case.get('name')}\n{result.text or result.get('message', '')}"
+                          detail = detail[-6000:].replace("%", "%25").replace("\r", "%0D").replace("\n", "%0A")
+                          print(f"::error title=Pytest failure::{detail}")
+          PY
 
   frontend:
     name: frontend tests + build
