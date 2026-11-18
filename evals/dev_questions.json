@@ -1,0 +1,95 @@
+[
+  {
+    "id": "geo-dev-001",
+    "question": "What are the numbered steps of the BLIMP workflow?",
+    "language": "en",
+    "answerability": "answerable",
+    "expected_status": "evidence_only",
+    "allowed_document_ids": ["geo-1996-21"],
+    "gold_sources": [{"document_id": "geo-1996-21", "page_number": 3}],
+    "required_chunk_ids": ["geo-1996-21_10", "geo-1996-21_11"],
+    "filter": {"document_types": ["paper"], "languages": ["en"]},
+    "reason": "The paper explicitly lists the nine BLIMP steps on physical page 3."
+  },
+  {
+    "id": "geo-dev-002",
+    "question": "How does the band-limited impedance inversion process work?",
+    "language": "en",
+    "answerability": "answerable",
+    "expected_status": "evidence_only",
+    "allowed_document_ids": ["geo-1996-21"],
+    "gold_sources": [
+      {"document_id": "geo-1996-21", "page_number": 1},
+      {"document_id": "geo-1996-21", "page_number": 2},
+      {"document_id": "geo-1996-21", "page_number": 3}
+    ],
+    "filter": {"document_ids": ["geo-1996-21"]},
+    "reason": "The introduction and method pages describe the impedance relationship, integration, filtering, scaling, and inverse transform."
+  },
+  {
+    "id": "geo-dev-003",
+    "question": "What does the BLIMP paper say about thin beds and small velocity changes?",
+    "language": "en",
+    "answerability": "answerable",
+    "expected_status": "evidence_only",
+    "allowed_document_ids": ["geo-1996-21"],
+    "gold_sources": [{"document_id": "geo-1996-21", "page_number": 9}],
+    "filter": {"document_types": ["paper"]},
+    "reason": "The conclusion on physical page 9 states that the anticipated 50 m/s change may not be resolvable."
+  },
+  {
+    "id": "geo-dev-004",
+    "question": "What is the main hydrologic use of seismic-refraction techniques?",
+    "language": "en",
+    "answerability": "answerable",
+    "expected_status": "evidence_only",
+    "allowed_document_ids": ["geo-twri-2-d2"],
+    "gold_sources": [{"document_id": "geo-twri-2-d2", "page_number": 11}],
+    "filter": {"document_types": ["textbook"]},
+    "reason": "The manual identifies assessment of aquifer frameworks and boundaries as a major use on physical page 11."
+  },
+  {
+    "id": "geo-dev-005",
+    "question": "What information is obtained from seismic refraction time-distance data?",
+    "language": "en",
+    "answerability": "answerable",
+    "expected_status": "evidence_only",
+    "allowed_document_ids": ["geo-twri-2-d2"],
+    "gold_sources": [{"document_id": "geo-twri-2-d2", "page_number": 12}],
+    "filter": {"document_ids": ["geo-twri-2-d2"]},
+    "reason": "Physical page 12 explains that measured distances and traveltimes support velocity and layer-depth calculations."
+  },
+  {
+    "id": "geo-dev-006",
+    "question": "What is the purpose of the continuous seismic profiling study in the Platte River Basin?",
+    "language": "en",
+    "answerability": "answerable",
+    "expected_status": "evidence_only",
+    "allowed_document_ids": ["geo-fs11503"],
+    "gold_sources": [{"document_id": "geo-fs11503", "page_number": 1}],
+    "filter": {"document_types": ["technical_report"]},
+    "reason": "The fact sheet introduction states that the pilot study evaluated whether CSP could determine bedrock depth and alluvial-sediment characteristics."
+  },
+  {
+    "id": "geo-dev-007",
+    "question": "What does the New River report say about identifying lithology from reflection records alone?",
+    "language": "en",
+    "answerability": "answerable",
+    "expected_status": "evidence_only",
+    "allowed_document_ids": ["geo-report-1989-4195"],
+    "gold_sources": [{"document_id": "geo-report-1989-4195", "page_number": 34}],
+    "filter": {"document_types": ["report"]},
+    "reason": "The report's summary and conclusions explicitly state that reflection records alone cannot identify lithology or hydraulic parameters."
+  },
+  {
+    "id": "geo-dev-008",
+    "question": "What exact drilling mud density does the BLIMP paper recommend?",
+    "language": "en",
+    "answerability": "unanswerable",
+    "expected_status": "insufficient_evidence",
+    "allowed_document_ids": [],
+    "gold_sources": [],
+    "filter": {},
+    "reason": "The six controlled documents contain no drilling-mud-density recommendation."
+  }
+]

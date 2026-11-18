@@ -1,0 +1,178 @@
+[
+  {
+    "id": "geo-accept-001",
+    "question": "What algorithm name is used for the band-limited impedance inversion method?",
+    "language": "en",
+    "answerability": "answerable",
+    "expected_status": "evidence_only",
+    "allowed_document_ids": ["geo-1996-21"],
+    "gold_sources": [{"document_id": "geo-1996-21", "page_number": 1}],
+    "filter": {"document_types": ["paper"]},
+    "reason": "The abstract names the MATLAB algorithm BLIMP."
+  },
+  {
+    "id": "geo-accept-002",
+    "question": "What does the BLIMP method do before frequency-domain operations?",
+    "language": "en",
+    "answerability": "answerable",
+    "expected_status": "evidence_only",
+    "allowed_document_ids": ["geo-1996-21"],
+    "gold_sources": [{"document_id": "geo-1996-21", "page_number": 3}],
+    "filter": {"document_ids": ["geo-1996-21"]},
+    "reason": "Step 1 removes the linear trend from the impedance estimate to reduce edge effects."
+  },
+  {
+    "id": "geo-accept-003",
+    "question": "What conclusion does the BLIMP paper report for PS-wave inversion?",
+    "language": "en",
+    "answerability": "answerable",
+    "expected_status": "evidence_only",
+    "allowed_document_ids": ["geo-1996-21"],
+    "gold_sources": [{"document_id": "geo-1996-21", "page_number": 9}],
+    "filter": {"document_types": ["paper"], "languages": ["en"]},
+    "reason": "The paper suggests looking to PS-wave inversion for more robust velocity changes."
+  },
+  {
+    "id": "geo-accept-004",
+    "question": "What is the main purpose of the 2021 seismic site characterization article?",
+    "language": "en",
+    "answerability": "answerable",
+    "expected_status": "evidence_only",
+    "allowed_document_ids": ["geo-s10950-021-10042-z"],
+    "gold_sources": [{"document_id": "geo-s10950-021-10042-z", "page_number": 1}],
+    "filter": {"document_types": ["paper"]},
+    "reason": "The abstract describes SH-wave reflection and refraction methods for determining shear-wave velocity with depth."
+  },
+  {
+    "id": "geo-accept-005",
+    "question": "How is Vs30 defined in the seismic site characterization article?",
+    "language": "en",
+    "answerability": "answerable",
+    "expected_status": "evidence_only",
+    "allowed_document_ids": ["geo-s10950-021-10042-z"],
+    "gold_sources": [{"document_id": "geo-s10950-021-10042-z", "page_number": 1}],
+    "filter": {"document_ids": ["geo-s10950-021-10042-z"]},
+    "reason": "The introduction defines Vs30 as a travel-time-weighted average shear-wave velocity from the surface to 30 m depth."
+  },
+  {
+    "id": "geo-accept-006",
+    "question": "What are two limitations of shallow shear-wave refraction surveys?",
+    "language": "en",
+    "answerability": "answerable",
+    "expected_status": "evidence_only",
+    "allowed_document_ids": ["geo-s10950-021-10042-z"],
+    "gold_sources": [{"document_id": "geo-s10950-021-10042-z", "page_number": 3}],
+    "filter": {"document_types": ["paper"]},
+    "reason": "The article lists noise, dipping layers, and other limitations in the discussion of shallow refraction."
+  },
+  {
+    "id": "geo-accept-007",
+    "question": "Why was continuous seismic profiling used in the Platte River Basin study?",
+    "language": "en",
+    "answerability": "answerable",
+    "expected_status": "evidence_only",
+    "allowed_document_ids": ["geo-fs11503"],
+    "gold_sources": [{"document_id": "geo-fs11503", "page_number": 1}],
+    "filter": {"document_types": ["technical_report"]},
+    "reason": "The report investigates whether water-borne CSP can determine bedrock depth and alluvial-sediment characteristics."
+  },
+  {
+    "id": "geo-accept-008",
+    "question": "What acoustic signal does the CSP system generate?",
+    "language": "en",
+    "answerability": "answerable",
+    "expected_status": "evidence_only",
+    "allowed_document_ids": ["geo-fs11503"],
+    "gold_sources": [{"document_id": "geo-fs11503", "page_number": 3}],
+    "filter": {"document_ids": ["geo-fs11503"]},
+    "reason": "The methods page describes a linear swept, frequency-modulated acoustic signal."
+  },
+  {
+    "id": "geo-accept-009",
+    "question": "What did the Presidio refraction tomography models show about rippable material?",
+    "language": "en",
+    "answerability": "answerable",
+    "expected_status": "evidence_only",
+    "allowed_document_ids": ["geo-of12-1191"],
+    "gold_sources": [{"document_id": "geo-of12-1191", "page_number": 17}],
+    "filter": {"document_types": ["report"]},
+    "reason": "The conclusions state that rippable material extends to at least 30 ft under Line A and 18–20 ft under Line B."
+  },
+  {
+    "id": "geo-accept-010",
+    "question": "What does a traveltime curve slope represent in the Presidio report?",
+    "language": "en",
+    "answerability": "answerable",
+    "expected_status": "evidence_only",
+    "allowed_document_ids": ["geo-of12-1191"],
+    "gold_sources": [{"document_id": "geo-of12-1191", "page_number": 19}],
+    "filter": {"document_ids": ["geo-of12-1191"]},
+    "reason": "Appendix 1 states that the slope represents apparent velocity of the energy arrival."
+  },
+  {
+    "id": "geo-accept-011",
+    "question": "What was the main purpose of the New River seismic reflection survey?",
+    "language": "en",
+    "answerability": "answerable",
+    "expected_status": "evidence_only",
+    "allowed_document_ids": ["geo-report-1989-4195"],
+    "gold_sources": [{"document_id": "geo-report-1989-4195", "page_number": 5}],
+    "filter": {"document_types": ["report"]},
+    "reason": "The abstract says the survey collected data to describe the structural and depositional setting of hydrogeologic units."
+  },
+  {
+    "id": "geo-accept-012",
+    "question": "What navigation systems were integrated during the New River profiling?",
+    "language": "en",
+    "answerability": "answerable",
+    "expected_status": "evidence_only",
+    "allowed_document_ids": ["geo-report-1989-4195"],
+    "gold_sources": [{"document_id": "geo-report-1989-4195", "page_number": 5}],
+    "filter": {"document_ids": ["geo-report-1989-4195"]},
+    "reason": "The abstract identifies LORAN C and Global Positioning Systems as integrated positioning inputs."
+  },
+  {
+    "id": "geo-accept-013",
+    "question": "What does the USGS seismic-refraction manual say about the assumptions behind its interpretation formulas?",
+    "language": "en",
+    "answerability": "answerable",
+    "expected_status": "evidence_only",
+    "allowed_document_ids": ["geo-twri-2-d2"],
+    "gold_sources": [{"document_id": "geo-twri-2-d2", "page_number": 13}],
+    "filter": {"document_types": ["textbook"]},
+    "reason": "The manual lists assumptions about boundaries, surface relief, layer properties, and velocity increase with depth."
+  },
+  {
+    "id": "geo-accept-014",
+    "question": "What is one reason a seismic-refraction interpretation should be checked against well data?",
+    "language": "en",
+    "answerability": "answerable",
+    "expected_status": "evidence_only",
+    "allowed_document_ids": ["geo-twri-2-d2"],
+    "gold_sources": [{"document_id": "geo-twri-2-d2", "page_number": 94}],
+    "filter": {"document_ids": ["geo-twri-2-d2"]},
+    "reason": "The manual describes comparison with well or test-hole data as the best quality test when available."
+  },
+  {
+    "id": "geo-accept-015",
+    "question": "What exact dollar cost did the six geological documents assign to the surveys?",
+    "language": "en",
+    "answerability": "unanswerable",
+    "expected_status": "insufficient_evidence",
+    "allowed_document_ids": [],
+    "gold_sources": [],
+    "filter": {},
+    "reason": "The controlled corpus does not provide an exact survey cost answer."
+  },
+  {
+    "id": "geo-accept-016",
+    "question": "What is the exact production cost of the BLIMP algorithm?",
+    "language": "en",
+    "answerability": "unanswerable",
+    "expected_status": "insufficient_evidence",
+    "allowed_document_ids": [],
+    "gold_sources": [],
+    "filter": {"document_types": ["paper"]},
+    "reason": "The paper describes the algorithm but contains no production-cost figure."
+  }
+]

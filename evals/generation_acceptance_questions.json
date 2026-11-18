@@ -1,0 +1,170 @@
+{
+  "schema_version": "geoexplore-generation-v1",
+  "split": "acceptance",
+  "corpus_identity": {
+    "corpus_id": "geoexplore-v1",
+    "corpus_fingerprint": "07931977ad3ff8a5ae743b5ed96ea92d0c87f0b4a8fb6a1aaa1be7e72ef2575f",
+    "parser_backend": "pypdf",
+    "parser_version": "6.20.0",
+    "chunking_version": "v1",
+    "document_count": 6,
+    "chunk_count": 1006
+  },
+  "questions": [
+    {
+      "question_id": "geo-gen-accept-001",
+      "question": "Which two organizations conducted the 2001 cooperative CSP pilot study in the Platte River Basin?",
+      "question_type": "single_chunk",
+      "filters": {"document_ids": ["geo-fs11503"]},
+      "expected_status": "answered",
+      "gold_document_ids": ["geo-fs11503"],
+      "gold_physical_pages": [1],
+      "gold_evidence": [{"document_id": "geo-fs11503", "physical_page": 1}],
+      "required_facts": [
+        "The cooperative pilot study involved the U.S. Geological Survey (USGS).",
+        "The other organization was the Nebraska Platte River Cooperative Hydrology Study (COHYST)."
+      ],
+      "required_fact_keywords": [["U.S. Geological Survey"], ["COHYST"]],
+      "forbidden_claims": ["The pilot study was conducted by NOAA"],
+      "manual_evidence_note": "Manually checked against fs11503.pdf physical page 1, Introduction."
+    },
+    {
+      "question_id": "geo-gen-accept-002",
+      "question": "What kind of acoustic signal does the continuous seismic profiling system generate?",
+      "question_type": "single_chunk",
+      "filters": {"document_ids": ["geo-fs11503"]},
+      "expected_status": "answered",
+      "gold_document_ids": ["geo-fs11503"],
+      "gold_physical_pages": [3],
+      "gold_evidence": [{"document_id": "geo-fs11503", "physical_page": 3}],
+      "required_facts": ["The CSP system generates a linear swept, frequency-modulated acoustic signal."],
+      "required_fact_keywords": [["linear swept", "frequency-modulated"]],
+      "forbidden_claims": ["The CSP system generates only a single fixed-frequency pulse"],
+      "manual_evidence_note": "Manually checked against fs11503.pdf physical page 3 in the CSP system description."
+    },
+    {
+      "question_id": "geo-gen-accept-003",
+      "question": "What fixed geophone spread was used for the Presidio seismic-refraction lines?",
+      "question_type": "condition_parameter",
+      "filters": {"document_ids": ["geo-of12-1191"]},
+      "expected_status": "answered",
+      "gold_document_ids": ["geo-of12-1191"],
+      "gold_physical_pages": [8],
+      "gold_evidence": [{"document_id": "geo-of12-1191", "physical_page": 8}],
+      "required_facts": [
+        "The spread used 96 40-Hz compressional geophones.",
+        "The geophones were spaced 6 ft apart."
+      ],
+      "required_fact_keywords": [["96", "40-Hz"], ["6 ft"]],
+      "forbidden_claims": ["The fixed spread used 24 geophones at 3 m spacing"],
+      "manual_evidence_note": "Manually checked against OF12-1191.pdf physical page 8 in Seismic Refraction Survey Data Acquisition."
+    },
+    {
+      "question_id": "geo-gen-accept-004",
+      "question": "In the Presidio appendix, what does the slope of a traveltime curve represent?",
+      "question_type": "single_chunk",
+      "filters": {"document_ids": ["geo-of12-1191"]},
+      "expected_status": "answered",
+      "gold_document_ids": ["geo-of12-1191"],
+      "gold_physical_pages": [19],
+      "gold_evidence": [{"document_id": "geo-of12-1191", "physical_page": 19}],
+      "required_facts": ["The slope represents the apparent velocity of the energy arrival."],
+      "required_fact_keywords": [["apparent velocity", "energy arrival"]],
+      "forbidden_claims": ["The slope represents only the geophone spacing"],
+      "manual_evidence_note": "Manually checked against OF12-1191.pdf physical page 19 in the appendix description of traveltime curves."
+    },
+    {
+      "question_id": "geo-gen-accept-005",
+      "question": "Which signal-processor filter range gave the best combination of resolution and penetration for the New River survey, and what limitation remained?",
+      "question_type": "condition_parameter",
+      "filters": {"document_ids": ["geo-report-1989-4195"]},
+      "expected_status": "answered",
+      "gold_document_ids": ["geo-report-1989-4195"],
+      "gold_physical_pages": [16],
+      "gold_evidence": [{"document_id": "geo-report-1989-4195", "physical_page": 16}],
+      "required_facts": [
+        "The 400 to 1,200 hertz range I setting gave the best combination of resolution and penetration.",
+        "It produced very little improvement where soft sediment caused central-channel signal attenuation."
+      ],
+      "required_fact_keywords": [["400", "1,200", "range I"], ["very little improvement", "central channel"]],
+      "forbidden_claims": ["The filter setting solved the central-channel attenuation problem"],
+      "manual_evidence_note": "Manually checked against report.pdf physical page 16; the limitation is stated immediately after the filter-range conclusion."
+    },
+    {
+      "question_id": "geo-gen-accept-006",
+      "question": "What average sediment velocity was selected for time-to-depth conversion of the New River seismic reflection records?",
+      "question_type": "single_chunk",
+      "filters": {"document_ids": ["geo-report-1989-4195"]},
+      "expected_status": "answered",
+      "gold_document_ids": ["geo-report-1989-4195"],
+      "gold_physical_pages": [21],
+      "gold_evidence": [{"document_id": "geo-report-1989-4195", "physical_page": 21}],
+      "required_facts": ["An average sediment velocity of 6,000 ft/s was selected."],
+      "required_fact_keywords": [["6,000", "ft/s"]],
+      "forbidden_claims": ["The selected time-to-depth velocity was 5,000 ft/s"],
+      "manual_evidence_note": "Manually checked against report.pdf physical page 21 in the time-to-depth conversion discussion."
+    },
+    {
+      "question_id": "geo-gen-accept-007",
+      "question": "For the San Fernando SH survey example, what source and geophone array were used?",
+      "question_type": "condition_parameter",
+      "filters": {"document_ids": ["geo-s10950-021-10042-z"]},
+      "expected_status": "answered",
+      "gold_document_ids": ["geo-s10950-021-10042-z"],
+      "gold_physical_pages": [7],
+      "gold_evidence": [{"document_id": "geo-s10950-021-10042-z", "physical_page": 7}],
+      "required_facts": [
+        "The source was a 4.0-kg sledgehammer striking a 15.2-cm-wide shear timber with metal endplates.",
+        "The array used 24 14-Hz single-component geophones at 3 m spacing."
+      ],
+      "required_fact_keywords": [["4.0-kg", "sledgehammer"], ["24", "14-Hz", "3 m"]],
+      "forbidden_claims": ["The San Fernando example used a 96-geophone 6-ft spread"],
+      "manual_evidence_note": "Manually checked against s10950-021-10042-z.pdf physical page 7 in the San Fernando field-data description."
+    },
+    {
+      "question_id": "geo-gen-accept-008",
+      "question": "What assumptions underlie the seismic-refraction interpretation formulas in the hydrologic-studies text?",
+      "question_type": "condition_parameter",
+      "filters": {"document_ids": ["geo-twri-2-d2"]},
+      "expected_status": "answered",
+      "gold_document_ids": ["geo-twri-2-d2"],
+      "gold_physical_pages": [13],
+      "gold_evidence": [{"document_id": "geo-twri-2-d2", "physical_page": 13}],
+      "required_facts": [
+        "Layer boundaries are horizontal or dip at a constant angle, with no land-surface relief.",
+        "Each layer is homogeneous and isotropic, and seismic velocity increases with depth."
+      ],
+      "required_fact_keywords": [["constant angle", "no land-surface relief"], ["homogeneous", "isotropic", "increases with depth"]],
+      "forbidden_claims": ["The formulas assume arbitrary topographic relief and decreasing velocity with depth"],
+      "manual_evidence_note": "Manually checked against twri_2-d2.pdf physical page 13 in the assumptions immediately before the two-layer formulas."
+    },
+    {
+      "question_id": "geo-gen-accept-009",
+      "question": "Under a paper-only filter, what signal-processor filter range gave the best resolution and penetration for the New River survey?",
+      "question_type": "filter_insufficient",
+      "filters": {"document_types": ["paper"]},
+      "expected_status": "insufficient_evidence",
+      "gold_document_ids": [],
+      "gold_physical_pages": [],
+      "gold_evidence": [],
+      "required_facts": [],
+      "required_fact_keywords": [],
+      "forbidden_claims": [],
+      "manual_evidence_note": "Manually checked the manifest and report.pdf physical page 16: the target evidence belongs to geo-report-1989-4195 with document_type report, excluded by paper-only filtering."
+    },
+    {
+      "question_id": "geo-gen-accept-010",
+      "question": "Which named regulation required seismic crews to wait exactly 72 hours before beginning a survey?",
+      "question_type": "corpus_insufficient",
+      "filters": {},
+      "expected_status": "insufficient_evidence",
+      "gold_document_ids": [],
+      "gold_physical_pages": [],
+      "gold_evidence": [],
+      "required_facts": [],
+      "required_fact_keywords": [],
+      "forbidden_claims": [],
+      "manual_evidence_note": "Manual review of the six controlled PDFs found no named regulation with a 72-hour pre-survey requirement."
+    }
+  ]
+}

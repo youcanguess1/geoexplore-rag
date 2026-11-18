@@ -1,0 +1,61 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  lint-and-test:
+    name: ruff + mypy + pytest (py${{ matrix.python-version }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11", "3.12"]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      # uv.lock is the reproducibility anchor; fail fast if it drifts from pyproject.
+      - uses: astral-sh/setup-uv@v5
+        with:
+          version: "0.13.1"
+          enable-cache: true
+
+      - name: Lockfile in sync
+        run: uv lock --check
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+          cache-dependency-path: pyproject.toml
+
+      - name: Install
+        run: uv sync --locked --extra dev --python "${{ matrix.python-version }}"
+
+      - name: Ruff format check
+        run: uv run --no-sync python -m ruff format --check .
+
+      - name: Ruff lint
+        run: uv run --no-sync python -m ruff check .
+
+      - name: Mypy
+        run: uv run --no-sync python -m mypy
+
+      - name: Pytest
+        run: >-
+          uv run --no-sync python -m pytest -q
+          --cov=app --cov=eval
+          --cov-report=term:skip-covered
+          --cov-fail-under=70

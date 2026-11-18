@@ -1,0 +1,60 @@
+{
+  "protocol": "day3-new-question-check-v1",
+  "frozen_question_path": "evals\\results\\2026-10-26-day3-new-question-check-154705\\questions.json",
+  "frozen_at": "2026-10-26T15:47:05+08:00",
+  "question_set_canonical_sha256": "ef8c2c26bd0526abfe6500731584dbbac3b31589e98e8831e1f3517b6dfeb032",
+  "question_file_sha256": "64edcb85b9711137dc92f41b2bedf12ff62a3249bcf8511b39f8e6b9deec9686",
+  "corpus_identity": {
+    "corpus_id": "geoexplore-v1",
+    "corpus_fingerprint": "07931977ad3ff8a5ae743b5ed96ea92d0c87f0b4a8fb6a1aaa1be7e72ef2575f",
+    "parser_backend": "pypdf",
+    "parser_version": "6.20.0",
+    "chunking_version": "v1",
+    "document_count": 6,
+    "chunk_count": 1006
+  },
+  "runtime": {
+    "retrieval_backend": "bm25",
+    "geological_top_k": 5,
+    "geological_context_chunks": 4,
+    "geological_context_chars": 900,
+    "model": "deepseek-flash",
+    "temperature": 0.0,
+    "llm_max_retries": 1,
+    "llm_retry_semantics": "max_attempts=1",
+    "repair_policy": "production JSON validation may issue at most one repair call",
+    "database_url": "sqlite+aiosqlite:///:memory:",
+    "redis_url": "disabled"
+  },
+  "pre_run": {
+    "recorded_at": "2026-10-26T08:10:34.799912+00:00",
+    "head": "8e0035fb892865e46f2579ee602c3352f8619cb2",
+    "git_status_short": [
+      " M README.md",
+      " M docs/02-getting-started.md",
+      " M eval/geological_generation.py",
+      " M frontend/README.md",
+      " M frontend/vite.config.ts",
+      " M scripts/diagnose_generation_retrieval.py",
+      " M tests/unit/test_geological_generation_eval.py",
+      "?? evals/results/2026-10-22-generation-acceptance-after-egress-fix.json",
+      "?? evals/results/2026-10-22-generation-acceptance-first-run.json",
+      "?? evals/results/2026-10-23-adjacent-window-retrieval-experiment-v2.json",
+      "?? evals/results/2026-10-23-adjacent-window-retrieval-experiment.json",
+      "?? evals/results/2026-10-23-independent-retrieval-dev-baseline.json",
+      "?? evals/results/2026-10-23-retrieval-ablation-v1.json",
+      "?? evals/results/2026-10-24-day1-readiness-175150/",
+      "?? evals/results/2026-10-26-day2-browser-e2e-133502/",
+      "?? evals/results/2026-10-26-day2-browser-e2e-retry-140841/",
+      "?? evals/results/2026-10-26-day3-new-question-check-154705/",
+      "?? evals/retrieval_dev_questions.json",
+      "?? scripts/run_day3_new_question_eval.py"
+    ],
+    "git_diff_check": [],
+    "tracked_diff_sha256": "9b02dfe871598ba5330b1dd64bb4afcd1fdabadf22ed6fcad8a45add18ceea7f"
+  },
+  "historic_artifact_sha256": {
+    "evals/results/2026-10-22-generation-acceptance-first-run.json": "b2ff15f990203b48deb71c02a91fda4b9fca8c44c7a2ed26d252683ec1a30200",
+    "evals/results/2026-10-22-generation-acceptance-after-egress-fix.json": "31a0b791bea3e34aff38747b6fe092f23b733b4c0cc7550c44d1dcbf5da989c0"
+  }
+}

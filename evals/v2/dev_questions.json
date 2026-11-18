@@ -1,0 +1,90 @@
+[
+  {
+    "id": "geo-v2-dev-001",
+    "question": "How does the BLIMP method turn a seismic trace into an impedance trace?",
+    "language": "en",
+    "scope": "unfiltered",
+    "answerability": "answerable",
+    "allowed_document_ids": ["geo-1996-21"],
+    "gold_sources": [{"document_id": "geo-1996-21", "page_number": 2}],
+    "filter": {},
+    "reason": "Physical PDF page 2 derives the method: it integrates the seismic trace and exponentiates the result to provide impedance."
+  },
+  {
+    "id": "geo-v2-dev-002",
+    "question": "When and how much continuous seismic profiling data did the Platte River Basin study collect?",
+    "language": "en",
+    "scope": "unfiltered",
+    "answerability": "answerable",
+    "allowed_document_ids": ["geo-fs11503"],
+    "gold_sources": [{"document_id": "geo-fs11503", "page_number": 2}],
+    "filter": {},
+    "reason": "Physical PDF page 2 states that USGS and COHYST collected about 90 miles of data in August 2001."
+  },
+  {
+    "id": "geo-v2-dev-003",
+    "question": "What P-wave and S-wave velocity changes are associated with the Blackfoot oil-producing channel sands?",
+    "language": "en",
+    "scope": "document_scoped",
+    "answerability": "answerable",
+    "allowed_document_ids": ["geo-1996-21"],
+    "gold_sources": [{"document_id": "geo-1996-21", "page_number": 8}],
+    "filter": {"document_ids": ["geo-1996-21"]},
+    "reason": "Physical PDF page 8 gives the S-wave increase from about 2200 to 2400 m/s and P-wave decrease from about 4050 to 4000 m/s."
+  },
+  {
+    "id": "geo-v2-dev-004",
+    "question": "Which observations were correlated in the New River seismic reflection report?",
+    "language": "en",
+    "scope": "type_filtered",
+    "answerability": "answerable",
+    "allowed_document_ids": ["geo-report-1989-4195"],
+    "gold_sources": [{"document_id": "geo-report-1989-4195", "page_number": 19}],
+    "filter": {"document_types": ["report"]},
+    "reason": "Physical PDF page 19 discusses correlating well-log, stratigraphic, and seismic-reflection information."
+  },
+  {
+    "id": "geo-v2-dev-005",
+    "question": "Why are forward and reverse shot positions important in shallow SH-wave refraction surveys?",
+    "language": "en",
+    "scope": "document_scoped",
+    "answerability": "answerable",
+    "allowed_document_ids": ["geo-s10950-021-10042-z"],
+    "gold_sources": [{"document_id": "geo-s10950-021-10042-z", "page_number": 3}],
+    "filter": {"document_ids": ["geo-s10950-021-10042-z"]},
+    "reason": "Physical PDF page 3 explains that dipping layers affect apparent velocities and recommends forward and reverse shots where geometry permits."
+  },
+  {
+    "id": "geo-v2-dev-006",
+    "question": "What field practice is required to interpret a dipping seismic-refraction boundary?",
+    "language": "en",
+    "scope": "type_filtered",
+    "answerability": "answerable",
+    "allowed_document_ids": ["geo-twri-2-d2"],
+    "gold_sources": [{"document_id": "geo-twri-2-d2", "page_number": 14}],
+    "filter": {"document_types": ["textbook"]},
+    "reason": "Physical PDF page 14 says the refraction profile must be reversed, with shots from each end of the array."
+  },
+  {
+    "id": "geo-v2-dev-007",
+    "question": "What exact drilling mud density does the controlled geological corpus recommend?",
+    "language": "en",
+    "scope": "unfiltered",
+    "answerability": "unanswerable",
+    "allowed_document_ids": [],
+    "gold_sources": [],
+    "filter": {},
+    "reason": "The six controlled PDFs do not provide a drilling-mud-density recommendation."
+  },
+  {
+    "id": "geo-v2-dev-008",
+    "question": "What exact annual salary is specified for a seismic crew in the papers?",
+    "language": "en",
+    "scope": "type_filtered",
+    "answerability": "unanswerable",
+    "allowed_document_ids": [],
+    "gold_sources": [],
+    "filter": {"document_types": ["paper"]},
+    "reason": "Neither paper states an exact annual salary for a seismic crew."
+  }
+]

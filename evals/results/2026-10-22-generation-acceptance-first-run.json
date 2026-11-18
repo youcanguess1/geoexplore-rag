@@ -1,0 +1,1223 @@
+{
+  "protocol": "geoexplore-generation-v1",
+  "run_started_at": "2026-10-22T09:15:11.070737+00:00",
+  "split": "acceptance",
+  "evaluation_code_commit": "8e0035fb892865e46f2579ee602c3352f8619cb2",
+  "dataset_path": "evals\\generation_acceptance_questions.json",
+  "dataset_sha256": "b4945044bc5c6fda9d118d9c1f03ede28869a78ff4ac630d88d552e6e68c5158",
+  "corpus_identity": {
+    "corpus_id": "geoexplore-v1",
+    "corpus_fingerprint": "07931977ad3ff8a5ae743b5ed96ea92d0c87f0b4a8fb6a1aaa1be7e72ef2575f",
+    "parser_backend": "pypdf",
+    "parser_version": "6.20.0",
+    "chunking_version": "v1",
+    "document_count": 6,
+    "chunk_count": 1006
+  },
+  "runtime": {
+    "retrieval_backend": "bm25",
+    "generation_backend": "deepseek",
+    "model": "deepseek-flash",
+    "llm_max_retries": 1,
+    "geological_top_k": 5,
+    "geological_context_chunks": 4,
+    "geological_context_chars": 900
+  },
+  "manual_gold_annotation": "frozen in the question set; never modified by this runner",
+  "manual_response_review": "pending PDF-based human review",
+  "executed_question_ids": [
+    "geo-gen-accept-001",
+    "geo-gen-accept-002",
+    "geo-gen-accept-003",
+    "geo-gen-accept-004",
+    "geo-gen-accept-005",
+    "geo-gen-accept-006",
+    "geo-gen-accept-007",
+    "geo-gen-accept-008",
+    "geo-gen-accept-009",
+    "geo-gen-accept-010"
+  ],
+  "rows": [
+    {
+      "question_id": "geo-gen-accept-001",
+      "question_type": "single_chunk",
+      "expected_status": "answered",
+      "filters": {
+        "document_ids": [
+          "geo-fs11503"
+        ]
+      },
+      "trace_id": "tr_4f87cd6927ba45a6a5684ece62e69ba2",
+      "bounded_context": [
+        {
+          "chunk_id": "geo-fs11503_01",
+          "document_id": "geo-fs11503",
+          "physical_page": 1,
+          "document_type": "technical_report",
+          "language": "en",
+          "corpus_fingerprint": "07931977ad3ff8a5ae743b5ed96ea92d0c87f0b4a8fb6a1aaa1be7e72ef2575f"
+        },
+        {
+          "chunk_id": "geo-fs11503_02",
+          "document_id": "geo-fs11503",
+          "physical_page": 1,
+          "document_type": "technical_report",
+          "language": "en",
+          "corpus_fingerprint": "07931977ad3ff8a5ae743b5ed96ea92d0c87f0b4a8fb6a1aaa1be7e72ef2575f"
+        },
+        {
+          "chunk_id": "geo-fs11503_03",
+          "document_id": "geo-fs11503",
+          "physical_page": 1,
+          "document_type": "technical_report",
+          "language": "en",
+          "corpus_fingerprint": "07931977ad3ff8a5ae743b5ed96ea92d0c87f0b4a8fb6a1aaa1be7e72ef2575f"
+        },
+        {
+          "chunk_id": "geo-fs11503_06",
+          "document_id": "geo-fs11503",
+          "physical_page": 1,
+          "document_type": "technical_report",
+          "language": "en",
+          "corpus_fingerprint": "07931977ad3ff8a5ae743b5ed96ea92d0c87f0b4a8fb6a1aaa1be7e72ef2575f"
+        }
+      ],
+      "llm_call_events": [
+        {
+          "attempt_id": "llm_45a9552fbdc24eb997fdf5f297795560",
+          "phase": "primary",
+          "model": "deepseek-flash",
+          "provider_retry_limit": 1,
+          "provider_retry_attempts_observed": 0,
+          "status": "error",
+          "elapsed_ms": 136.645,
+          "error_category": "LLM_PROVIDER_UNAVAILABLE",
+          "error_diagnostics": {
+            "failure_stage": "connect",
+            "exception_types": [
+              "ConnectError",
+              "ConnectError",
+              "OSError",
+              "ExceptionGroup"
+            ],
+            "target_host": "api.deepseek.com"
+          },
+          "usage_state": "unknown"
+        }
+      ],
+      "usage_state": "unknown",
+      "response": {
+        "status": "execution_failed",
+        "answer": "\u751f\u6210\u6267\u884c\u5931\u8d25\uff0c\u672a\u80fd\u53ef\u9760\u6574\u7406\u5730\u8d28\u8bc1\u636e\uff1aDeepSeek transport error",
+        "citations": [],
+        "error_code": "generation_failed",
+        "generation_backend": "deepseek",
+        "retrieval_backend": "bm25",
+        "token_usage": {
+          "prompt_tokens": 0,
+          "completion_tokens": 0,
+          "total_tokens": 0,
+          "usage_known": false
+        },
+        "latency": {
+          "intent_ms": 0.0,
+          "routing_ms": 0.0,
+          "retrieval_ms": 11.922100002266234,
+          "rerank_ms": 0.0,
+          "tool_ms": 0.0,
+          "llm_ms": 137.0664999994915,
+          "total_ms": 183.32200000077137
+        }
+      },
+      "automatic_review": {
+        "status_correct": false,
+        "answerable_coverage": false,
+        "required_fact_keyword_signals": [
+          false,
+          false
+        ],
+        "required_fact_candidate_coverage": 0.0,
+        "forbidden_claim_candidate_hits": [],
+        "citation_checks": [],
+        "citation_in_context": true,
+        "citation_filter_compliant": true,
+        "citation_fingerprint_compliant": true,
+        "citation_document_page_correct": true,
+        "human_review": {
+          "required_fact_support": "pending",
+          "unsupported_claims": "pending",
+          "citation_pdf_page_correctness": "pending"
+        }
+      }
+    },
+    {
+      "question_id": "geo-gen-accept-002",
+      "question_type": "single_chunk",
+      "expected_status": "answered",
+      "filters": {
+        "document_ids": [
+          "geo-fs11503"
+        ]
+      },
+      "trace_id": "tr_7c29deaba1d94cdf8151cfa172b1ccc3",
+      "bounded_context": [
+        {
+          "chunk_id": "geo-fs11503_16",
+          "document_id": "geo-fs11503",
+          "physical_page": 3,
+          "document_type": "technical_report",
+          "language": "en",
+          "corpus_fingerprint": "07931977ad3ff8a5ae743b5ed96ea92d0c87f0b4a8fb6a1aaa1be7e72ef2575f"
+        },
+        {
+          "chunk_id": "geo-fs11503_17",
+          "document_id": "geo-fs11503",
+          "physical_page": 3,
+          "document_type": "technical_report",
+          "language": "en",
+          "corpus_fingerprint": "07931977ad3ff8a5ae743b5ed96ea92d0c87f0b4a8fb6a1aaa1be7e72ef2575f"
+        },
+        {
+          "chunk_id": "geo-fs11503_18",
+          "document_id": "geo-fs11503",
+          "physical_page": 3,
+          "document_type": "technical_report",
+          "language": "en",
+          "corpus_fingerprint": "07931977ad3ff8a5ae743b5ed96ea92d0c87f0b4a8fb6a1aaa1be7e72ef2575f"
+        },
+        {
+          "chunk_id": "geo-fs11503_19",
+          "document_id": "geo-fs11503",
+          "physical_page": 3,
+          "document_type": "technical_report",
+          "language": "en",
+          "corpus_fingerprint": "07931977ad3ff8a5ae743b5ed96ea92d0c87f0b4a8fb6a1aaa1be7e72ef2575f"
+        }
+      ],
+      "llm_call_events": [
+        {
+          "attempt_id": "llm_a416e081b9524eaa87959c7c37a87a5a",
+          "phase": "primary",
+          "model": "deepseek-flash",
+          "provider_retry_limit": 1,
+          "provider_retry_attempts_observed": 0,
+          "status": "error",
+          "elapsed_ms": 3.031,
+          "error_category": "LLM_PROVIDER_UNAVAILABLE",
+          "error_diagnostics": {
+            "failure_stage": "connect",
+            "exception_types": [
+              "ConnectError",
+              "ConnectError",
+              "OSError",
+              "ExceptionGroup"
+            ],
+            "target_host": "api.deepseek.com"
+          },
+          "usage_state": "unknown"
+        }
+      ],
+      "usage_state": "unknown",
+      "response": {
+        "status": "execution_failed",
+        "answer": "\u751f\u6210\u6267\u884c\u5931\u8d25\uff0c\u672a\u80fd\u53ef\u9760\u6574\u7406\u5730\u8d28\u8bc1\u636e\uff1aDeepSeek transport error",
+        "citations": [],
+        "error_code": "generation_failed",
+        "generation_backend": "deepseek",
+        "retrieval_backend": "bm25",
+        "token_usage": {
+          "prompt_tokens": 0,
+          "completion_tokens": 0,
+          "total_tokens": 0,
+          "usage_known": false
+        },
+        "latency": {
+          "intent_ms": 0.0,
+          "routing_ms": 0.0,
+          "retrieval_ms": 10.882199996558484,
+          "rerank_ms": 0.0,
+          "tool_ms": 0.0,
+          "llm_ms": 3.2882999985304195,
+          "total_ms": 28.806800000893418
+        }
+      },
+      "automatic_review": {
+        "status_correct": false,
+        "answerable_coverage": false,
+        "required_fact_keyword_signals": [
+          false
+        ],
+        "required_fact_candidate_coverage": 0.0,
+        "forbidden_claim_candidate_hits": [],
+        "citation_checks": [],
+        "citation_in_context": true,
+        "citation_filter_compliant": true,
+        "citation_fingerprint_compliant": true,
+        "citation_document_page_correct": true,
+        "human_review": {
+          "required_fact_support": "pending",
+          "unsupported_claims": "pending",
+          "citation_pdf_page_correctness": "pending"
+        }
+      }
+    },
+    {
+      "question_id": "geo-gen-accept-003",
+      "question_type": "condition_parameter",
+      "expected_status": "answered",
+      "filters": {
+        "document_ids": [
+          "geo-of12-1191"
+        ]
+      },
+      "trace_id": "tr_1e405d9fe3a74b8a927c75435e67f743",
+      "bounded_context": [
+        {
+          "chunk_id": "geo-of12-1191_33",
+          "document_id": "geo-of12-1191",
+          "physical_page": 8,
+          "document_type": "report",
+          "language": "en",
+          "corpus_fingerprint": "07931977ad3ff8a5ae743b5ed96ea92d0c87f0b4a8fb6a1aaa1be7e72ef2575f"
+        },
+        {
+          "chunk_id": "geo-of12-1191_34",
+          "document_id": "geo-of12-1191",
+          "physical_page": 8,
+          "document_type": "report",
+          "language": "en",
+          "corpus_fingerprint": "07931977ad3ff8a5ae743b5ed96ea92d0c87f0b4a8fb6a1aaa1be7e72ef2575f"
+        },
+        {
+          "chunk_id": "geo-of12-1191_35",
+          "document_id": "geo-of12-1191",
+          "physical_page": 8,
+          "document_type": "report",
+          "language": "en",
+          "corpus_fingerprint": "07931977ad3ff8a5ae743b5ed96ea92d0c87f0b4a8fb6a1aaa1be7e72ef2575f"
+        },
+        {
+          "chunk_id": "geo-of12-1191_36",
+          "document_id": "geo-of12-1191",
+          "physical_page": 8,
+          "document_type": "report",
+          "language": "en",
+          "corpus_fingerprint": "07931977ad3ff8a5ae743b5ed96ea92d0c87f0b4a8fb6a1aaa1be7e72ef2575f"
+        }
+      ],
+      "llm_call_events": [
+        {
+          "attempt_id": "llm_98bd81db321c43f9bb38f221ac4860c9",
+          "phase": "primary",
+          "model": "deepseek-flash",
+          "provider_retry_limit": 1,
+          "provider_retry_attempts_observed": 0,
+          "status": "error",
+          "elapsed_ms": 2.826,
+          "error_category": "LLM_PROVIDER_UNAVAILABLE",
+          "error_diagnostics": {
+            "failure_stage": "connect",
+            "exception_types": [
+              "ConnectError",
+              "ConnectError",
+              "OSError",
+              "ExceptionGroup"
+            ],
+            "target_host": "api.deepseek.com"
+          },
+          "usage_state": "unknown"
+        }
+      ],
+      "usage_state": "unknown",
+      "response": {
+        "status": "execution_failed",
+        "answer": "\u751f\u6210\u6267\u884c\u5931\u8d25\uff0c\u672a\u80fd\u53ef\u9760\u6574\u7406\u5730\u8d28\u8bc1\u636e\uff1aDeepSeek transport error",
+        "citations": [],
+        "error_code": "generation_failed",
+        "generation_backend": "deepseek",
+        "retrieval_backend": "bm25",
+        "token_usage": {
+          "prompt_tokens": 0,
+          "completion_tokens": 0,
+          "total_tokens": 0,
+          "usage_known": false
+        },
+        "latency": {
+          "intent_ms": 0.0,
+          "routing_ms": 0.0,
+          "retrieval_ms": 11.64749999952619,
+          "rerank_ms": 0.0,
+          "tool_ms": 0.0,
+          "llm_ms": 3.0760999979975168,
+          "total_ms": 26.584499999444233
+        }
+      },
+      "automatic_review": {
+        "status_correct": false,
+        "answerable_coverage": false,
+        "required_fact_keyword_signals": [
+          false,
+          false
+        ],
+        "required_fact_candidate_coverage": 0.0,
+        "forbidden_claim_candidate_hits": [],
+        "citation_checks": [],
+        "citation_in_context": true,
+        "citation_filter_compliant": true,
+        "citation_fingerprint_compliant": true,
+        "citation_document_page_correct": true,
+        "human_review": {
+          "required_fact_support": "pending",
+          "unsupported_claims": "pending",
+          "citation_pdf_page_correctness": "pending"
+        }
+      }
+    },
+    {
+      "question_id": "geo-gen-accept-004",
+      "question_type": "single_chunk",
+      "expected_status": "answered",
+      "filters": {
+        "document_ids": [
+          "geo-of12-1191"
+        ]
+      },
+      "trace_id": "tr_3b1f977f8dae4f6db6ef37fb75c50e6c",
+      "bounded_context": [
+        {
+          "chunk_id": "geo-of12-1191_45",
+          "document_id": "geo-of12-1191",
+          "physical_page": 11,
+          "document_type": "report",
+          "language": "en",
+          "corpus_fingerprint": "07931977ad3ff8a5ae743b5ed96ea92d0c87f0b4a8fb6a1aaa1be7e72ef2575f"
+        },
+        {
+          "chunk_id": "geo-of12-1191_74",
+          "document_id": "geo-of12-1191",
+          "physical_page": 19,
+          "document_type": "report",
+          "language": "en",
+          "corpus_fingerprint": "07931977ad3ff8a5ae743b5ed96ea92d0c87f0b4a8fb6a1aaa1be7e72ef2575f"
+        },
+        {
+          "chunk_id": "geo-of12-1191_75",
+          "document_id": "geo-of12-1191",
+          "physical_page": 19,
+          "document_type": "report",
+          "language": "en",
+          "corpus_fingerprint": "07931977ad3ff8a5ae743b5ed96ea92d0c87f0b4a8fb6a1aaa1be7e72ef2575f"
+        },
+        {
+          "chunk_id": "geo-of12-1191_76",
+          "document_id": "geo-of12-1191",
+          "physical_page": 19,
+          "document_type": "report",
+          "language": "en",
+          "corpus_fingerprint": "07931977ad3ff8a5ae743b5ed96ea92d0c87f0b4a8fb6a1aaa1be7e72ef2575f"
+        }
+      ],
+      "llm_call_events": [
+        {
+          "attempt_id": "llm_1d14fe495e694450b311a88abd9c0a89",
+          "phase": "primary",
+          "model": "deepseek-flash",
+          "provider_retry_limit": 1,
+          "provider_retry_attempts_observed": 0,
+          "status": "error",
+          "elapsed_ms": 3.988,
+          "error_category": "LLM_PROVIDER_UNAVAILABLE",
+          "error_diagnostics": {
+            "failure_stage": "connect",
+            "exception_types": [
+              "ConnectError",
+              "ConnectError",
+              "OSError",
+              "ExceptionGroup"
+            ],
+            "target_host": "api.deepseek.com"
+          },
+          "usage_state": "unknown"
+        }
+      ],
+      "usage_state": "unknown",
+      "response": {
+        "status": "execution_failed",
+        "answer": "\u751f\u6210\u6267\u884c\u5931\u8d25\uff0c\u672a\u80fd\u53ef\u9760\u6574\u7406\u5730\u8d28\u8bc1\u636e\uff1aDeepSeek transport error",
+        "citations": [],
+        "error_code": "generation_failed",
+        "generation_backend": "deepseek",
+        "retrieval_backend": "bm25",
+        "token_usage": {
+          "prompt_tokens": 0,
+          "completion_tokens": 0,
+          "total_tokens": 0,
+          "usage_known": false
+        },
+        "latency": {
+          "intent_ms": 0.0,
+          "routing_ms": 0.0,
+          "retrieval_ms": 9.729099998367019,
+          "rerank_ms": 0.0,
+          "tool_ms": 0.0,
+          "llm_ms": 4.255100000591483,
+          "total_ms": 26.073000000906177
+        }
+      },
+      "automatic_review": {
+        "status_correct": false,
+        "answerable_coverage": false,
+        "required_fact_keyword_signals": [
+          false
+        ],
+        "required_fact_candidate_coverage": 0.0,
+        "forbidden_claim_candidate_hits": [],
+        "citation_checks": [],
+        "citation_in_context": true,
+        "citation_filter_compliant": true,
+        "citation_fingerprint_compliant": true,
+        "citation_document_page_correct": true,
+        "human_review": {
+          "required_fact_support": "pending",
+          "unsupported_claims": "pending",
+          "citation_pdf_page_correctness": "pending"
+        }
+      }
+    },
+    {
+      "question_id": "geo-gen-accept-005",
+      "question_type": "condition_parameter",
+      "expected_status": "answered",
+      "filters": {
+        "document_ids": [
+          "geo-report-1989-4195"
+        ]
+      },
+      "trace_id": "tr_509ceff4e5d34dc39d54e9ff33a9d40f",
+      "bounded_context": [
+        {
+          "chunk_id": "geo-report-1989-4195_43",
+          "document_id": "geo-report-1989-4195",
+          "physical_page": 13,
+          "document_type": "report",
+          "language": "en",
+          "corpus_fingerprint": "07931977ad3ff8a5ae743b5ed96ea92d0c87f0b4a8fb6a1aaa1be7e72ef2575f"
+        },
+        {
+          "chunk_id": "geo-report-1989-4195_44",
+          "document_id": "geo-report-1989-4195",
+          "physical_page": 13,
+          "document_type": "report",
+          "language": "en",
+          "corpus_fingerprint": "07931977ad3ff8a5ae743b5ed96ea92d0c87f0b4a8fb6a1aaa1be7e72ef2575f"
+        },
+        {
+          "chunk_id": "geo-report-1989-4195_54",
+          "document_id": "geo-report-1989-4195",
+          "physical_page": 16,
+          "document_type": "report",
+          "language": "en",
+          "corpus_fingerprint": "07931977ad3ff8a5ae743b5ed96ea92d0c87f0b4a8fb6a1aaa1be7e72ef2575f"
+        },
+        {
+          "chunk_id": "geo-report-1989-4195_55",
+          "document_id": "geo-report-1989-4195",
+          "physical_page": 16,
+          "document_type": "report",
+          "language": "en",
+          "corpus_fingerprint": "07931977ad3ff8a5ae743b5ed96ea92d0c87f0b4a8fb6a1aaa1be7e72ef2575f"
+        }
+      ],
+      "llm_call_events": [
+        {
+          "attempt_id": "llm_0159d8ccbb364006823e28ee93a659e8",
+          "phase": "primary",
+          "model": "deepseek-flash",
+          "provider_retry_limit": 1,
+          "provider_retry_attempts_observed": 0,
+          "status": "error",
+          "elapsed_ms": 2.837,
+          "error_category": "LLM_PROVIDER_UNAVAILABLE",
+          "error_diagnostics": {
+            "failure_stage": "connect",
+            "exception_types": [
+              "ConnectError",
+              "ConnectError",
+              "OSError",
+              "ExceptionGroup"
+            ],
+            "target_host": "api.deepseek.com"
+          },
+          "usage_state": "unknown"
+        }
+      ],
+      "usage_state": "unknown",
+      "response": {
+        "status": "execution_failed",
+        "answer": "\u751f\u6210\u6267\u884c\u5931\u8d25\uff0c\u672a\u80fd\u53ef\u9760\u6574\u7406\u5730\u8d28\u8bc1\u636e\uff1aDeepSeek transport error",
+        "citations": [],
+        "error_code": "generation_failed",
+        "generation_backend": "deepseek",
+        "retrieval_backend": "bm25",
+        "token_usage": {
+          "prompt_tokens": 0,
+          "completion_tokens": 0,
+          "total_tokens": 0,
+          "usage_known": false
+        },
+        "latency": {
+          "intent_ms": 0.0,
+          "routing_ms": 0.0,
+          "retrieval_ms": 19.395499999518506,
+          "rerank_ms": 0.0,
+          "tool_ms": 0.0,
+          "llm_ms": 3.113599999778671,
+          "total_ms": 38.175800000317395
+        }
+      },
+      "automatic_review": {
+        "status_correct": false,
+        "answerable_coverage": false,
+        "required_fact_keyword_signals": [
+          false,
+          false
+        ],
+        "required_fact_candidate_coverage": 0.0,
+        "forbidden_claim_candidate_hits": [],
+        "citation_checks": [],
+        "citation_in_context": true,
+        "citation_filter_compliant": true,
+        "citation_fingerprint_compliant": true,
+        "citation_document_page_correct": true,
+        "human_review": {
+          "required_fact_support": "pending",
+          "unsupported_claims": "pending",
+          "citation_pdf_page_correctness": "pending"
+        }
+      }
+    },
+    {
+      "question_id": "geo-gen-accept-006",
+      "question_type": "single_chunk",
+      "expected_status": "answered",
+      "filters": {
+        "document_ids": [
+          "geo-report-1989-4195"
+        ]
+      },
+      "trace_id": "tr_6321dee01252422d8e034b06fde3d66b",
+      "bounded_context": [
+        {
+          "chunk_id": "geo-report-1989-4195_69",
+          "document_id": "geo-report-1989-4195",
+          "physical_page": 21,
+          "document_type": "report",
+          "language": "en",
+          "corpus_fingerprint": "07931977ad3ff8a5ae743b5ed96ea92d0c87f0b4a8fb6a1aaa1be7e72ef2575f"
+        },
+        {
+          "chunk_id": "geo-report-1989-4195_70",
+          "document_id": "geo-report-1989-4195",
+          "physical_page": 21,
+          "document_type": "report",
+          "language": "en",
+          "corpus_fingerprint": "07931977ad3ff8a5ae743b5ed96ea92d0c87f0b4a8fb6a1aaa1be7e72ef2575f"
+        },
+        {
+          "chunk_id": "geo-report-1989-4195_106",
+          "document_id": "geo-report-1989-4195",
+          "physical_page": 35,
+          "document_type": "report",
+          "language": "en",
+          "corpus_fingerprint": "07931977ad3ff8a5ae743b5ed96ea92d0c87f0b4a8fb6a1aaa1be7e72ef2575f"
+        },
+        {
+          "chunk_id": "geo-report-1989-4195_107",
+          "document_id": "geo-report-1989-4195",
+          "physical_page": 35,
+          "document_type": "report",
+          "language": "en",
+          "corpus_fingerprint": "07931977ad3ff8a5ae743b5ed96ea92d0c87f0b4a8fb6a1aaa1be7e72ef2575f"
+        }
+      ],
+      "llm_call_events": [
+        {
+          "attempt_id": "llm_067af36da0674e7ea629ac3ec42383ba",
+          "phase": "primary",
+          "model": "deepseek-flash",
+          "provider_retry_limit": 1,
+          "provider_retry_attempts_observed": 0,
+          "status": "error",
+          "elapsed_ms": 2.828,
+          "error_category": "LLM_PROVIDER_UNAVAILABLE",
+          "error_diagnostics": {
+            "failure_stage": "connect",
+            "exception_types": [
+              "ConnectError",
+              "ConnectError",
+              "OSError",
+              "ExceptionGroup"
+            ],
+            "target_host": "api.deepseek.com"
+          },
+          "usage_state": "unknown"
+        }
+      ],
+      "usage_state": "unknown",
+      "response": {
+        "status": "execution_failed",
+        "answer": "\u751f\u6210\u6267\u884c\u5931\u8d25\uff0c\u672a\u80fd\u53ef\u9760\u6574\u7406\u5730\u8d28\u8bc1\u636e\uff1aDeepSeek transport error",
+        "citations": [],
+        "error_code": "generation_failed",
+        "generation_backend": "deepseek",
+        "retrieval_backend": "bm25",
+        "token_usage": {
+          "prompt_tokens": 0,
+          "completion_tokens": 0,
+          "total_tokens": 0,
+          "usage_known": false
+        },
+        "latency": {
+          "intent_ms": 0.0,
+          "routing_ms": 0.0,
+          "retrieval_ms": 17.129199997725664,
+          "rerank_ms": 0.0,
+          "tool_ms": 0.0,
+          "llm_ms": 3.075200002058409,
+          "total_ms": 32.187699998758035
+        }
+      },
+      "automatic_review": {
+        "status_correct": false,
+        "answerable_coverage": false,
+        "required_fact_keyword_signals": [
+          false
+        ],
+        "required_fact_candidate_coverage": 0.0,
+        "forbidden_claim_candidate_hits": [],
+        "citation_checks": [],
+        "citation_in_context": true,
+        "citation_filter_compliant": true,
+        "citation_fingerprint_compliant": true,
+        "citation_document_page_correct": true,
+        "human_review": {
+          "required_fact_support": "pending",
+          "unsupported_claims": "pending",
+          "citation_pdf_page_correctness": "pending"
+        }
+      }
+    },
+    {
+      "question_id": "geo-gen-accept-007",
+      "question_type": "condition_parameter",
+      "expected_status": "answered",
+      "filters": {
+        "document_ids": [
+          "geo-s10950-021-10042-z"
+        ]
+      },
+      "trace_id": "tr_2e9c163e4f3c49adb3466a1e75e4366f",
+      "bounded_context": [
+        {
+          "chunk_id": "geo-s10950-021-10042-z_45",
+          "document_id": "geo-s10950-021-10042-z",
+          "physical_page": 6,
+          "document_type": "paper",
+          "language": "en",
+          "corpus_fingerprint": "07931977ad3ff8a5ae743b5ed96ea92d0c87f0b4a8fb6a1aaa1be7e72ef2575f"
+        },
+        {
+          "chunk_id": "geo-s10950-021-10042-z_46",
+          "document_id": "geo-s10950-021-10042-z",
+          "physical_page": 6,
+          "document_type": "paper",
+          "language": "en",
+          "corpus_fingerprint": "07931977ad3ff8a5ae743b5ed96ea92d0c87f0b4a8fb6a1aaa1be7e72ef2575f"
+        },
+        {
+          "chunk_id": "geo-s10950-021-10042-z_93",
+          "document_id": "geo-s10950-021-10042-z",
+          "physical_page": 13,
+          "document_type": "paper",
+          "language": "en",
+          "corpus_fingerprint": "07931977ad3ff8a5ae743b5ed96ea92d0c87f0b4a8fb6a1aaa1be7e72ef2575f"
+        },
+        {
+          "chunk_id": "geo-s10950-021-10042-z_94",
+          "document_id": "geo-s10950-021-10042-z",
+          "physical_page": 13,
+          "document_type": "paper",
+          "language": "en",
+          "corpus_fingerprint": "07931977ad3ff8a5ae743b5ed96ea92d0c87f0b4a8fb6a1aaa1be7e72ef2575f"
+        }
+      ],
+      "llm_call_events": [
+        {
+          "attempt_id": "llm_681b761ed15b49ebbd4cb074e25d343f",
+          "phase": "primary",
+          "model": "deepseek-flash",
+          "provider_retry_limit": 1,
+          "provider_retry_attempts_observed": 0,
+          "status": "error",
+          "elapsed_ms": 2.729,
+          "error_category": "LLM_PROVIDER_UNAVAILABLE",
+          "error_diagnostics": {
+            "failure_stage": "connect",
+            "exception_types": [
+              "ConnectError",
+              "ConnectError",
+              "OSError",
+              "ExceptionGroup"
+            ],
+            "target_host": "api.deepseek.com"
+          },
+          "usage_state": "unknown"
+        }
+      ],
+      "usage_state": "unknown",
+      "response": {
+        "status": "execution_failed",
+        "answer": "\u751f\u6210\u6267\u884c\u5931\u8d25\uff0c\u672a\u80fd\u53ef\u9760\u6574\u7406\u5730\u8d28\u8bc1\u636e\uff1aDeepSeek transport error",
+        "citations": [],
+        "error_code": "generation_failed",
+        "generation_backend": "deepseek",
+        "retrieval_backend": "bm25",
+        "token_usage": {
+          "prompt_tokens": 0,
+          "completion_tokens": 0,
+          "total_tokens": 0,
+          "usage_known": false
+        },
+        "latency": {
+          "intent_ms": 0.0,
+          "routing_ms": 0.0,
+          "retrieval_ms": 16.308599999319995,
+          "rerank_ms": 0.0,
+          "tool_ms": 0.0,
+          "llm_ms": 2.9704000007768627,
+          "total_ms": 31.09069999845815
+        }
+      },
+      "automatic_review": {
+        "status_correct": false,
+        "answerable_coverage": false,
+        "required_fact_keyword_signals": [
+          false,
+          false
+        ],
+        "required_fact_candidate_coverage": 0.0,
+        "forbidden_claim_candidate_hits": [],
+        "citation_checks": [],
+        "citation_in_context": true,
+        "citation_filter_compliant": true,
+        "citation_fingerprint_compliant": true,
+        "citation_document_page_correct": true,
+        "human_review": {
+          "required_fact_support": "pending",
+          "unsupported_claims": "pending",
+          "citation_pdf_page_correctness": "pending"
+        }
+      }
+    },
+    {
+      "question_id": "geo-gen-accept-008",
+      "question_type": "condition_parameter",
+      "expected_status": "answered",
+      "filters": {
+        "document_ids": [
+          "geo-twri-2-d2"
+        ]
+      },
+      "trace_id": "tr_26b47b1fdccf48feaabac58a8622bd0e",
+      "bounded_context": [
+        {
+          "chunk_id": "geo-twri-2-d2_128",
+          "document_id": "geo-twri-2-d2",
+          "physical_page": 22,
+          "document_type": "textbook",
+          "language": "en",
+          "corpus_fingerprint": "07931977ad3ff8a5ae743b5ed96ea92d0c87f0b4a8fb6a1aaa1be7e72ef2575f"
+        },
+        {
+          "chunk_id": "geo-twri-2-d2_461",
+          "document_id": "geo-twri-2-d2",
+          "physical_page": 81,
+          "document_type": "textbook",
+          "language": "en",
+          "corpus_fingerprint": "07931977ad3ff8a5ae743b5ed96ea92d0c87f0b4a8fb6a1aaa1be7e72ef2575f"
+        },
+        {
+          "chunk_id": "geo-twri-2-d2_462",
+          "document_id": "geo-twri-2-d2",
+          "physical_page": 81,
+          "document_type": "textbook",
+          "language": "en",
+          "corpus_fingerprint": "07931977ad3ff8a5ae743b5ed96ea92d0c87f0b4a8fb6a1aaa1be7e72ef2575f"
+        },
+        {
+          "chunk_id": "geo-twri-2-d2_468",
+          "document_id": "geo-twri-2-d2",
+          "physical_page": 82,
+          "document_type": "textbook",
+          "language": "en",
+          "corpus_fingerprint": "07931977ad3ff8a5ae743b5ed96ea92d0c87f0b4a8fb6a1aaa1be7e72ef2575f"
+        }
+      ],
+      "llm_call_events": [
+        {
+          "attempt_id": "llm_545bb28ffe6a451a90e635fd13867d6a",
+          "phase": "primary",
+          "model": "deepseek-flash",
+          "provider_retry_limit": 1,
+          "provider_retry_attempts_observed": 0,
+          "status": "error",
+          "elapsed_ms": 2.785,
+          "error_category": "LLM_PROVIDER_UNAVAILABLE",
+          "error_diagnostics": {
+            "failure_stage": "connect",
+            "exception_types": [
+              "ConnectError",
+              "ConnectError",
+              "OSError",
+              "ExceptionGroup"
+            ],
+            "target_host": "api.deepseek.com"
+          },
+          "usage_state": "unknown"
+        }
+      ],
+      "usage_state": "unknown",
+      "response": {
+        "status": "execution_failed",
+        "answer": "\u751f\u6210\u6267\u884c\u5931\u8d25\uff0c\u672a\u80fd\u53ef\u9760\u6574\u7406\u5730\u8d28\u8bc1\u636e\uff1aDeepSeek transport error",
+        "citations": [],
+        "error_code": "generation_failed",
+        "generation_backend": "deepseek",
+        "retrieval_backend": "bm25",
+        "token_usage": {
+          "prompt_tokens": 0,
+          "completion_tokens": 0,
+          "total_tokens": 0,
+          "usage_known": false
+        },
+        "latency": {
+          "intent_ms": 0.0,
+          "routing_ms": 0.0,
+          "retrieval_ms": 30.41029999803868,
+          "rerank_ms": 0.0,
+          "tool_ms": 0.0,
+          "llm_ms": 3.0459000008704606,
+          "total_ms": 46.63230000005569
+        }
+      },
+      "automatic_review": {
+        "status_correct": false,
+        "answerable_coverage": false,
+        "required_fact_keyword_signals": [
+          false,
+          false
+        ],
+        "required_fact_candidate_coverage": 0.0,
+        "forbidden_claim_candidate_hits": [],
+        "citation_checks": [],
+        "citation_in_context": true,
+        "citation_filter_compliant": true,
+        "citation_fingerprint_compliant": true,
+        "citation_document_page_correct": true,
+        "human_review": {
+          "required_fact_support": "pending",
+          "unsupported_claims": "pending",
+          "citation_pdf_page_correctness": "pending"
+        }
+      }
+    },
+    {
+      "question_id": "geo-gen-accept-009",
+      "question_type": "filter_insufficient",
+      "expected_status": "insufficient_evidence",
+      "filters": {
+        "document_types": [
+          "paper"
+        ]
+      },
+      "trace_id": "tr_6fb6bc68ab6d4f8a861eef83e577da63",
+      "bounded_context": [
+        {
+          "chunk_id": "geo-s10950-021-10042-z_125",
+          "document_id": "geo-s10950-021-10042-z",
+          "physical_page": 18,
+          "document_type": "paper",
+          "language": "en",
+          "corpus_fingerprint": "07931977ad3ff8a5ae743b5ed96ea92d0c87f0b4a8fb6a1aaa1be7e72ef2575f"
+        },
+        {
+          "chunk_id": "geo-s10950-021-10042-z_126",
+          "document_id": "geo-s10950-021-10042-z",
+          "physical_page": 18,
+          "document_type": "paper",
+          "language": "en",
+          "corpus_fingerprint": "07931977ad3ff8a5ae743b5ed96ea92d0c87f0b4a8fb6a1aaa1be7e72ef2575f"
+        },
+        {
+          "chunk_id": "geo-1996-21_16",
+          "document_id": "geo-1996-21",
+          "physical_page": 5,
+          "document_type": "paper",
+          "language": "en",
+          "corpus_fingerprint": "07931977ad3ff8a5ae743b5ed96ea92d0c87f0b4a8fb6a1aaa1be7e72ef2575f"
+        },
+        {
+          "chunk_id": "geo-1996-21_17",
+          "document_id": "geo-1996-21",
+          "physical_page": 5,
+          "document_type": "paper",
+          "language": "en",
+          "corpus_fingerprint": "07931977ad3ff8a5ae743b5ed96ea92d0c87f0b4a8fb6a1aaa1be7e72ef2575f"
+        }
+      ],
+      "llm_call_events": [
+        {
+          "attempt_id": "llm_36726eebaac94f41a15aadad5189a3b3",
+          "phase": "primary",
+          "model": "deepseek-flash",
+          "provider_retry_limit": 1,
+          "provider_retry_attempts_observed": 0,
+          "status": "error",
+          "elapsed_ms": 3.033,
+          "error_category": "LLM_PROVIDER_UNAVAILABLE",
+          "error_diagnostics": {
+            "failure_stage": "connect",
+            "exception_types": [
+              "ConnectError",
+              "ConnectError",
+              "OSError",
+              "ExceptionGroup"
+            ],
+            "target_host": "api.deepseek.com"
+          },
+          "usage_state": "unknown"
+        }
+      ],
+      "usage_state": "unknown",
+      "response": {
+        "status": "execution_failed",
+        "answer": "\u751f\u6210\u6267\u884c\u5931\u8d25\uff0c\u672a\u80fd\u53ef\u9760\u6574\u7406\u5730\u8d28\u8bc1\u636e\uff1aDeepSeek transport error",
+        "citations": [],
+        "error_code": "generation_failed",
+        "generation_backend": "deepseek",
+        "retrieval_backend": "bm25",
+        "token_usage": {
+          "prompt_tokens": 0,
+          "completion_tokens": 0,
+          "total_tokens": 0,
+          "usage_known": false
+        },
+        "latency": {
+          "intent_ms": 0.0,
+          "routing_ms": 0.0,
+          "retrieval_ms": 30.95519999988028,
+          "rerank_ms": 0.0,
+          "tool_ms": 0.0,
+          "llm_ms": 3.2975999965856317,
+          "total_ms": 47.38779999752296
+        }
+      },
+      "automatic_review": {
+        "status_correct": false,
+        "answerable_coverage": null,
+        "required_fact_keyword_signals": [],
+        "required_fact_candidate_coverage": null,
+        "forbidden_claim_candidate_hits": [],
+        "citation_checks": [],
+        "citation_in_context": true,
+        "citation_filter_compliant": true,
+        "citation_fingerprint_compliant": true,
+        "citation_document_page_correct": true,
+        "human_review": {
+          "required_fact_support": "pending",
+          "unsupported_claims": "pending",
+          "citation_pdf_page_correctness": "pending"
+        }
+      }
+    },
+    {
+      "question_id": "geo-gen-accept-010",
+      "question_type": "corpus_insufficient",
+      "expected_status": "insufficient_evidence",
+      "filters": {},
+      "trace_id": "tr_bee6b3f7ddb54a188bc7203a9bc7b8a2",
+      "bounded_context": [
+        {
+          "chunk_id": "geo-twri-2-d2_52",
+          "document_id": "geo-twri-2-d2",
+          "physical_page": 8,
+          "document_type": "textbook",
+          "language": "en",
+          "corpus_fingerprint": "07931977ad3ff8a5ae743b5ed96ea92d0c87f0b4a8fb6a1aaa1be7e72ef2575f"
+        },
+        {
+          "chunk_id": "geo-twri-2-d2_323",
+          "document_id": "geo-twri-2-d2",
+          "physical_page": 51,
+          "document_type": "textbook",
+          "language": "en",
+          "corpus_fingerprint": "07931977ad3ff8a5ae743b5ed96ea92d0c87f0b4a8fb6a1aaa1be7e72ef2575f"
+        },
+        {
+          "chunk_id": "geo-twri-2-d2_324",
+          "document_id": "geo-twri-2-d2",
+          "physical_page": 51,
+          "document_type": "textbook",
+          "language": "en",
+          "corpus_fingerprint": "07931977ad3ff8a5ae743b5ed96ea92d0c87f0b4a8fb6a1aaa1be7e72ef2575f"
+        },
+        {
+          "chunk_id": "geo-twri-2-d2_325",
+          "document_id": "geo-twri-2-d2",
+          "physical_page": 51,
+          "document_type": "textbook",
+          "language": "en",
+          "corpus_fingerprint": "07931977ad3ff8a5ae743b5ed96ea92d0c87f0b4a8fb6a1aaa1be7e72ef2575f"
+        }
+      ],
+      "llm_call_events": [
+        {
+          "attempt_id": "llm_97b1edf4db2343c687fe5f3281a33291",
+          "phase": "primary",
+          "model": "deepseek-flash",
+          "provider_retry_limit": 1,
+          "provider_retry_attempts_observed": 0,
+          "status": "error",
+          "elapsed_ms": 2.871,
+          "error_category": "LLM_PROVIDER_UNAVAILABLE",
+          "error_diagnostics": {
+            "failure_stage": "connect",
+            "exception_types": [
+              "ConnectError",
+              "ConnectError",
+              "OSError",
+              "ExceptionGroup"
+            ],
+            "target_host": "api.deepseek.com"
+          },
+          "usage_state": "unknown"
+        }
+      ],
+      "usage_state": "unknown",
+      "response": {
+        "status": "execution_failed",
+        "answer": "\u751f\u6210\u6267\u884c\u5931\u8d25\uff0c\u672a\u80fd\u53ef\u9760\u6574\u7406\u5730\u8d28\u8bc1\u636e\uff1aDeepSeek transport error",
+        "citations": [],
+        "error_code": "generation_failed",
+        "generation_backend": "deepseek",
+        "retrieval_backend": "bm25",
+        "token_usage": {
+          "prompt_tokens": 0,
+          "completion_tokens": 0,
+          "total_tokens": 0,
+          "usage_known": false
+        },
+        "latency": {
+          "intent_ms": 0.0,
+          "routing_ms": 0.0,
+          "retrieval_ms": 84.34950000082608,
+          "rerank_ms": 0.0,
+          "tool_ms": 0.0,
+          "llm_ms": 3.112999998847954,
+          "total_ms": 100.63099999752012
+        }
+      },
+      "automatic_review": {
+        "status_correct": false,
+        "answerable_coverage": null,
+        "required_fact_keyword_signals": [],
+        "required_fact_candidate_coverage": null,
+        "forbidden_claim_candidate_hits": [],
+        "citation_checks": [],
+        "citation_in_context": true,
+        "citation_filter_compliant": true,
+        "citation_fingerprint_compliant": true,
+        "citation_document_page_correct": true,
+        "human_review": {
+          "required_fact_support": "pending",
+          "unsupported_claims": "pending",
+          "citation_pdf_page_correctness": "pending"
+        }
+      }
+    }
+  ],
+  "summary": {
+    "overall": {
+      "question_count": 10,
+      "status_accuracy": 0.0,
+      "answerable_coverage": 0.0,
+      "insufficient_evidence_precision": null,
+      "insufficient_evidence_recall": 0.0,
+      "required_fact_candidate_coverage": 0.0,
+      "unsupported_claim_candidate_count": 0,
+      "citation_document_page_correctness": null,
+      "filter_violation_rate": 0.0,
+      "execution_failure_rate": 1.0,
+      "median_latency_ms": 35.181749999537715,
+      "usage_missing_rate": 1.0
+    },
+    "by_question_type": {
+      "condition_parameter": {
+        "question_count": 4,
+        "status_accuracy": 0.0,
+        "answerable_coverage": 0.0,
+        "insufficient_evidence_precision": null,
+        "insufficient_evidence_recall": null,
+        "required_fact_candidate_coverage": 0.0,
+        "unsupported_claim_candidate_count": 0,
+        "citation_document_page_correctness": null,
+        "filter_violation_rate": 0.0,
+        "execution_failure_rate": 1.0,
+        "median_latency_ms": 34.63324999938777,
+        "usage_missing_rate": 1.0
+      },
+      "corpus_insufficient": {
+        "question_count": 1,
+        "status_accuracy": 0.0,
+        "answerable_coverage": null,
+        "insufficient_evidence_precision": null,
+        "insufficient_evidence_recall": 0.0,
+        "required_fact_candidate_coverage": null,
+        "unsupported_claim_candidate_count": 0,
+        "citation_document_page_correctness": null,
+        "filter_violation_rate": 0.0,
+        "execution_failure_rate": 1.0,
+        "median_latency_ms": 100.63099999752012,
+        "usage_missing_rate": 1.0
+      },
+      "filter_insufficient": {
+        "question_count": 1,
+        "status_accuracy": 0.0,
+        "answerable_coverage": null,
+        "insufficient_evidence_precision": null,
+        "insufficient_evidence_recall": 0.0,
+        "required_fact_candidate_coverage": null,
+        "unsupported_claim_candidate_count": 0,
+        "citation_document_page_correctness": null,
+        "filter_violation_rate": 0.0,
+        "execution_failure_rate": 1.0,
+        "median_latency_ms": 47.38779999752296,
+        "usage_missing_rate": 1.0
+      },
+      "single_chunk": {
+        "question_count": 4,
+        "status_accuracy": 0.0,
+        "answerable_coverage": 0.0,
+        "insufficient_evidence_precision": null,
+        "insufficient_evidence_recall": null,
+        "required_fact_candidate_coverage": 0.0,
+        "unsupported_claim_candidate_count": 0,
+        "citation_document_page_correctness": null,
+        "filter_violation_rate": 0.0,
+        "execution_failure_rate": 1.0,
+        "median_latency_ms": 30.497249999825726,
+        "usage_missing_rate": 1.0
+      }
+    }
+  }
+}

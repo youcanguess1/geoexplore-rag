@@ -1,0 +1,1369 @@
+{
+  "protocol": "geoexplore-generation-v1",
+  "run_started_at": "2026-10-22T09:57:10.611541+00:00",
+  "split": "acceptance",
+  "evaluation_code_commit": "8e0035fb892865e46f2579ee602c3352f8619cb2",
+  "dataset_path": "evals\\generation_acceptance_questions.json",
+  "dataset_sha256": "b4945044bc5c6fda9d118d9c1f03ede28869a78ff4ac630d88d552e6e68c5158",
+  "corpus_identity": {
+    "corpus_id": "geoexplore-v1",
+    "corpus_fingerprint": "07931977ad3ff8a5ae743b5ed96ea92d0c87f0b4a8fb6a1aaa1be7e72ef2575f",
+    "parser_backend": "pypdf",
+    "parser_version": "6.20.0",
+    "chunking_version": "v1",
+    "document_count": 6,
+    "chunk_count": 1006
+  },
+  "runtime": {
+    "retrieval_backend": "bm25",
+    "generation_backend": "deepseek",
+    "model": "deepseek-flash",
+    "llm_max_retries": 1,
+    "geological_top_k": 5,
+    "geological_context_chunks": 4,
+    "geological_context_chars": 900
+  },
+  "manual_gold_annotation": "frozen in the question set; never modified by this runner",
+  "manual_response_review": "pending PDF-based human review",
+  "executed_question_ids": [
+    "geo-gen-accept-001",
+    "geo-gen-accept-002",
+    "geo-gen-accept-003",
+    "geo-gen-accept-004",
+    "geo-gen-accept-005",
+    "geo-gen-accept-006",
+    "geo-gen-accept-007",
+    "geo-gen-accept-008",
+    "geo-gen-accept-009",
+    "geo-gen-accept-010"
+  ],
+  "rows": [
+    {
+      "question_id": "geo-gen-accept-001",
+      "question_type": "single_chunk",
+      "expected_status": "answered",
+      "filters": {
+        "document_ids": [
+          "geo-fs11503"
+        ]
+      },
+      "trace_id": "tr_f98728e4838340bc9fc479a6e1880a34",
+      "bounded_context": [
+        {
+          "chunk_id": "geo-fs11503_01",
+          "document_id": "geo-fs11503",
+          "physical_page": 1,
+          "document_type": "technical_report",
+          "language": "en",
+          "corpus_fingerprint": "07931977ad3ff8a5ae743b5ed96ea92d0c87f0b4a8fb6a1aaa1be7e72ef2575f"
+        },
+        {
+          "chunk_id": "geo-fs11503_02",
+          "document_id": "geo-fs11503",
+          "physical_page": 1,
+          "document_type": "technical_report",
+          "language": "en",
+          "corpus_fingerprint": "07931977ad3ff8a5ae743b5ed96ea92d0c87f0b4a8fb6a1aaa1be7e72ef2575f"
+        },
+        {
+          "chunk_id": "geo-fs11503_03",
+          "document_id": "geo-fs11503",
+          "physical_page": 1,
+          "document_type": "technical_report",
+          "language": "en",
+          "corpus_fingerprint": "07931977ad3ff8a5ae743b5ed96ea92d0c87f0b4a8fb6a1aaa1be7e72ef2575f"
+        },
+        {
+          "chunk_id": "geo-fs11503_06",
+          "document_id": "geo-fs11503",
+          "physical_page": 1,
+          "document_type": "technical_report",
+          "language": "en",
+          "corpus_fingerprint": "07931977ad3ff8a5ae743b5ed96ea92d0c87f0b4a8fb6a1aaa1be7e72ef2575f"
+        }
+      ],
+      "llm_call_events": [
+        {
+          "attempt_id": "llm_0f984b4b4474464ab67a942706e343b5",
+          "phase": "primary",
+          "model": "deepseek-flash",
+          "provider_retry_limit": 1,
+          "provider_retry_attempts_observed": 0,
+          "status": "success",
+          "elapsed_ms": 1307.358,
+          "usage_state": "known",
+          "usage": {
+            "prompt_tokens": 809,
+            "completion_tokens": 122,
+            "total_tokens": 931,
+            "usage_known": true
+          }
+        }
+      ],
+      "usage_state": "known",
+      "response": {
+        "status": "answered",
+        "answer": "The 2001 cooperative pilot study was conducted by the U.S. Geological Survey (USGS) and the Nebraska Platte River Cooperative Hydrology Study (COHYST).",
+        "citations": [
+          {
+            "document_id": "geo-fs11503",
+            "title": "Use of Continuous Seismic Profiling to Differentiate Geologic Deposits Underlying Selected Canals in Central and Western Nebraska",
+            "chunk_id": "geo-fs11503_02",
+            "section": "body",
+            "source_file": "fs11503.pdf",
+            "page_number": 1,
+            "excerpt": "y geologic \nlogs and bedrock outcrops are used to map the depth of the bedrock surface. Although geophysical methods have been used to \ninvestigate shallow geologic deposits in central and western Nebraska (Ellis and Hiergesell, 1985), no investigations had been \nconducted using water-borne continuous seismic-reflection profiling (CSP) techniques. In 2001, the U.S. Geological Survey \n(USGS) and the Nebraska Platte River Cooperative Hydrology Study (COHYST) engaged in a cooperative pilot study",
+            "data_type": "01_Documents",
+            "document_type": "technical_report",
+            "language": "en",
+            "document_sha256": "880b0d2fd3dcfd6437e5243cb060f10fc76dcdbf6f034f011cbae197ab2426a7",
+            "corpus_fingerprint": "07931977ad3ff8a5ae743b5ed96ea92d0c87f0b4a8fb6a1aaa1be7e72ef2575f"
+          }
+        ],
+        "error_code": null,
+        "generation_backend": "deepseek",
+        "retrieval_backend": "bm25",
+        "token_usage": {
+          "prompt_tokens": 809,
+          "completion_tokens": 122,
+          "total_tokens": 931,
+          "usage_known": true
+        },
+        "latency": {
+          "intent_ms": 0.0,
+          "routing_ms": 0.0,
+          "retrieval_ms": 10.687999998481246,
+          "rerank_ms": 0.0,
+          "tool_ms": 0.0,
+          "llm_ms": 1307.532999999239,
+          "total_ms": 1348.731999998563
+        }
+      },
+      "automatic_review": {
+        "status_correct": true,
+        "answerable_coverage": true,
+        "required_fact_keyword_signals": [
+          true,
+          true
+        ],
+        "required_fact_candidate_coverage": 1.0,
+        "forbidden_claim_candidate_hits": [],
+        "citation_checks": [
+          {
+            "chunk_id": "geo-fs11503_02",
+            "in_bounded_context": true,
+            "matches_filters": true,
+            "matches_corpus_fingerprint": true,
+            "document_page_correct": true
+          }
+        ],
+        "citation_in_context": true,
+        "citation_filter_compliant": true,
+        "citation_fingerprint_compliant": true,
+        "citation_document_page_correct": true,
+        "human_review": {
+          "required_fact_support": "pending",
+          "unsupported_claims": "pending",
+          "citation_pdf_page_correctness": "pending"
+        }
+      }
+    },
+    {
+      "question_id": "geo-gen-accept-002",
+      "question_type": "single_chunk",
+      "expected_status": "answered",
+      "filters": {
+        "document_ids": [
+          "geo-fs11503"
+        ]
+      },
+      "trace_id": "tr_1231af1308bc432e997f9e617f5d835c",
+      "bounded_context": [
+        {
+          "chunk_id": "geo-fs11503_16",
+          "document_id": "geo-fs11503",
+          "physical_page": 3,
+          "document_type": "technical_report",
+          "language": "en",
+          "corpus_fingerprint": "07931977ad3ff8a5ae743b5ed96ea92d0c87f0b4a8fb6a1aaa1be7e72ef2575f"
+        },
+        {
+          "chunk_id": "geo-fs11503_17",
+          "document_id": "geo-fs11503",
+          "physical_page": 3,
+          "document_type": "technical_report",
+          "language": "en",
+          "corpus_fingerprint": "07931977ad3ff8a5ae743b5ed96ea92d0c87f0b4a8fb6a1aaa1be7e72ef2575f"
+        },
+        {
+          "chunk_id": "geo-fs11503_18",
+          "document_id": "geo-fs11503",
+          "physical_page": 3,
+          "document_type": "technical_report",
+          "language": "en",
+          "corpus_fingerprint": "07931977ad3ff8a5ae743b5ed96ea92d0c87f0b4a8fb6a1aaa1be7e72ef2575f"
+        },
+        {
+          "chunk_id": "geo-fs11503_19",
+          "document_id": "geo-fs11503",
+          "physical_page": 3,
+          "document_type": "technical_report",
+          "language": "en",
+          "corpus_fingerprint": "07931977ad3ff8a5ae743b5ed96ea92d0c87f0b4a8fb6a1aaa1be7e72ef2575f"
+        }
+      ],
+      "llm_call_events": [
+        {
+          "attempt_id": "llm_6ebff08a6d324cb7bd9b8c78158d515f",
+          "phase": "primary",
+          "model": "deepseek-flash",
+          "provider_retry_limit": 1,
+          "provider_retry_attempts_observed": 0,
+          "status": "success",
+          "elapsed_ms": 1144.843,
+          "usage_state": "known",
+          "usage": {
+            "prompt_tokens": 789,
+            "completion_tokens": 93,
+            "total_tokens": 882,
+            "usage_known": true
+          }
+        }
+      ],
+      "usage_state": "known",
+      "response": {
+        "status": "answered",
+        "answer": "The continuous seismic profiling (CSP) system generates a linear swept, frequency-modulated acoustic signal that propagates into the water column and subsurface from a tow vehicle suspended just below the water surface.",
+        "citations": [
+          {
+            "document_id": "geo-fs11503",
+            "title": "Use of Continuous Seismic Profiling to Differentiate Geologic Deposits Underlying Selected Canals in Central and Western Nebraska",
+            "chunk_id": "geo-fs11503_16",
+            "section": "body",
+            "source_file": "fs11503.pdf",
+            "page_number": 3,
+            "excerpt": "also was chosen because separate transmit and receive arrays \nmounted in a single tow vehicle allow for data to be collected in \nareas containing surface obstructions and areas of navigational \ndifficulty.\nThe CSP system generates a linear swept, frequency-\n modulated acoustic signal that propagates into the water column \nand subsurface from a tow vehicle suspended just below the \nwater surface. Acoustic energy is an elastic wave that trav-\nels through a homogeneous elastic medium with a series",
+            "data_type": "01_Documents",
+            "document_type": "technical_report",
+            "language": "en",
+            "document_sha256": "880b0d2fd3dcfd6437e5243cb060f10fc76dcdbf6f034f011cbae197ab2426a7",
+            "corpus_fingerprint": "07931977ad3ff8a5ae743b5ed96ea92d0c87f0b4a8fb6a1aaa1be7e72ef2575f"
+          }
+        ],
+        "error_code": null,
+        "generation_backend": "deepseek",
+        "retrieval_backend": "bm25",
+        "token_usage": {
+          "prompt_tokens": 789,
+          "completion_tokens": 93,
+          "total_tokens": 882,
+          "usage_known": true
+        },
+        "latency": {
+          "intent_ms": 0.0,
+          "routing_ms": 0.0,
+          "retrieval_ms": 9.892899997794302,
+          "rerank_ms": 0.0,
+          "tool_ms": 0.0,
+          "llm_ms": 1145.0197999984084,
+          "total_ms": 1165.1418000001286
+        }
+      },
+      "automatic_review": {
+        "status_correct": true,
+        "answerable_coverage": true,
+        "required_fact_keyword_signals": [
+          true
+        ],
+        "required_fact_candidate_coverage": 1.0,
+        "forbidden_claim_candidate_hits": [],
+        "citation_checks": [
+          {
+            "chunk_id": "geo-fs11503_16",
+            "in_bounded_context": true,
+            "matches_filters": true,
+            "matches_corpus_fingerprint": true,
+            "document_page_correct": true
+          }
+        ],
+        "citation_in_context": true,
+        "citation_filter_compliant": true,
+        "citation_fingerprint_compliant": true,
+        "citation_document_page_correct": true,
+        "human_review": {
+          "required_fact_support": "pending",
+          "unsupported_claims": "pending",
+          "citation_pdf_page_correctness": "pending"
+        }
+      }
+    },
+    {
+      "question_id": "geo-gen-accept-003",
+      "question_type": "condition_parameter",
+      "expected_status": "answered",
+      "filters": {
+        "document_ids": [
+          "geo-of12-1191"
+        ]
+      },
+      "trace_id": "tr_b30f7b34e3b44bfabde5473ac997351b",
+      "bounded_context": [
+        {
+          "chunk_id": "geo-of12-1191_33",
+          "document_id": "geo-of12-1191",
+          "physical_page": 8,
+          "document_type": "report",
+          "language": "en",
+          "corpus_fingerprint": "07931977ad3ff8a5ae743b5ed96ea92d0c87f0b4a8fb6a1aaa1be7e72ef2575f"
+        },
+        {
+          "chunk_id": "geo-of12-1191_34",
+          "document_id": "geo-of12-1191",
+          "physical_page": 8,
+          "document_type": "report",
+          "language": "en",
+          "corpus_fingerprint": "07931977ad3ff8a5ae743b5ed96ea92d0c87f0b4a8fb6a1aaa1be7e72ef2575f"
+        },
+        {
+          "chunk_id": "geo-of12-1191_35",
+          "document_id": "geo-of12-1191",
+          "physical_page": 8,
+          "document_type": "report",
+          "language": "en",
+          "corpus_fingerprint": "07931977ad3ff8a5ae743b5ed96ea92d0c87f0b4a8fb6a1aaa1be7e72ef2575f"
+        },
+        {
+          "chunk_id": "geo-of12-1191_36",
+          "document_id": "geo-of12-1191",
+          "physical_page": 8,
+          "document_type": "report",
+          "language": "en",
+          "corpus_fingerprint": "07931977ad3ff8a5ae743b5ed96ea92d0c87f0b4a8fb6a1aaa1be7e72ef2575f"
+        }
+      ],
+      "llm_call_events": [
+        {
+          "attempt_id": "llm_b394074882cc4913b98a5c8295b8e1e6",
+          "phase": "primary",
+          "model": "deepseek-flash",
+          "provider_retry_limit": 1,
+          "provider_retry_attempts_observed": 0,
+          "status": "success",
+          "elapsed_ms": 1770.586,
+          "usage_state": "known",
+          "usage": {
+            "prompt_tokens": 862,
+            "completion_tokens": 313,
+            "total_tokens": 1175,
+            "usage_known": true
+          }
+        }
+      ],
+      "usage_state": "known",
+      "response": {
+        "status": "answered",
+        "answer": "Both lines were acquired with a single, fixed spread of 96 40-Hertz compressional-wave geophones spaced 6 ft apart, at downline positions 6, 12, 18, ..., 576 ft. Source stations were located every 24 ft between and in-line with receivers, starting one-half station before the first geophone.",
+        "citations": [
+          {
+            "document_id": "geo-of12-1191",
+            "title": "Measurement of Near-Surface Seismic Compressional Wave Velocities Using Refraction Tomography at a Proposed Construction Site on the Presidio of Monterey, California",
+            "chunk_id": "geo-of12-1191_36",
+            "section": "body",
+            "source_file": "OF12-1191.pdf",
+            "page_number": 8,
+            "excerpt": "aveltime \npicks to source-receiver offsets of between 200 and 300 ft. However, the high velocity of \nthe bedrock material at depth still allowed velocity imaging to a maximum depth of \napproximately 100 ft. \nBoth lines were acquired with a single, fixed spread of 96 40-Hertz \ncompressional-wave geophones spaced 6 ft apart (downline positions 6, 12, 18, ... , 576 \nft). Source stations were located every 24 ft between and in-line with receivers starting at \none-half station before the first geophone",
+            "data_type": "01_Documents",
+            "document_type": "report",
+            "language": "en",
+            "document_sha256": "31ac9f71fa685217e63c9927088011b6a7d938aca9988982dbf46bd718c3a211",
+            "corpus_fingerprint": "07931977ad3ff8a5ae743b5ed96ea92d0c87f0b4a8fb6a1aaa1be7e72ef2575f"
+          }
+        ],
+        "error_code": null,
+        "generation_backend": "deepseek",
+        "retrieval_backend": "bm25",
+        "token_usage": {
+          "prompt_tokens": 862,
+          "completion_tokens": 313,
+          "total_tokens": 1175,
+          "usage_known": true
+        },
+        "latency": {
+          "intent_ms": 0.0,
+          "routing_ms": 0.0,
+          "retrieval_ms": 9.38049999967916,
+          "rerank_ms": 0.0,
+          "tool_ms": 0.0,
+          "llm_ms": 1770.7394000026397,
+          "total_ms": 1790.019799998845
+        }
+      },
+      "automatic_review": {
+        "status_correct": true,
+        "answerable_coverage": true,
+        "required_fact_keyword_signals": [
+          false,
+          true
+        ],
+        "required_fact_candidate_coverage": 0.5,
+        "forbidden_claim_candidate_hits": [],
+        "citation_checks": [
+          {
+            "chunk_id": "geo-of12-1191_36",
+            "in_bounded_context": true,
+            "matches_filters": true,
+            "matches_corpus_fingerprint": true,
+            "document_page_correct": true
+          }
+        ],
+        "citation_in_context": true,
+        "citation_filter_compliant": true,
+        "citation_fingerprint_compliant": true,
+        "citation_document_page_correct": true,
+        "human_review": {
+          "required_fact_support": "pending",
+          "unsupported_claims": "pending",
+          "citation_pdf_page_correctness": "pending"
+        }
+      }
+    },
+    {
+      "question_id": "geo-gen-accept-004",
+      "question_type": "single_chunk",
+      "expected_status": "answered",
+      "filters": {
+        "document_ids": [
+          "geo-of12-1191"
+        ]
+      },
+      "trace_id": "tr_f18ef6d35e554888adb075fbe01eae5c",
+      "bounded_context": [
+        {
+          "chunk_id": "geo-of12-1191_45",
+          "document_id": "geo-of12-1191",
+          "physical_page": 11,
+          "document_type": "report",
+          "language": "en",
+          "corpus_fingerprint": "07931977ad3ff8a5ae743b5ed96ea92d0c87f0b4a8fb6a1aaa1be7e72ef2575f"
+        },
+        {
+          "chunk_id": "geo-of12-1191_74",
+          "document_id": "geo-of12-1191",
+          "physical_page": 19,
+          "document_type": "report",
+          "language": "en",
+          "corpus_fingerprint": "07931977ad3ff8a5ae743b5ed96ea92d0c87f0b4a8fb6a1aaa1be7e72ef2575f"
+        },
+        {
+          "chunk_id": "geo-of12-1191_75",
+          "document_id": "geo-of12-1191",
+          "physical_page": 19,
+          "document_type": "report",
+          "language": "en",
+          "corpus_fingerprint": "07931977ad3ff8a5ae743b5ed96ea92d0c87f0b4a8fb6a1aaa1be7e72ef2575f"
+        },
+        {
+          "chunk_id": "geo-of12-1191_76",
+          "document_id": "geo-of12-1191",
+          "physical_page": 19,
+          "document_type": "report",
+          "language": "en",
+          "corpus_fingerprint": "07931977ad3ff8a5ae743b5ed96ea92d0c87f0b4a8fb6a1aaa1be7e72ef2575f"
+        }
+      ],
+      "llm_call_events": [
+        {
+          "attempt_id": "llm_a3c617b3faef4e0cb9cdc8233c66681b",
+          "phase": "primary",
+          "model": "deepseek-flash",
+          "provider_retry_limit": 1,
+          "provider_retry_attempts_observed": 0,
+          "status": "success",
+          "elapsed_ms": 1229.773,
+          "usage_state": "known",
+          "usage": {
+            "prompt_tokens": 854,
+            "completion_tokens": 151,
+            "total_tokens": 1005,
+            "usage_known": true
+          }
+        }
+      ],
+      "usage_state": "known",
+      "response": {
+        "status": "answered",
+        "answer": "The slope of the curve represents the apparent velocity of the energy arrival.",
+        "citations": [
+          {
+            "document_id": "geo-of12-1191",
+            "title": "Measurement of Near-Surface Seismic Compressional Wave Velocities Using Refraction Tomography at a Proposed Construction Site on the Presidio of Monterey, California",
+            "chunk_id": "geo-of12-1191_74",
+            "section": "body",
+            "source_file": "OF12-1191.pdf",
+            "page_number": 19,
+            "excerpt": "Appendix 1: Seismic Refraction Traveltime Curves \n \nFor all seismic data acquired on lines A and B, the refraction tomography P-wave \nvelocity models are created from first-arrival traveltime picks made for every shot record. \nThe picks are displayed as traveltime curves. The downline distance at which each curve \nconverges to zero time represents the shot location. The slope of the curve represents \napparent velocity of the energy arrival. Depth to a higher-velocity layer is related to the \ntim",
+            "data_type": "01_Documents",
+            "document_type": "report",
+            "language": "en",
+            "document_sha256": "31ac9f71fa685217e63c9927088011b6a7d938aca9988982dbf46bd718c3a211",
+            "corpus_fingerprint": "07931977ad3ff8a5ae743b5ed96ea92d0c87f0b4a8fb6a1aaa1be7e72ef2575f"
+          }
+        ],
+        "error_code": null,
+        "generation_backend": "deepseek",
+        "retrieval_backend": "bm25",
+        "token_usage": {
+          "prompt_tokens": 854,
+          "completion_tokens": 151,
+          "total_tokens": 1005,
+          "usage_known": true
+        },
+        "latency": {
+          "intent_ms": 0.0,
+          "routing_ms": 0.0,
+          "retrieval_ms": 8.334800000739051,
+          "rerank_ms": 0.0,
+          "tool_ms": 0.0,
+          "llm_ms": 1229.9659999989672,
+          "total_ms": 1249.5725999979186
+        }
+      },
+      "automatic_review": {
+        "status_correct": true,
+        "answerable_coverage": true,
+        "required_fact_keyword_signals": [
+          true
+        ],
+        "required_fact_candidate_coverage": 1.0,
+        "forbidden_claim_candidate_hits": [],
+        "citation_checks": [
+          {
+            "chunk_id": "geo-of12-1191_74",
+            "in_bounded_context": true,
+            "matches_filters": true,
+            "matches_corpus_fingerprint": true,
+            "document_page_correct": true
+          }
+        ],
+        "citation_in_context": true,
+        "citation_filter_compliant": true,
+        "citation_fingerprint_compliant": true,
+        "citation_document_page_correct": true,
+        "human_review": {
+          "required_fact_support": "pending",
+          "unsupported_claims": "pending",
+          "citation_pdf_page_correctness": "pending"
+        }
+      }
+    },
+    {
+      "question_id": "geo-gen-accept-005",
+      "question_type": "condition_parameter",
+      "expected_status": "answered",
+      "filters": {
+        "document_ids": [
+          "geo-report-1989-4195"
+        ]
+      },
+      "trace_id": "tr_14fdc8a7b86b475a83673b8d48eb6df9",
+      "bounded_context": [
+        {
+          "chunk_id": "geo-report-1989-4195_43",
+          "document_id": "geo-report-1989-4195",
+          "physical_page": 13,
+          "document_type": "report",
+          "language": "en",
+          "corpus_fingerprint": "07931977ad3ff8a5ae743b5ed96ea92d0c87f0b4a8fb6a1aaa1be7e72ef2575f"
+        },
+        {
+          "chunk_id": "geo-report-1989-4195_44",
+          "document_id": "geo-report-1989-4195",
+          "physical_page": 13,
+          "document_type": "report",
+          "language": "en",
+          "corpus_fingerprint": "07931977ad3ff8a5ae743b5ed96ea92d0c87f0b4a8fb6a1aaa1be7e72ef2575f"
+        },
+        {
+          "chunk_id": "geo-report-1989-4195_54",
+          "document_id": "geo-report-1989-4195",
+          "physical_page": 16,
+          "document_type": "report",
+          "language": "en",
+          "corpus_fingerprint": "07931977ad3ff8a5ae743b5ed96ea92d0c87f0b4a8fb6a1aaa1be7e72ef2575f"
+        },
+        {
+          "chunk_id": "geo-report-1989-4195_55",
+          "document_id": "geo-report-1989-4195",
+          "physical_page": 16,
+          "document_type": "report",
+          "language": "en",
+          "corpus_fingerprint": "07931977ad3ff8a5ae743b5ed96ea92d0c87f0b4a8fb6a1aaa1be7e72ef2575f"
+        }
+      ],
+      "llm_call_events": [
+        {
+          "attempt_id": "llm_d460bf852eda420092e81decc63089ab",
+          "phase": "primary",
+          "model": "deepseek-flash",
+          "provider_retry_limit": 1,
+          "provider_retry_attempts_observed": 0,
+          "status": "success",
+          "elapsed_ms": 1679.789,
+          "usage_state": "known",
+          "usage": {
+            "prompt_tokens": 811,
+            "completion_tokens": 178,
+            "total_tokens": 989,
+            "usage_known": true
+          }
+        }
+      ],
+      "usage_state": "known",
+      "response": {
+        "status": "answered",
+        "answer": "The 400 to 1,200 hertz range I filter setting on the signal processor gave the best combination of resolution and penetration. However, very little improvement of the record was achieved in the central channel areas or other areas where soft sediment caused signal attenuation.",
+        "citations": [
+          {
+            "document_id": "geo-report-1989-4195",
+            "title": "Continuous Seismic Reflection Profiling of Hydrogeologic Features Beneath New River, Camp Lejeune, North Carolina",
+            "chunk_id": "geo-report-1989-4195_54",
+            "section": "body",
+            "source_file": "report.pdf",
+            "page_number": 16,
+            "excerpt": "el. Profile \nlines along key geologic sections, however, were collected across the \ncentral channel in hopes that data-enhancement procedures during playback of \nthe recorder tapes would improve data quality across these areas.\nTape recordings of seismic data were played back through the \npreamplifier to the graphic recorder at various filter settings and gain \nlevels in an attempt to enhance the printed record. Generally, the filter \nsetting of the 400 to 1,200 hertz range I on the signal proce",
+            "data_type": "01_Documents",
+            "document_type": "report",
+            "language": "en",
+            "document_sha256": "cd48944e84c03ad2169747131e5163dbd2f489386c90a060f556e0f17e8c8e3e",
+            "corpus_fingerprint": "07931977ad3ff8a5ae743b5ed96ea92d0c87f0b4a8fb6a1aaa1be7e72ef2575f"
+          },
+          {
+            "document_id": "geo-report-1989-4195",
+            "title": "Continuous Seismic Reflection Profiling of Hydrogeologic Features Beneath New River, Camp Lejeune, North Carolina",
+            "chunk_id": "geo-report-1989-4195_55",
+            "section": "body",
+            "source_file": "report.pdf",
+            "page_number": 16,
+            "excerpt": "etting of the 400 to 1,200 hertz range I on the signal processor gave the \nbest combination of resolution and penetration. However, very little \nimprovement of the record was achieved in the central channel areas or other \nareas where soft sediment caused signal attenuation.\nMAPPED HYDROGEOLOGIci FEATURES\nThe seismic-reflection records represent acoustic cross sections of the \nunderlying sediments of the New River estuary. The vertical axes are scaled \nin units of time (milliseconds) and represe",
+            "data_type": "01_Documents",
+            "document_type": "report",
+            "language": "en",
+            "document_sha256": "cd48944e84c03ad2169747131e5163dbd2f489386c90a060f556e0f17e8c8e3e",
+            "corpus_fingerprint": "07931977ad3ff8a5ae743b5ed96ea92d0c87f0b4a8fb6a1aaa1be7e72ef2575f"
+          }
+        ],
+        "error_code": null,
+        "generation_backend": "deepseek",
+        "retrieval_backend": "bm25",
+        "token_usage": {
+          "prompt_tokens": 811,
+          "completion_tokens": 178,
+          "total_tokens": 989,
+          "usage_known": true
+        },
+        "latency": {
+          "intent_ms": 0.0,
+          "routing_ms": 0.0,
+          "retrieval_ms": 15.621700000338024,
+          "rerank_ms": 0.0,
+          "tool_ms": 0.0,
+          "llm_ms": 1679.9530000025698,
+          "total_ms": 1706.8809000011242
+        }
+      },
+      "automatic_review": {
+        "status_correct": true,
+        "answerable_coverage": true,
+        "required_fact_keyword_signals": [
+          true,
+          true
+        ],
+        "required_fact_candidate_coverage": 1.0,
+        "forbidden_claim_candidate_hits": [],
+        "citation_checks": [
+          {
+            "chunk_id": "geo-report-1989-4195_54",
+            "in_bounded_context": true,
+            "matches_filters": true,
+            "matches_corpus_fingerprint": true,
+            "document_page_correct": true
+          },
+          {
+            "chunk_id": "geo-report-1989-4195_55",
+            "in_bounded_context": true,
+            "matches_filters": true,
+            "matches_corpus_fingerprint": true,
+            "document_page_correct": true
+          }
+        ],
+        "citation_in_context": true,
+        "citation_filter_compliant": true,
+        "citation_fingerprint_compliant": true,
+        "citation_document_page_correct": true,
+        "human_review": {
+          "required_fact_support": "pending",
+          "unsupported_claims": "pending",
+          "citation_pdf_page_correctness": "pending"
+        }
+      }
+    },
+    {
+      "question_id": "geo-gen-accept-006",
+      "question_type": "single_chunk",
+      "expected_status": "answered",
+      "filters": {
+        "document_ids": [
+          "geo-report-1989-4195"
+        ]
+      },
+      "trace_id": "tr_6fd4e0079fa14d909cf598957cd910a2",
+      "bounded_context": [
+        {
+          "chunk_id": "geo-report-1989-4195_69",
+          "document_id": "geo-report-1989-4195",
+          "physical_page": 21,
+          "document_type": "report",
+          "language": "en",
+          "corpus_fingerprint": "07931977ad3ff8a5ae743b5ed96ea92d0c87f0b4a8fb6a1aaa1be7e72ef2575f"
+        },
+        {
+          "chunk_id": "geo-report-1989-4195_70",
+          "document_id": "geo-report-1989-4195",
+          "physical_page": 21,
+          "document_type": "report",
+          "language": "en",
+          "corpus_fingerprint": "07931977ad3ff8a5ae743b5ed96ea92d0c87f0b4a8fb6a1aaa1be7e72ef2575f"
+        },
+        {
+          "chunk_id": "geo-report-1989-4195_106",
+          "document_id": "geo-report-1989-4195",
+          "physical_page": 35,
+          "document_type": "report",
+          "language": "en",
+          "corpus_fingerprint": "07931977ad3ff8a5ae743b5ed96ea92d0c87f0b4a8fb6a1aaa1be7e72ef2575f"
+        },
+        {
+          "chunk_id": "geo-report-1989-4195_107",
+          "document_id": "geo-report-1989-4195",
+          "physical_page": 35,
+          "document_type": "report",
+          "language": "en",
+          "corpus_fingerprint": "07931977ad3ff8a5ae743b5ed96ea92d0c87f0b4a8fb6a1aaa1be7e72ef2575f"
+        }
+      ],
+      "llm_call_events": [
+        {
+          "attempt_id": "llm_2769d803166f405a9119984a99e80e0d",
+          "phase": "primary",
+          "model": "deepseek-flash",
+          "provider_retry_limit": 1,
+          "provider_retry_attempts_observed": 0,
+          "status": "success",
+          "elapsed_ms": 1603.404,
+          "usage_state": "known",
+          "usage": {
+            "prompt_tokens": 806,
+            "completion_tokens": 266,
+            "total_tokens": 1072,
+            "usage_known": true
+          }
+        }
+      ],
+      "usage_state": "known",
+      "response": {
+        "status": "answered",
+        "answer": "An average sediment velocity of 6,000 ft/s was selected for the time-to-depth conversion of the New River seismic reflection records. This value was chosen after considering the average acoustic velocity of about 5,000 ft/s in the 3 to 15 ft of water where profiling was done and the estimated average velocity of 6,150 ft/s for the first 500 ft of sediment from the research station well; the seismic wavelet-borehole correlations match up well with the resultant time-to-depth conversions generated with this 6,000 ft/s sediment velocity estimate.",
+        "citations": [
+          {
+            "document_id": "geo-report-1989-4195",
+            "title": "Continuous Seismic Reflection Profiling of Hydrogeologic Features Beneath New River, Camp Lejeune, North Carolina",
+            "chunk_id": "geo-report-1989-4195_69",
+            "section": "body",
+            "source_file": "report.pdf",
+            "page_number": 21,
+            "excerpt": "Because the seismic profiling was done in 3 to 15 ft of water with an \naverage acoustic velocity of about 5,000 ft/s, and the estimated average \nvelocity for the first 500 ft of sediment from the research station well was \n6,150 ft/s, an average velocity of 6,000 ft/s was selected for the time-to- \ndepth conversion of the seismic reflection records discussed in this report. \nThe seismic wavelet-borehole correlations (fig. 7) match up well with the \nresultant time-to-depth conversions generated w",
+            "data_type": "01_Documents",
+            "document_type": "report",
+            "language": "en",
+            "document_sha256": "cd48944e84c03ad2169747131e5163dbd2f489386c90a060f556e0f17e8c8e3e",
+            "corpus_fingerprint": "07931977ad3ff8a5ae743b5ed96ea92d0c87f0b4a8fb6a1aaa1be7e72ef2575f"
+          },
+          {
+            "document_id": "geo-report-1989-4195",
+            "title": "Continuous Seismic Reflection Profiling of Hydrogeologic Features Beneath New River, Camp Lejeune, North Carolina",
+            "chunk_id": "geo-report-1989-4195_70",
+            "section": "body",
+            "source_file": "report.pdf",
+            "page_number": 21,
+            "excerpt": "ll with the \nresultant time-to-depth conversions generated with this 6,000 ft/s sediment \nvelocity estimate.\nSeismic Reflection Records\nTypical of the seismic records collected during the survey is profile \nsegment A-A' shown in figure 9. Figure 9B is the interpretation of the \nreflection record in figure 9A. The vertical exaggeration is about 6 times \nthe horizontal scale. The first 50 to 60 ft of record consist of \ndiscontinuous reflections and probably represent undifferentiated Quaternary \ns",
+            "data_type": "01_Documents",
+            "document_type": "report",
+            "language": "en",
+            "document_sha256": "cd48944e84c03ad2169747131e5163dbd2f489386c90a060f556e0f17e8c8e3e",
+            "corpus_fingerprint": "07931977ad3ff8a5ae743b5ed96ea92d0c87f0b4a8fb6a1aaa1be7e72ef2575f"
+          }
+        ],
+        "error_code": null,
+        "generation_backend": "deepseek",
+        "retrieval_backend": "bm25",
+        "token_usage": {
+          "prompt_tokens": 806,
+          "completion_tokens": 266,
+          "total_tokens": 1072,
+          "usage_known": true
+        },
+        "latency": {
+          "intent_ms": 0.0,
+          "routing_ms": 0.0,
+          "retrieval_ms": 13.594100000773324,
+          "rerank_ms": 0.0,
+          "tool_ms": 0.0,
+          "llm_ms": 1603.5862999997335,
+          "total_ms": 1627.6020999976026
+        }
+      },
+      "automatic_review": {
+        "status_correct": true,
+        "answerable_coverage": true,
+        "required_fact_keyword_signals": [
+          true
+        ],
+        "required_fact_candidate_coverage": 1.0,
+        "forbidden_claim_candidate_hits": [],
+        "citation_checks": [
+          {
+            "chunk_id": "geo-report-1989-4195_69",
+            "in_bounded_context": true,
+            "matches_filters": true,
+            "matches_corpus_fingerprint": true,
+            "document_page_correct": true
+          },
+          {
+            "chunk_id": "geo-report-1989-4195_70",
+            "in_bounded_context": true,
+            "matches_filters": true,
+            "matches_corpus_fingerprint": true,
+            "document_page_correct": true
+          }
+        ],
+        "citation_in_context": true,
+        "citation_filter_compliant": true,
+        "citation_fingerprint_compliant": true,
+        "citation_document_page_correct": true,
+        "human_review": {
+          "required_fact_support": "pending",
+          "unsupported_claims": "pending",
+          "citation_pdf_page_correctness": "pending"
+        }
+      }
+    },
+    {
+      "question_id": "geo-gen-accept-007",
+      "question_type": "condition_parameter",
+      "expected_status": "answered",
+      "filters": {
+        "document_ids": [
+          "geo-s10950-021-10042-z"
+        ]
+      },
+      "trace_id": "tr_fbe70ad08629452d8d71923a433be01d",
+      "bounded_context": [
+        {
+          "chunk_id": "geo-s10950-021-10042-z_45",
+          "document_id": "geo-s10950-021-10042-z",
+          "physical_page": 6,
+          "document_type": "paper",
+          "language": "en",
+          "corpus_fingerprint": "07931977ad3ff8a5ae743b5ed96ea92d0c87f0b4a8fb6a1aaa1be7e72ef2575f"
+        },
+        {
+          "chunk_id": "geo-s10950-021-10042-z_46",
+          "document_id": "geo-s10950-021-10042-z",
+          "physical_page": 6,
+          "document_type": "paper",
+          "language": "en",
+          "corpus_fingerprint": "07931977ad3ff8a5ae743b5ed96ea92d0c87f0b4a8fb6a1aaa1be7e72ef2575f"
+        },
+        {
+          "chunk_id": "geo-s10950-021-10042-z_93",
+          "document_id": "geo-s10950-021-10042-z",
+          "physical_page": 13,
+          "document_type": "paper",
+          "language": "en",
+          "corpus_fingerprint": "07931977ad3ff8a5ae743b5ed96ea92d0c87f0b4a8fb6a1aaa1be7e72ef2575f"
+        },
+        {
+          "chunk_id": "geo-s10950-021-10042-z_94",
+          "document_id": "geo-s10950-021-10042-z",
+          "physical_page": 13,
+          "document_type": "paper",
+          "language": "en",
+          "corpus_fingerprint": "07931977ad3ff8a5ae743b5ed96ea92d0c87f0b4a8fb6a1aaa1be7e72ef2575f"
+        }
+      ],
+      "llm_call_events": [
+        {
+          "attempt_id": "llm_9ff0e7e3c1ac4756aaadfc1c842f94cc",
+          "phase": "primary",
+          "model": "deepseek-flash",
+          "provider_retry_limit": 1,
+          "provider_retry_attempts_observed": 0,
+          "status": "success",
+          "elapsed_ms": 3778.55,
+          "usage_state": "known",
+          "usage": {
+            "prompt_tokens": 879,
+            "completion_tokens": 640,
+            "total_tokens": 1519,
+            "usage_known": true
+          }
+        }
+      ],
+      "usage_state": "known",
+      "response": {
+        "status": "insufficient_evidence",
+        "answer": "\u6307\u5b9a\u8d44\u6599\u8303\u56f4\u5185\u6ca1\u6709\u8db3\u591f\u8bc1\u636e\u3002",
+        "citations": [],
+        "error_code": null,
+        "generation_backend": "deepseek",
+        "retrieval_backend": "bm25",
+        "token_usage": {
+          "prompt_tokens": 879,
+          "completion_tokens": 640,
+          "total_tokens": 1519,
+          "usage_known": true
+        },
+        "latency": {
+          "intent_ms": 0.0,
+          "routing_ms": 0.0,
+          "retrieval_ms": 15.354899998783367,
+          "rerank_ms": 0.0,
+          "tool_ms": 0.0,
+          "llm_ms": 3778.706400000374,
+          "total_ms": 3805.168399998365
+        }
+      },
+      "automatic_review": {
+        "status_correct": false,
+        "answerable_coverage": false,
+        "required_fact_keyword_signals": [
+          false,
+          false
+        ],
+        "required_fact_candidate_coverage": 0.0,
+        "forbidden_claim_candidate_hits": [],
+        "citation_checks": [],
+        "citation_in_context": true,
+        "citation_filter_compliant": true,
+        "citation_fingerprint_compliant": true,
+        "citation_document_page_correct": true,
+        "human_review": {
+          "required_fact_support": "pending",
+          "unsupported_claims": "pending",
+          "citation_pdf_page_correctness": "pending"
+        }
+      }
+    },
+    {
+      "question_id": "geo-gen-accept-008",
+      "question_type": "condition_parameter",
+      "expected_status": "answered",
+      "filters": {
+        "document_ids": [
+          "geo-twri-2-d2"
+        ]
+      },
+      "trace_id": "tr_e023cb3b7d7f467dae14a5a9c9112a77",
+      "bounded_context": [
+        {
+          "chunk_id": "geo-twri-2-d2_128",
+          "document_id": "geo-twri-2-d2",
+          "physical_page": 22,
+          "document_type": "textbook",
+          "language": "en",
+          "corpus_fingerprint": "07931977ad3ff8a5ae743b5ed96ea92d0c87f0b4a8fb6a1aaa1be7e72ef2575f"
+        },
+        {
+          "chunk_id": "geo-twri-2-d2_461",
+          "document_id": "geo-twri-2-d2",
+          "physical_page": 81,
+          "document_type": "textbook",
+          "language": "en",
+          "corpus_fingerprint": "07931977ad3ff8a5ae743b5ed96ea92d0c87f0b4a8fb6a1aaa1be7e72ef2575f"
+        },
+        {
+          "chunk_id": "geo-twri-2-d2_462",
+          "document_id": "geo-twri-2-d2",
+          "physical_page": 81,
+          "document_type": "textbook",
+          "language": "en",
+          "corpus_fingerprint": "07931977ad3ff8a5ae743b5ed96ea92d0c87f0b4a8fb6a1aaa1be7e72ef2575f"
+        },
+        {
+          "chunk_id": "geo-twri-2-d2_468",
+          "document_id": "geo-twri-2-d2",
+          "physical_page": 82,
+          "document_type": "textbook",
+          "language": "en",
+          "corpus_fingerprint": "07931977ad3ff8a5ae743b5ed96ea92d0c87f0b4a8fb6a1aaa1be7e72ef2575f"
+        }
+      ],
+      "llm_call_events": [
+        {
+          "attempt_id": "llm_ae7f528839a546e08006b83ebc504063",
+          "phase": "primary",
+          "model": "deepseek-flash",
+          "provider_retry_limit": 1,
+          "provider_retry_attempts_observed": 0,
+          "status": "success",
+          "elapsed_ms": 4027.424,
+          "usage_state": "known",
+          "usage": {
+            "prompt_tokens": 854,
+            "completion_tokens": 700,
+            "total_tokens": 1554,
+            "usage_known": true
+          }
+        },
+        {
+          "attempt_id": "llm_a3e0e430b9aa46c3b08baeef74a0df8c",
+          "phase": "repair",
+          "model": "deepseek-flash",
+          "provider_retry_limit": 1,
+          "provider_retry_attempts_observed": 0,
+          "status": "success",
+          "elapsed_ms": 1455.234,
+          "usage_state": "known",
+          "usage": {
+            "prompt_tokens": 247,
+            "completion_tokens": 165,
+            "total_tokens": 412,
+            "usage_known": true
+          }
+        }
+      ],
+      "usage_state": "known",
+      "response": {
+        "status": "insufficient_evidence",
+        "answer": "\u6307\u5b9a\u8d44\u6599\u8303\u56f4\u5185\u6ca1\u6709\u8db3\u591f\u8bc1\u636e\u3002",
+        "citations": [],
+        "error_code": null,
+        "generation_backend": "deepseek",
+        "retrieval_backend": "bm25",
+        "token_usage": {
+          "prompt_tokens": 1101,
+          "completion_tokens": 865,
+          "total_tokens": 1966,
+          "usage_known": true
+        },
+        "latency": {
+          "intent_ms": 0.0,
+          "routing_ms": 0.0,
+          "retrieval_ms": 32.472700000653276,
+          "rerank_ms": 0.0,
+          "tool_ms": 0.0,
+          "llm_ms": 5483.748999999079,
+          "total_ms": 5526.985799999238
+        }
+      },
+      "automatic_review": {
+        "status_correct": false,
+        "answerable_coverage": false,
+        "required_fact_keyword_signals": [
+          false,
+          false
+        ],
+        "required_fact_candidate_coverage": 0.0,
+        "forbidden_claim_candidate_hits": [],
+        "citation_checks": [],
+        "citation_in_context": true,
+        "citation_filter_compliant": true,
+        "citation_fingerprint_compliant": true,
+        "citation_document_page_correct": true,
+        "human_review": {
+          "required_fact_support": "pending",
+          "unsupported_claims": "pending",
+          "citation_pdf_page_correctness": "pending"
+        }
+      }
+    },
+    {
+      "question_id": "geo-gen-accept-009",
+      "question_type": "filter_insufficient",
+      "expected_status": "insufficient_evidence",
+      "filters": {
+        "document_types": [
+          "paper"
+        ]
+      },
+      "trace_id": "tr_a5dd7127c39741bdb813d8f9225672e6",
+      "bounded_context": [
+        {
+          "chunk_id": "geo-s10950-021-10042-z_125",
+          "document_id": "geo-s10950-021-10042-z",
+          "physical_page": 18,
+          "document_type": "paper",
+          "language": "en",
+          "corpus_fingerprint": "07931977ad3ff8a5ae743b5ed96ea92d0c87f0b4a8fb6a1aaa1be7e72ef2575f"
+        },
+        {
+          "chunk_id": "geo-s10950-021-10042-z_126",
+          "document_id": "geo-s10950-021-10042-z",
+          "physical_page": 18,
+          "document_type": "paper",
+          "language": "en",
+          "corpus_fingerprint": "07931977ad3ff8a5ae743b5ed96ea92d0c87f0b4a8fb6a1aaa1be7e72ef2575f"
+        },
+        {
+          "chunk_id": "geo-1996-21_16",
+          "document_id": "geo-1996-21",
+          "physical_page": 5,
+          "document_type": "paper",
+          "language": "en",
+          "corpus_fingerprint": "07931977ad3ff8a5ae743b5ed96ea92d0c87f0b4a8fb6a1aaa1be7e72ef2575f"
+        },
+        {
+          "chunk_id": "geo-1996-21_17",
+          "document_id": "geo-1996-21",
+          "physical_page": 5,
+          "document_type": "paper",
+          "language": "en",
+          "corpus_fingerprint": "07931977ad3ff8a5ae743b5ed96ea92d0c87f0b4a8fb6a1aaa1be7e72ef2575f"
+        }
+      ],
+      "llm_call_events": [
+        {
+          "attempt_id": "llm_9b77d250bcb0484d82dde6b27ea24249",
+          "phase": "primary",
+          "model": "deepseek-flash",
+          "provider_retry_limit": 1,
+          "provider_retry_attempts_observed": 0,
+          "status": "success",
+          "elapsed_ms": 1546.167,
+          "usage_state": "known",
+          "usage": {
+            "prompt_tokens": 845,
+            "completion_tokens": 114,
+            "total_tokens": 959,
+            "usage_known": true
+          }
+        }
+      ],
+      "usage_state": "known",
+      "response": {
+        "status": "insufficient_evidence",
+        "answer": "\u6307\u5b9a\u8d44\u6599\u8303\u56f4\u5185\u6ca1\u6709\u8db3\u591f\u8bc1\u636e\u3002",
+        "citations": [],
+        "error_code": null,
+        "generation_backend": "deepseek",
+        "retrieval_backend": "bm25",
+        "token_usage": {
+          "prompt_tokens": 845,
+          "completion_tokens": 114,
+          "total_tokens": 959,
+          "usage_known": true
+        },
+        "latency": {
+          "intent_ms": 0.0,
+          "routing_ms": 0.0,
+          "retrieval_ms": 24.823599997034762,
+          "rerank_ms": 0.0,
+          "tool_ms": 0.0,
+          "llm_ms": 1546.3194000003568,
+          "total_ms": 1583.211700002721
+        }
+      },
+      "automatic_review": {
+        "status_correct": true,
+        "answerable_coverage": null,
+        "required_fact_keyword_signals": [],
+        "required_fact_candidate_coverage": null,
+        "forbidden_claim_candidate_hits": [],
+        "citation_checks": [],
+        "citation_in_context": true,
+        "citation_filter_compliant": true,
+        "citation_fingerprint_compliant": true,
+        "citation_document_page_correct": true,
+        "human_review": {
+          "required_fact_support": "pending",
+          "unsupported_claims": "pending",
+          "citation_pdf_page_correctness": "pending"
+        }
+      }
+    },
+    {
+      "question_id": "geo-gen-accept-010",
+      "question_type": "corpus_insufficient",
+      "expected_status": "insufficient_evidence",
+      "filters": {},
+      "trace_id": "tr_a31e66880f09487d8e997b01ecc21978",
+      "bounded_context": [
+        {
+          "chunk_id": "geo-twri-2-d2_52",
+          "document_id": "geo-twri-2-d2",
+          "physical_page": 8,
+          "document_type": "textbook",
+          "language": "en",
+          "corpus_fingerprint": "07931977ad3ff8a5ae743b5ed96ea92d0c87f0b4a8fb6a1aaa1be7e72ef2575f"
+        },
+        {
+          "chunk_id": "geo-twri-2-d2_323",
+          "document_id": "geo-twri-2-d2",
+          "physical_page": 51,
+          "document_type": "textbook",
+          "language": "en",
+          "corpus_fingerprint": "07931977ad3ff8a5ae743b5ed96ea92d0c87f0b4a8fb6a1aaa1be7e72ef2575f"
+        },
+        {
+          "chunk_id": "geo-twri-2-d2_324",
+          "document_id": "geo-twri-2-d2",
+          "physical_page": 51,
+          "document_type": "textbook",
+          "language": "en",
+          "corpus_fingerprint": "07931977ad3ff8a5ae743b5ed96ea92d0c87f0b4a8fb6a1aaa1be7e72ef2575f"
+        },
+        {
+          "chunk_id": "geo-twri-2-d2_325",
+          "document_id": "geo-twri-2-d2",
+          "physical_page": 51,
+          "document_type": "textbook",
+          "language": "en",
+          "corpus_fingerprint": "07931977ad3ff8a5ae743b5ed96ea92d0c87f0b4a8fb6a1aaa1be7e72ef2575f"
+        }
+      ],
+      "llm_call_events": [
+        {
+          "attempt_id": "llm_4e15f1e66abd445fa58fe5aa3b00f8c8",
+          "phase": "primary",
+          "model": "deepseek-flash",
+          "provider_retry_limit": 1,
+          "provider_retry_attempts_observed": 0,
+          "status": "success",
+          "elapsed_ms": 1121.791,
+          "usage_state": "known",
+          "usage": {
+            "prompt_tokens": 867,
+            "completion_tokens": 79,
+            "total_tokens": 946,
+            "usage_known": true
+          }
+        }
+      ],
+      "usage_state": "known",
+      "response": {
+        "status": "insufficient_evidence",
+        "answer": "\u73b0\u6709\u5730\u8d28\u6587\u732e\u8bc1\u636e\u4e0d\u8db3\u4ee5\u652f\u6301\u8fd9\u4e2a\u95ee\u9898\uff0c\u672a\u7ed9\u51fa\u63a8\u65ad\u6027\u7ed3\u8bba\u3002",
+        "citations": [],
+        "error_code": null,
+        "generation_backend": "deepseek",
+        "retrieval_backend": "bm25",
+        "token_usage": {
+          "prompt_tokens": 867,
+          "completion_tokens": 79,
+          "total_tokens": 946,
+          "usage_known": true
+        },
+        "latency": {
+          "intent_ms": 0.0,
+          "routing_ms": 0.0,
+          "retrieval_ms": 89.1884000011487,
+          "rerank_ms": 0.0,
+          "tool_ms": 0.0,
+          "llm_ms": 1121.9511999988754,
+          "total_ms": 1225.455100000545
+        }
+      },
+      "automatic_review": {
+        "status_correct": true,
+        "answerable_coverage": null,
+        "required_fact_keyword_signals": [],
+        "required_fact_candidate_coverage": null,
+        "forbidden_claim_candidate_hits": [],
+        "citation_checks": [],
+        "citation_in_context": true,
+        "citation_filter_compliant": true,
+        "citation_fingerprint_compliant": true,
+        "citation_document_page_correct": true,
+        "human_review": {
+          "required_fact_support": "pending",
+          "unsupported_claims": "pending",
+          "citation_pdf_page_correctness": "pending"
+        }
+      }
+    }
+  ],
+  "summary": {
+    "overall": {
+      "question_count": 10,
+      "status_accuracy": 0.8,
+      "answerable_coverage": 0.75,
+      "insufficient_evidence_precision": 0.5,
+      "insufficient_evidence_recall": 1.0,
+      "required_fact_candidate_coverage": 0.6153846153846154,
+      "unsupported_claim_candidate_count": 0,
+      "citation_document_page_correctness": 1.0,
+      "filter_violation_rate": 0.0,
+      "execution_failure_rate": 0.0,
+      "median_latency_ms": 1605.4069000001618,
+      "usage_missing_rate": 0.0
+    },
+    "by_question_type": {
+      "condition_parameter": {
+        "question_count": 4,
+        "status_accuracy": 0.5,
+        "answerable_coverage": 0.5,
+        "insufficient_evidence_precision": 0.0,
+        "insufficient_evidence_recall": null,
+        "required_fact_candidate_coverage": 0.375,
+        "unsupported_claim_candidate_count": 0,
+        "citation_document_page_correctness": 1.0,
+        "filter_violation_rate": 0.0,
+        "execution_failure_rate": 0.0,
+        "median_latency_ms": 2797.594099998605,
+        "usage_missing_rate": 0.0
+      },
+      "corpus_insufficient": {
+        "question_count": 1,
+        "status_accuracy": 1.0,
+        "answerable_coverage": null,
+        "insufficient_evidence_precision": 1.0,
+        "insufficient_evidence_recall": 1.0,
+        "required_fact_candidate_coverage": null,
+        "unsupported_claim_candidate_count": 0,
+        "citation_document_page_correctness": null,
+        "filter_violation_rate": 0.0,
+        "execution_failure_rate": 0.0,
+        "median_latency_ms": 1225.455100000545,
+        "usage_missing_rate": 0.0
+      },
+      "filter_insufficient": {
+        "question_count": 1,
+        "status_accuracy": 1.0,
+        "answerable_coverage": null,
+        "insufficient_evidence_precision": 1.0,
+        "insufficient_evidence_recall": 1.0,
+        "required_fact_candidate_coverage": null,
+        "unsupported_claim_candidate_count": 0,
+        "citation_document_page_correctness": null,
+        "filter_violation_rate": 0.0,
+        "execution_failure_rate": 0.0,
+        "median_latency_ms": 1583.211700002721,
+        "usage_missing_rate": 0.0
+      },
+      "single_chunk": {
+        "question_count": 4,
+        "status_accuracy": 1.0,
+        "answerable_coverage": 1.0,
+        "insufficient_evidence_precision": null,
+        "insufficient_evidence_recall": null,
+        "required_fact_candidate_coverage": 1.0,
+        "unsupported_claim_candidate_count": 0,
+        "citation_document_page_correctness": 1.0,
+        "filter_violation_rate": 0.0,
+        "execution_failure_rate": 0.0,
+        "median_latency_ms": 1299.1522999982408,
+        "usage_missing_rate": 0.0
+      }
+    }
+  }
+}

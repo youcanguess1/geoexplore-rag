@@ -1,0 +1,178 @@
+[
+  {
+    "id": "geo-v2-accept-001",
+    "question": "What is the name of the MATLAB algorithm for band-limited impedance inversion?",
+    "language": "en",
+    "scope": "unfiltered",
+    "answerability": "answerable",
+    "allowed_document_ids": ["geo-1996-21"],
+    "gold_sources": [{"document_id": "geo-1996-21", "page_number": 1}],
+    "filter": {},
+    "reason": "Physical PDF page 1 names the MATLAB algorithm BLIMP, Band Limited IMPedance."
+  },
+  {
+    "id": "geo-v2-accept-002",
+    "question": "What was the purpose of the Platte River Basin continuous seismic profiling pilot study?",
+    "language": "en",
+    "scope": "unfiltered",
+    "answerability": "answerable",
+    "allowed_document_ids": ["geo-fs11503"],
+    "gold_sources": [{"document_id": "geo-fs11503", "page_number": 1}],
+    "filter": {},
+    "reason": "Physical PDF page 1 says the pilot study evaluated whether CSP could determine bedrock depth and characteristics of alluvial sediment."
+  },
+  {
+    "id": "geo-v2-accept-003",
+    "question": "Why was seismic refraction used at the proposed Presidio of Monterey construction site?",
+    "language": "en",
+    "scope": "unfiltered",
+    "answerability": "answerable",
+    "allowed_document_ids": ["geo-of12-1191"],
+    "gold_sources": [{"document_id": "geo-of12-1191", "page_number": 5}],
+    "filter": {},
+    "reason": "Physical PDF page 5 explains that invasive drill holes were prohibited because of an endangered orchid, so refraction assisted feasibility, budget, and design."
+  },
+  {
+    "id": "geo-v2-accept-004",
+    "question": "What hydrogeologic setting was the New River seismic reflection survey intended to describe?",
+    "language": "en",
+    "scope": "unfiltered",
+    "answerability": "answerable",
+    "allowed_document_ids": ["geo-report-1989-4195"],
+    "gold_sources": [{"document_id": "geo-report-1989-4195", "page_number": 5}],
+    "filter": {},
+    "reason": "Physical PDF page 5 states that the survey described the structural and depositional setting of surficial and Castle Hayne aquifers."
+  },
+  {
+    "id": "geo-v2-accept-005",
+    "question": "How is Vs30 defined in the SH-wave seismic site characterization article?",
+    "language": "en",
+    "scope": "unfiltered",
+    "answerability": "answerable",
+    "allowed_document_ids": ["geo-s10950-021-10042-z"],
+    "gold_sources": [{"document_id": "geo-s10950-021-10042-z", "page_number": 1}],
+    "filter": {},
+    "reason": "Physical PDF page 1 defines Vs30 as 30 m divided by the travel time of a shear wave from the surface to 30 m depth."
+  },
+  {
+    "id": "geo-v2-accept-006",
+    "question": "Who is the intended audience of the USGS seismic-refraction manual?",
+    "language": "en",
+    "scope": "unfiltered",
+    "answerability": "answerable",
+    "allowed_document_ids": ["geo-twri-2-d2"],
+    "gold_sources": [{"document_id": "geo-twri-2-d2", "page_number": 11}],
+    "filter": {},
+    "reason": "Physical PDF page 11 says the manual is intended to help hydrologists decide whether seismic refraction will work in a setting."
+  },
+  {
+    "id": "geo-v2-accept-007",
+    "question": "What is the first numbered BLIMP processing step?",
+    "language": "en",
+    "scope": "type_filtered",
+    "answerability": "answerable",
+    "allowed_document_ids": ["geo-1996-21"],
+    "gold_sources": [{"document_id": "geo-1996-21", "page_number": 3}],
+    "filter": {"document_types": ["paper"]},
+    "reason": "Physical PDF page 3 says to compute and subtract the linear impedance-trend to reduce edge effects."
+  },
+  {
+    "id": "geo-v2-accept-008",
+    "question": "How far did the Presidio tomography models indicate rippable material extended beneath Lines A and B?",
+    "language": "en",
+    "scope": "type_filtered",
+    "answerability": "answerable",
+    "allowed_document_ids": ["geo-of12-1191"],
+    "gold_sources": [{"document_id": "geo-of12-1191", "page_number": 17}],
+    "filter": {"document_types": ["report"]},
+    "reason": "Physical PDF page 17 concludes that rippable material extends to at least 30 ft below Line A and 18 to 20 ft below Line B."
+  },
+  {
+    "id": "geo-v2-accept-009",
+    "question": "Why can shallow SH-wave refraction have a hidden-layer problem?",
+    "language": "en",
+    "scope": "type_filtered",
+    "answerability": "answerable",
+    "allowed_document_ids": ["geo-s10950-021-10042-z"],
+    "gold_sources": [{"document_id": "geo-s10950-021-10042-z", "page_number": 2}],
+    "filter": {"document_types": ["paper"]},
+    "reason": "Physical PDF page 2 explains that refraction does not reliably detect velocity reversals and that a layer must have minimum thickness to be identified."
+  },
+  {
+    "id": "geo-v2-accept-010",
+    "question": "What assumptions underlie the seismic-refraction interpretation formulas?",
+    "language": "en",
+    "scope": "type_filtered",
+    "answerability": "answerable",
+    "allowed_document_ids": ["geo-twri-2-d2"],
+    "gold_sources": [{"document_id": "geo-twri-2-d2", "page_number": 13}],
+    "filter": {"document_types": ["textbook"]},
+    "reason": "Physical PDF page 13 lists constant or horizontal boundaries, no relief, homogeneous isotropic layers, and velocity increasing with depth."
+  },
+  {
+    "id": "geo-v2-accept-011",
+    "question": "What acoustic signal does the CSP system generate?",
+    "language": "en",
+    "scope": "document_scoped",
+    "answerability": "answerable",
+    "allowed_document_ids": ["geo-fs11503"],
+    "gold_sources": [{"document_id": "geo-fs11503", "page_number": 3}],
+    "filter": {"document_ids": ["geo-fs11503"]},
+    "reason": "Physical PDF page 3 describes a linear swept frequency-modulated acoustic signal."
+  },
+  {
+    "id": "geo-v2-accept-012",
+    "question": "What velocity was selected for time-depth conversion in the New River reflection survey?",
+    "language": "en",
+    "scope": "document_scoped",
+    "answerability": "answerable",
+    "allowed_document_ids": ["geo-report-1989-4195"],
+    "gold_sources": [{"document_id": "geo-report-1989-4195", "page_number": 21}],
+    "filter": {"document_ids": ["geo-report-1989-4195"]},
+    "reason": "Physical PDF page 21 selects 6,000 ft/s for time-depth conversion based on water and sediment velocity estimates."
+  },
+  {
+    "id": "geo-v2-accept-013",
+    "question": "What does the slope of a traveltime curve represent in the Presidio report?",
+    "language": "en",
+    "scope": "document_scoped",
+    "answerability": "answerable",
+    "allowed_document_ids": ["geo-of12-1191"],
+    "gold_sources": [{"document_id": "geo-of12-1191", "page_number": 19}],
+    "filter": {"document_ids": ["geo-of12-1191"]},
+    "reason": "Physical PDF page 19 states that the slope is the apparent velocity of the energy arrival."
+  },
+  {
+    "id": "geo-v2-accept-014",
+    "question": "What are SH-wave time-distance plots used to calculate?",
+    "language": "en",
+    "scope": "document_scoped",
+    "answerability": "answerable",
+    "allowed_document_ids": ["geo-s10950-021-10042-z"],
+    "gold_sources": [{"document_id": "geo-s10950-021-10042-z", "page_number": 4}],
+    "filter": {"document_ids": ["geo-s10950-021-10042-z"]},
+    "reason": "Physical PDF page 4 says time-distance plots support calculation of interval velocities for refracting layers and depths."
+  },
+  {
+    "id": "geo-v2-accept-015",
+    "question": "What exact dollar cost did the six controlled geological documents assign to their surveys?",
+    "language": "en",
+    "scope": "unfiltered",
+    "answerability": "unanswerable",
+    "allowed_document_ids": [],
+    "gold_sources": [],
+    "filter": {},
+    "reason": "The controlled corpus does not establish one exact survey-cost answer."
+  },
+  {
+    "id": "geo-v2-accept-016",
+    "question": "What is the exact production cost of the BLIMP algorithm?",
+    "language": "en",
+    "scope": "type_filtered",
+    "answerability": "unanswerable",
+    "allowed_document_ids": [],
+    "gold_sources": [],
+    "filter": {"document_types": ["paper"]},
+    "reason": "The papers describe methods but provide no exact BLIMP production-cost figure."
+  }
+]

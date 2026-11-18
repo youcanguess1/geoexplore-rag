@@ -1,0 +1,19 @@
+services:
+  api:
+    build:
+      context: .
+    ports:
+      - "127.0.0.1:9101:9101"
+    env_file:
+      - .env
+    environment:
+      APP_ENV: production
+      DATABASE_URL: sqlite+aiosqlite:////app/data/local/app.db
+      REDIS_URL: ""
+      GEOLOGICAL_KNOWLEDGE_DIR: /app/data/local/geological_knowledge
+    volumes:
+      - ./data/local/geological_knowledge:/app/data/local/geological_knowledge:ro
+      - ./data/local:/app/data/local
+
+# The formal GeoExplore baseline does not require Qdrant, an embedding service,
+# or a reranker. Add external infrastructure only for a separately documented experiment.

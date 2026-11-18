@@ -1,0 +1,111 @@
+{
+  "schema_version": "geoexplore-generation-v1",
+  "split": "dev",
+  "corpus_identity": {
+    "corpus_id": "geoexplore-v1",
+    "corpus_fingerprint": "07931977ad3ff8a5ae743b5ed96ea92d0c87f0b4a8fb6a1aaa1be7e72ef2575f",
+    "parser_backend": "pypdf",
+    "parser_version": "6.20.0",
+    "chunking_version": "v1",
+    "document_count": 6,
+    "chunk_count": 1006
+  },
+  "questions": [
+    {
+      "question_id": "geo-gen-dev-001",
+      "question": "In the Nebraska canal study, when did diversions typically occur, and when were empty canals intermittently repaired?",
+      "question_type": "adjacent_chunk",
+      "filters": {"document_ids": ["geo-fs11503"]},
+      "expected_status": "answered",
+      "gold_document_ids": ["geo-fs11503"],
+      "gold_physical_pages": [2],
+      "gold_evidence": [{"document_id": "geo-fs11503", "physical_page": 2}],
+      "required_facts": [
+        "Diversions into the unlined canals typically occurred from May through September.",
+        "The empty canals were intermittently repaired from October through April."
+      ],
+      "required_fact_keywords": [["May", "September"], ["October", "April"]],
+      "forbidden_claims": ["Diversions typically occurred from October to April"],
+      "manual_evidence_note": "Manually checked against fs11503.pdf physical page 2; the two seasonal clauses are consecutive source text and cross the fixed-window evidence boundary."
+    },
+    {
+      "question_id": "geo-gen-dev-002",
+      "question": "At the Presidio of Monterey site, how deep did rippable material extend beneath Line A and Line B?",
+      "question_type": "condition_parameter",
+      "filters": {"document_types": ["report"]},
+      "expected_status": "answered",
+      "gold_document_ids": ["geo-of12-1191"],
+      "gold_physical_pages": [17],
+      "gold_evidence": [{"document_id": "geo-of12-1191", "physical_page": 17}],
+      "required_facts": [
+        "Line A had rippable material to at least 30 ft depth.",
+        "Line B had rippable material to a minimum of 18 to 20 ft depth."
+      ],
+      "required_fact_keywords": [["Line A", "30"], ["Line B", "18"]],
+      "forbidden_claims": ["Line A and Line B both extended to 30 ft"],
+      "manual_evidence_note": "Manually checked against OF12-1191.pdf physical page 17, Conclusions; the two depths are tied to different survey lines."
+    },
+    {
+      "question_id": "geo-gen-dev-003",
+      "question": "Why can SH-wave refraction fail to reveal a lower-velocity layer, and what thickness-related limitation also applies?",
+      "question_type": "condition_parameter",
+      "filters": {"document_ids": ["geo-s10950-021-10042-z"]},
+      "expected_status": "answered",
+      "gold_document_ids": ["geo-s10950-021-10042-z"],
+      "gold_physical_pages": [3],
+      "gold_evidence": [{"document_id": "geo-s10950-021-10042-z", "physical_page": 3}],
+      "required_facts": [
+        "Refraction cannot reliably detect velocity reversals because it assumes layer velocities increase with depth.",
+        "A layer must have a minimum thickness to be identified, known as the blind-zone or hidden-layer problem."
+      ],
+      "required_fact_keywords": [["velocity reversals", "increase with depth"], ["minimum thickness"]],
+      "forbidden_claims": ["SH-wave refraction reliably detects all velocity reversals"],
+      "manual_evidence_note": "Manually checked against s10950-021-10042-z.pdf physical page 3; both limitations appear in the numbered discussion of shallow refraction limits."
+    },
+    {
+      "question_id": "geo-gen-dev-004",
+      "question": "What field setup is required to analyze a dipping seismic-refraction boundary for a single array?",
+      "question_type": "single_chunk",
+      "filters": {"document_types": ["textbook"]},
+      "expected_status": "answered",
+      "gold_document_ids": ["geo-twri-2-d2"],
+      "gold_physical_pages": [14],
+      "gold_evidence": [{"document_id": "geo-twri-2-d2", "physical_page": 14}],
+      "required_facts": [
+        "The refraction profile must be reversed.",
+        "At least two shots must be fired, one from each end of the array."
+      ],
+      "required_fact_keywords": [["reversed"], ["two shots", "each end"]],
+      "forbidden_claims": ["A single shot from the array midpoint is sufficient"],
+      "manual_evidence_note": "Manually checked against twri_2-d2.pdf physical page 14 under Two-layer dipping-boundary formulas."
+    },
+    {
+      "question_id": "geo-gen-dev-005",
+      "question": "What is the title of the 2021 paper about shear-wave reflection and refraction methods?",
+      "question_type": "filter_insufficient",
+      "filters": {"document_types": ["report"]},
+      "expected_status": "insufficient_evidence",
+      "gold_document_ids": [],
+      "gold_physical_pages": [],
+      "gold_evidence": [],
+      "required_facts": [],
+      "required_fact_keywords": [],
+      "forbidden_claims": [],
+      "manual_evidence_note": "Manually checked the manifest and paper title page: the target title belongs only to geo-s10950-021-10042-z, whose document_type is paper and is excluded by the report filter."
+    },
+    {
+      "question_id": "geo-gen-dev-006",
+      "question": "What exact annual maintenance budget did the controlled seismic surveys require?",
+      "question_type": "corpus_insufficient",
+      "filters": {},
+      "expected_status": "insufficient_evidence",
+      "gold_document_ids": [],
+      "gold_physical_pages": [],
+      "gold_evidence": [],
+      "required_facts": [],
+      "required_fact_keywords": [],
+      "forbidden_claims": [],
+      "manual_evidence_note": "Manual review of the six controlled PDFs found no exact annual maintenance budget for controlled seismic surveys; this is intentionally unanswerable rather than an excluded-source question."
+    }
+  ]
+}

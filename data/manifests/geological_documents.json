@@ -1,0 +1,81 @@
+{
+  "corpus_id": "geoexplore-v1",
+  "parser": {
+    "backend": "pypdf",
+    "package": "pypdf",
+    "version": "6.20.0"
+  },
+  "chunking": {
+    "policy_version": "v1",
+    "max_chunk_chars": 500,
+    "overlap_chars": 60
+  },
+  "documents": [
+  {
+    "document_id": "geo-1996-21",
+    "filename": "1996-21.pdf",
+    "title": "A Simple Algorithm for Band-Limited Impedance Inversion",
+    "sha256": "0c6f76c531dca70d2864b6a7dc93be35a261f2324584ce03b6cfdc76aa34e413",
+    "parser": "pypdf",
+    "data_type": "02_Academic",
+    "document_type": "paper",
+    "language": "en",
+    "source": "CREWES Research Report, Volume 8 (1996), 21"
+  },
+  {
+    "document_id": "geo-fs11503",
+    "filename": "fs11503.pdf",
+    "title": "Use of Continuous Seismic Profiling to Differentiate Geologic Deposits Underlying Selected Canals in Central and Western Nebraska",
+    "sha256": "880b0d2fd3dcfd6437e5243cb060f10fc76dcdbf6f034f011cbae197ab2426a7",
+    "parser": "pypdf",
+    "data_type": "01_Documents",
+    "document_type": "technical_report",
+    "language": "en",
+    "source": "U.S. Geological Survey Fact Sheet 115-03 (2004)"
+  },
+  {
+    "document_id": "geo-of12-1191",
+    "filename": "OF12-1191.pdf",
+    "title": "Measurement of Near-Surface Seismic Compressional Wave Velocities Using Refraction Tomography at a Proposed Construction Site on the Presidio of Monterey, California",
+    "sha256": "31ac9f71fa685217e63c9927088011b6a7d938aca9988982dbf46bd718c3a211",
+    "parser": "pypdf",
+    "data_type": "01_Documents",
+    "document_type": "report",
+    "language": "en",
+    "source": "U.S. Geological Survey Open-File Report 2012-1191"
+  },
+  {
+    "document_id": "geo-report-1989-4195",
+    "filename": "report.pdf",
+    "title": "Continuous Seismic Reflection Profiling of Hydrogeologic Features Beneath New River, Camp Lejeune, North Carolina",
+    "sha256": "cd48944e84c03ad2169747131e5163dbd2f489386c90a060f556e0f17e8c8e3e",
+    "parser": "pypdf",
+    "data_type": "01_Documents",
+    "document_type": "report",
+    "language": "en",
+    "source": "U.S. Geological Survey Water-Resources Investigations Report 89-4195 (1990)"
+  },
+  {
+    "document_id": "geo-s10950-021-10042-z",
+    "filename": "s10950-021-10042-z.pdf",
+    "title": "Seismic site characterization with shear wave (SH) reflection and refraction methods",
+    "sha256": "5991710710c2d2c02265c01e87327bc2ea89318cadc22c42419f304837c6fed7",
+    "parser": "pypdf",
+    "data_type": "02_Academic",
+    "document_type": "paper",
+    "language": "en",
+    "source": "Journal of Seismology (2021), DOI 10.1007/s10950-021-10042-z"
+  },
+  {
+    "document_id": "geo-twri-2-d2",
+    "filename": "twri_2-d2.pdf",
+    "title": "Application of Seismic-Refraction Techniques to Hydrologic Studies",
+    "sha256": "e61cec5cdef4325f49cd4d263b7af21dbaf35ef0316902b7592f65074efed322",
+    "parser": "pypdf",
+    "data_type": "02_Academic",
+    "document_type": "textbook",
+    "language": "en",
+    "source": "U.S. Geological Survey Techniques of Water-Resources Investigations, Book 2, Chapter D2"
+  }
+  ]
+}

@@ -1,0 +1,1798 @@
+{
+  "protocol": "day3-new-question-check-v1",
+  "phase": "retrieval_preflight",
+  "question_set_canonical_sha256": "ef8c2c26bd0526abfe6500731584dbbac3b31589e98e8831e1f3517b6dfeb032",
+  "corpus_identity": {
+    "corpus_id": "geoexplore-v1",
+    "corpus_fingerprint": "07931977ad3ff8a5ae743b5ed96ea92d0c87f0b4a8fb6a1aaa1be7e72ef2575f",
+    "parser_backend": "pypdf",
+    "parser_version": "6.20.0",
+    "chunking_version": "v1",
+    "document_count": 6,
+    "chunk_count": 1006
+  },
+  "rows": [
+    {
+      "question_id": "geo-day3-001",
+      "question": "What did the BLIMP paper report about sensitivity to the overall scale of the seismic data?",
+      "expected_status": "answered",
+      "filters": {
+        "document_ids": [
+          "geo-1996-21"
+        ],
+        "document_types": [
+          "paper"
+        ],
+        "languages": [
+          "en"
+        ]
+      },
+      "retrieval": {
+        "filtered_corpus_chunk_count": 37,
+        "gold_evidence_in_filtered_corpus": {
+          "geo-1996-21_22": true
+        },
+        "gold_full_filtered_rank": {
+          "geo-1996-21_22": 1
+        },
+        "seed_chunks": [
+          {
+            "chunk_id": "geo-1996-21_22",
+            "document_id": "geo-1996-21",
+            "physical_page": 7,
+            "chunk_index": 22,
+            "score": 29.562780023470186,
+            "rank": 1,
+            "source": "bm25",
+            "content_chars": 497,
+            "document_type": "paper",
+            "language": "en"
+          },
+          {
+            "chunk_id": "geo-1996-21_21",
+            "document_id": "geo-1996-21",
+            "physical_page": 7,
+            "chunk_index": 21,
+            "score": 22.413210091702233,
+            "rank": 2,
+            "source": "bm25",
+            "content_chars": 496,
+            "document_type": "paper",
+            "language": "en"
+          },
+          {
+            "chunk_id": "geo-1996-21_24",
+            "document_id": "geo-1996-21",
+            "physical_page": 7,
+            "chunk_index": 24,
+            "score": 19.381655102674223,
+            "rank": 3,
+            "source": "bm25",
+            "content_chars": 241,
+            "document_type": "paper",
+            "language": "en"
+          },
+          {
+            "chunk_id": "geo-1996-21_05",
+            "document_id": "geo-1996-21",
+            "physical_page": 1,
+            "chunk_index": 5,
+            "score": 19.103513638818246,
+            "rank": 4,
+            "source": "bm25",
+            "content_chars": 496,
+            "document_type": "paper",
+            "language": "en"
+          },
+          {
+            "chunk_id": "geo-1996-21_31",
+            "document_id": "geo-1996-21",
+            "physical_page": 9,
+            "chunk_index": 31,
+            "score": 19.029465461366716,
+            "rank": 5,
+            "source": "bm25",
+            "content_chars": 495,
+            "document_type": "paper",
+            "language": "en"
+          }
+        ],
+        "expanded_chunks": [
+          {
+            "chunk_id": "geo-1996-21_22",
+            "document_id": "geo-1996-21",
+            "physical_page": 7,
+            "chunk_index": 22,
+            "score": 29.562780023470186,
+            "rank": 1,
+            "source": "bm25",
+            "content_chars": 497,
+            "document_type": "paper",
+            "language": "en"
+          },
+          {
+            "chunk_id": "geo-1996-21_21",
+            "document_id": "geo-1996-21",
+            "physical_page": 7,
+            "chunk_index": 21,
+            "score": 22.413210091702233,
+            "rank": 2,
+            "source": "bm25",
+            "content_chars": 496,
+            "document_type": "paper",
+            "language": "en"
+          },
+          {
+            "chunk_id": "geo-1996-21_24",
+            "document_id": "geo-1996-21",
+            "physical_page": 7,
+            "chunk_index": 24,
+            "score": 19.381655102674223,
+            "rank": 3,
+            "source": "bm25",
+            "content_chars": 241,
+            "document_type": "paper",
+            "language": "en"
+          },
+          {
+            "chunk_id": "geo-1996-21_23",
+            "document_id": "geo-1996-21",
+            "physical_page": 7,
+            "chunk_index": 23,
+            "score": 0.0,
+            "rank": null,
+            "source": "bm25-adjacent",
+            "content_chars": 496,
+            "document_type": "paper",
+            "language": "en"
+          },
+          {
+            "chunk_id": "geo-1996-21_05",
+            "document_id": "geo-1996-21",
+            "physical_page": 1,
+            "chunk_index": 5,
+            "score": 19.103513638818246,
+            "rank": 4,
+            "source": "bm25",
+            "content_chars": 496,
+            "document_type": "paper",
+            "language": "en"
+          }
+        ],
+        "final_bounded_context": [
+          {
+            "chunk_id": "geo-1996-21_21",
+            "document_id": "geo-1996-21",
+            "physical_page": 7,
+            "chunk_index": 21,
+            "score": 22.413210091702233,
+            "rank": 2,
+            "source": "bm25",
+            "content_chars": 496,
+            "document_type": "paper",
+            "language": "en"
+          },
+          {
+            "chunk_id": "geo-1996-21_22",
+            "document_id": "geo-1996-21",
+            "physical_page": 7,
+            "chunk_index": 22,
+            "score": 29.562780023470186,
+            "rank": 1,
+            "source": "bm25",
+            "content_chars": 497,
+            "document_type": "paper",
+            "language": "en"
+          },
+          {
+            "chunk_id": "geo-1996-21_23",
+            "document_id": "geo-1996-21",
+            "physical_page": 7,
+            "chunk_index": 23,
+            "score": 0.0,
+            "rank": null,
+            "source": "bm25-adjacent",
+            "content_chars": 496,
+            "document_type": "paper",
+            "language": "en"
+          },
+          {
+            "chunk_id": "geo-1996-21_24",
+            "document_id": "geo-1996-21",
+            "physical_page": 7,
+            "chunk_index": 24,
+            "score": 19.381655102674223,
+            "rank": 3,
+            "source": "bm25",
+            "content_chars": 241,
+            "document_type": "paper",
+            "language": "en"
+          }
+        ],
+        "gold_in_top_k_seed": {
+          "geo-1996-21_22": true
+        },
+        "gold_in_expanded_candidates": {
+          "geo-1996-21_22": true
+        },
+        "gold_in_final_bounded_context": {
+          "geo-1996-21_22": true
+        },
+        "final_context_supports_all_preannotated_gold_chunks": true,
+        "filter_compliant": true,
+        "context_chunk_count": 4,
+        "context_chunk_limit": 4,
+        "per_chunk_character_cap": 900,
+        "context_chars": {
+          "geo-1996-21_21": 496,
+          "geo-1996-21_22": 497,
+          "geo-1996-21_23": 496,
+          "geo-1996-21_24": 241
+        },
+        "truncated": {
+          "geo-1996-21_21": false,
+          "geo-1996-21_22": false,
+          "geo-1996-21_23": false,
+          "geo-1996-21_24": false
+        }
+      }
+    },
+    {
+      "question_id": "geo-day3-002",
+      "question": "In the Nebraska CSP results, how much of the 23-mile dataset showed continuous definable reflectors likely classified as bedrock and matched with geologic logs?",
+      "expected_status": "answered",
+      "filters": {
+        "document_ids": [
+          "geo-fs11503"
+        ],
+        "document_types": [
+          "technical_report"
+        ],
+        "languages": [
+          "en"
+        ]
+      },
+      "retrieval": {
+        "filtered_corpus_chunk_count": 48,
+        "gold_evidence_in_filtered_corpus": {
+          "geo-fs11503_38": true
+        },
+        "gold_full_filtered_rank": {
+          "geo-fs11503_38": 1
+        },
+        "seed_chunks": [
+          {
+            "chunk_id": "geo-fs11503_38",
+            "document_id": "geo-fs11503",
+            "physical_page": 6,
+            "chunk_index": 38,
+            "score": 62.66694457914002,
+            "rank": 1,
+            "source": "bm25",
+            "content_chars": 499,
+            "document_type": "technical_report",
+            "language": "en"
+          },
+          {
+            "chunk_id": "geo-fs11503_32",
+            "document_id": "geo-fs11503",
+            "physical_page": 5,
+            "chunk_index": 32,
+            "score": 40.67433966939031,
+            "rank": 2,
+            "source": "bm25",
+            "content_chars": 498,
+            "document_type": "technical_report",
+            "language": "en"
+          },
+          {
+            "chunk_id": "geo-fs11503_02",
+            "document_id": "geo-fs11503",
+            "physical_page": 1,
+            "chunk_index": 2,
+            "score": 40.61866740954242,
+            "rank": 3,
+            "source": "bm25",
+            "content_chars": 497,
+            "document_type": "technical_report",
+            "language": "en"
+          },
+          {
+            "chunk_id": "geo-fs11503_37",
+            "document_id": "geo-fs11503",
+            "physical_page": 6,
+            "chunk_index": 37,
+            "score": 38.804614390393105,
+            "rank": 4,
+            "source": "bm25",
+            "content_chars": 499,
+            "document_type": "technical_report",
+            "language": "en"
+          },
+          {
+            "chunk_id": "geo-fs11503_41",
+            "document_id": "geo-fs11503",
+            "physical_page": 6,
+            "chunk_index": 41,
+            "score": 38.00100223007126,
+            "rank": 5,
+            "source": "bm25",
+            "content_chars": 497,
+            "document_type": "technical_report",
+            "language": "en"
+          }
+        ],
+        "expanded_chunks": [
+          {
+            "chunk_id": "geo-fs11503_38",
+            "document_id": "geo-fs11503",
+            "physical_page": 6,
+            "chunk_index": 38,
+            "score": 62.66694457914002,
+            "rank": 1,
+            "source": "bm25",
+            "content_chars": 499,
+            "document_type": "technical_report",
+            "language": "en"
+          },
+          {
+            "chunk_id": "geo-fs11503_37",
+            "document_id": "geo-fs11503",
+            "physical_page": 6,
+            "chunk_index": 37,
+            "score": 38.804614390393105,
+            "rank": 4,
+            "source": "bm25",
+            "content_chars": 499,
+            "document_type": "technical_report",
+            "language": "en"
+          },
+          {
+            "chunk_id": "geo-fs11503_32",
+            "document_id": "geo-fs11503",
+            "physical_page": 5,
+            "chunk_index": 32,
+            "score": 40.67433966939031,
+            "rank": 2,
+            "source": "bm25",
+            "content_chars": 498,
+            "document_type": "technical_report",
+            "language": "en"
+          },
+          {
+            "chunk_id": "geo-fs11503_31",
+            "document_id": "geo-fs11503",
+            "physical_page": 5,
+            "chunk_index": 31,
+            "score": 0.0,
+            "rank": null,
+            "source": "bm25-adjacent",
+            "content_chars": 498,
+            "document_type": "technical_report",
+            "language": "en"
+          },
+          {
+            "chunk_id": "geo-fs11503_02",
+            "document_id": "geo-fs11503",
+            "physical_page": 1,
+            "chunk_index": 2,
+            "score": 40.61866740954242,
+            "rank": 3,
+            "source": "bm25",
+            "content_chars": 497,
+            "document_type": "technical_report",
+            "language": "en"
+          }
+        ],
+        "final_bounded_context": [
+          {
+            "chunk_id": "geo-fs11503_31",
+            "document_id": "geo-fs11503",
+            "physical_page": 5,
+            "chunk_index": 31,
+            "score": 0.0,
+            "rank": null,
+            "source": "bm25-adjacent",
+            "content_chars": 498,
+            "document_type": "technical_report",
+            "language": "en"
+          },
+          {
+            "chunk_id": "geo-fs11503_32",
+            "document_id": "geo-fs11503",
+            "physical_page": 5,
+            "chunk_index": 32,
+            "score": 40.67433966939031,
+            "rank": 2,
+            "source": "bm25",
+            "content_chars": 498,
+            "document_type": "technical_report",
+            "language": "en"
+          },
+          {
+            "chunk_id": "geo-fs11503_37",
+            "document_id": "geo-fs11503",
+            "physical_page": 6,
+            "chunk_index": 37,
+            "score": 38.804614390393105,
+            "rank": 4,
+            "source": "bm25",
+            "content_chars": 499,
+            "document_type": "technical_report",
+            "language": "en"
+          },
+          {
+            "chunk_id": "geo-fs11503_38",
+            "document_id": "geo-fs11503",
+            "physical_page": 6,
+            "chunk_index": 38,
+            "score": 62.66694457914002,
+            "rank": 1,
+            "source": "bm25",
+            "content_chars": 499,
+            "document_type": "technical_report",
+            "language": "en"
+          }
+        ],
+        "gold_in_top_k_seed": {
+          "geo-fs11503_38": true
+        },
+        "gold_in_expanded_candidates": {
+          "geo-fs11503_38": true
+        },
+        "gold_in_final_bounded_context": {
+          "geo-fs11503_38": true
+        },
+        "final_context_supports_all_preannotated_gold_chunks": true,
+        "filter_compliant": true,
+        "context_chunk_count": 4,
+        "context_chunk_limit": 4,
+        "per_chunk_character_cap": 900,
+        "context_chars": {
+          "geo-fs11503_31": 498,
+          "geo-fs11503_32": 498,
+          "geo-fs11503_37": 499,
+          "geo-fs11503_38": 499
+        },
+        "truncated": {
+          "geo-fs11503_31": false,
+          "geo-fs11503_32": false,
+          "geo-fs11503_37": false,
+          "geo-fs11503_38": false
+        }
+      }
+    },
+    {
+      "question_id": "geo-day3-003",
+      "question": "During the New River survey, how frequently were navigation fix marks automatically placed on the seismic records?",
+      "expected_status": "answered",
+      "filters": {
+        "document_ids": [
+          "geo-report-1989-4195"
+        ],
+        "document_types": [
+          "report"
+        ],
+        "languages": [
+          "en"
+        ]
+      },
+      "retrieval": {
+        "filtered_corpus_chunk_count": 117,
+        "gold_evidence_in_filtered_corpus": {
+          "geo-report-1989-4195_52": true
+        },
+        "gold_full_filtered_rank": {
+          "geo-report-1989-4195_52": 1
+        },
+        "seed_chunks": [
+          {
+            "chunk_id": "geo-report-1989-4195_52",
+            "document_id": "geo-report-1989-4195",
+            "physical_page": 16,
+            "chunk_index": 52,
+            "score": 51.05195909021371,
+            "rank": 1,
+            "source": "bm25",
+            "content_chars": 500,
+            "document_type": "report",
+            "language": "en"
+          },
+          {
+            "chunk_id": "geo-report-1989-4195_11",
+            "document_id": "geo-report-1989-4195",
+            "physical_page": 5,
+            "chunk_index": 11,
+            "score": 24.012008410360906,
+            "rank": 2,
+            "source": "bm25",
+            "content_chars": 500,
+            "document_type": "report",
+            "language": "en"
+          },
+          {
+            "chunk_id": "geo-report-1989-4195_44",
+            "document_id": "geo-report-1989-4195",
+            "physical_page": 13,
+            "chunk_index": 44,
+            "score": 23.277540806991084,
+            "rank": 3,
+            "source": "bm25",
+            "content_chars": 500,
+            "document_type": "report",
+            "language": "en"
+          },
+          {
+            "chunk_id": "geo-report-1989-4195_107",
+            "document_id": "geo-report-1989-4195",
+            "physical_page": 35,
+            "chunk_index": 107,
+            "score": 21.817916994439656,
+            "rank": 4,
+            "source": "bm25",
+            "content_chars": 500,
+            "document_type": "report",
+            "language": "en"
+          },
+          {
+            "chunk_id": "geo-report-1989-4195_12",
+            "document_id": "geo-report-1989-4195",
+            "physical_page": 5,
+            "chunk_index": 12,
+            "score": 21.50601267454184,
+            "rank": 5,
+            "source": "bm25",
+            "content_chars": 499,
+            "document_type": "report",
+            "language": "en"
+          }
+        ],
+        "expanded_chunks": [
+          {
+            "chunk_id": "geo-report-1989-4195_52",
+            "document_id": "geo-report-1989-4195",
+            "physical_page": 16,
+            "chunk_index": 52,
+            "score": 51.05195909021371,
+            "rank": 1,
+            "source": "bm25",
+            "content_chars": 500,
+            "document_type": "report",
+            "language": "en"
+          },
+          {
+            "chunk_id": "geo-report-1989-4195_51",
+            "document_id": "geo-report-1989-4195",
+            "physical_page": 16,
+            "chunk_index": 51,
+            "score": 0.0,
+            "rank": null,
+            "source": "bm25-adjacent",
+            "content_chars": 500,
+            "document_type": "report",
+            "language": "en"
+          },
+          {
+            "chunk_id": "geo-report-1989-4195_11",
+            "document_id": "geo-report-1989-4195",
+            "physical_page": 5,
+            "chunk_index": 11,
+            "score": 24.012008410360906,
+            "rank": 2,
+            "source": "bm25",
+            "content_chars": 500,
+            "document_type": "report",
+            "language": "en"
+          },
+          {
+            "chunk_id": "geo-report-1989-4195_10",
+            "document_id": "geo-report-1989-4195",
+            "physical_page": 5,
+            "chunk_index": 10,
+            "score": 0.0,
+            "rank": null,
+            "source": "bm25-adjacent",
+            "content_chars": 500,
+            "document_type": "report",
+            "language": "en"
+          },
+          {
+            "chunk_id": "geo-report-1989-4195_44",
+            "document_id": "geo-report-1989-4195",
+            "physical_page": 13,
+            "chunk_index": 44,
+            "score": 23.277540806991084,
+            "rank": 3,
+            "source": "bm25",
+            "content_chars": 500,
+            "document_type": "report",
+            "language": "en"
+          }
+        ],
+        "final_bounded_context": [
+          {
+            "chunk_id": "geo-report-1989-4195_10",
+            "document_id": "geo-report-1989-4195",
+            "physical_page": 5,
+            "chunk_index": 10,
+            "score": 0.0,
+            "rank": null,
+            "source": "bm25-adjacent",
+            "content_chars": 500,
+            "document_type": "report",
+            "language": "en"
+          },
+          {
+            "chunk_id": "geo-report-1989-4195_11",
+            "document_id": "geo-report-1989-4195",
+            "physical_page": 5,
+            "chunk_index": 11,
+            "score": 24.012008410360906,
+            "rank": 2,
+            "source": "bm25",
+            "content_chars": 500,
+            "document_type": "report",
+            "language": "en"
+          },
+          {
+            "chunk_id": "geo-report-1989-4195_51",
+            "document_id": "geo-report-1989-4195",
+            "physical_page": 16,
+            "chunk_index": 51,
+            "score": 0.0,
+            "rank": null,
+            "source": "bm25-adjacent",
+            "content_chars": 500,
+            "document_type": "report",
+            "language": "en"
+          },
+          {
+            "chunk_id": "geo-report-1989-4195_52",
+            "document_id": "geo-report-1989-4195",
+            "physical_page": 16,
+            "chunk_index": 52,
+            "score": 51.05195909021371,
+            "rank": 1,
+            "source": "bm25",
+            "content_chars": 500,
+            "document_type": "report",
+            "language": "en"
+          }
+        ],
+        "gold_in_top_k_seed": {
+          "geo-report-1989-4195_52": true
+        },
+        "gold_in_expanded_candidates": {
+          "geo-report-1989-4195_52": true
+        },
+        "gold_in_final_bounded_context": {
+          "geo-report-1989-4195_52": true
+        },
+        "final_context_supports_all_preannotated_gold_chunks": true,
+        "filter_compliant": true,
+        "context_chunk_count": 4,
+        "context_chunk_limit": 4,
+        "per_chunk_character_cap": 900,
+        "context_chars": {
+          "geo-report-1989-4195_10": 500,
+          "geo-report-1989-4195_11": 500,
+          "geo-report-1989-4195_51": 500,
+          "geo-report-1989-4195_52": 500
+        },
+        "truncated": {
+          "geo-report-1989-4195_10": false,
+          "geo-report-1989-4195_11": false,
+          "geo-report-1989-4195_51": false,
+          "geo-report-1989-4195_52": false
+        }
+      }
+    },
+    {
+      "question_id": "geo-day3-004",
+      "question": "What uncertainty in refraction velocity did the SH-wave paper estimate from sensitivity analysis of first-break picking?",
+      "expected_status": "answered",
+      "filters": {
+        "document_ids": [
+          "geo-s10950-021-10042-z"
+        ],
+        "document_types": [
+          "paper"
+        ],
+        "languages": [
+          "en"
+        ]
+      },
+      "retrieval": {
+        "filtered_corpus_chunk_count": 188,
+        "gold_evidence_in_filtered_corpus": {
+          "geo-s10950-021-10042-z_28": true
+        },
+        "gold_full_filtered_rank": {
+          "geo-s10950-021-10042-z_28": 1
+        },
+        "seed_chunks": [
+          {
+            "chunk_id": "geo-s10950-021-10042-z_28",
+            "document_id": "geo-s10950-021-10042-z",
+            "physical_page": 4,
+            "chunk_index": 28,
+            "score": 46.77371816069836,
+            "rank": 1,
+            "source": "bm25",
+            "content_chars": 499,
+            "document_type": "paper",
+            "language": "en"
+          },
+          {
+            "chunk_id": "geo-s10950-021-10042-z_88",
+            "document_id": "geo-s10950-021-10042-z",
+            "physical_page": 12,
+            "chunk_index": 88,
+            "score": 25.181237412984427,
+            "rank": 2,
+            "source": "bm25",
+            "content_chars": 499,
+            "document_type": "paper",
+            "language": "en"
+          },
+          {
+            "chunk_id": "geo-s10950-021-10042-z_01",
+            "document_id": "geo-s10950-021-10042-z",
+            "physical_page": 1,
+            "chunk_index": 1,
+            "score": 24.477342828104664,
+            "rank": 3,
+            "source": "bm25",
+            "content_chars": 499,
+            "document_type": "paper",
+            "language": "en"
+          },
+          {
+            "chunk_id": "geo-s10950-021-10042-z_87",
+            "document_id": "geo-s10950-021-10042-z",
+            "physical_page": 12,
+            "chunk_index": 87,
+            "score": 24.312245064202617,
+            "rank": 4,
+            "source": "bm25",
+            "content_chars": 500,
+            "document_type": "paper",
+            "language": "en"
+          },
+          {
+            "chunk_id": "geo-s10950-021-10042-z_24",
+            "document_id": "geo-s10950-021-10042-z",
+            "physical_page": 4,
+            "chunk_index": 24,
+            "score": 23.17055375814372,
+            "rank": 5,
+            "source": "bm25",
+            "content_chars": 499,
+            "document_type": "paper",
+            "language": "en"
+          }
+        ],
+        "expanded_chunks": [
+          {
+            "chunk_id": "geo-s10950-021-10042-z_28",
+            "document_id": "geo-s10950-021-10042-z",
+            "physical_page": 4,
+            "chunk_index": 28,
+            "score": 46.77371816069836,
+            "rank": 1,
+            "source": "bm25",
+            "content_chars": 499,
+            "document_type": "paper",
+            "language": "en"
+          },
+          {
+            "chunk_id": "geo-s10950-021-10042-z_27",
+            "document_id": "geo-s10950-021-10042-z",
+            "physical_page": 4,
+            "chunk_index": 27,
+            "score": 0.0,
+            "rank": null,
+            "source": "bm25-adjacent",
+            "content_chars": 497,
+            "document_type": "paper",
+            "language": "en"
+          },
+          {
+            "chunk_id": "geo-s10950-021-10042-z_88",
+            "document_id": "geo-s10950-021-10042-z",
+            "physical_page": 12,
+            "chunk_index": 88,
+            "score": 25.181237412984427,
+            "rank": 2,
+            "source": "bm25",
+            "content_chars": 499,
+            "document_type": "paper",
+            "language": "en"
+          },
+          {
+            "chunk_id": "geo-s10950-021-10042-z_87",
+            "document_id": "geo-s10950-021-10042-z",
+            "physical_page": 12,
+            "chunk_index": 87,
+            "score": 24.312245064202617,
+            "rank": 4,
+            "source": "bm25",
+            "content_chars": 500,
+            "document_type": "paper",
+            "language": "en"
+          },
+          {
+            "chunk_id": "geo-s10950-021-10042-z_01",
+            "document_id": "geo-s10950-021-10042-z",
+            "physical_page": 1,
+            "chunk_index": 1,
+            "score": 24.477342828104664,
+            "rank": 3,
+            "source": "bm25",
+            "content_chars": 499,
+            "document_type": "paper",
+            "language": "en"
+          }
+        ],
+        "final_bounded_context": [
+          {
+            "chunk_id": "geo-s10950-021-10042-z_27",
+            "document_id": "geo-s10950-021-10042-z",
+            "physical_page": 4,
+            "chunk_index": 27,
+            "score": 0.0,
+            "rank": null,
+            "source": "bm25-adjacent",
+            "content_chars": 497,
+            "document_type": "paper",
+            "language": "en"
+          },
+          {
+            "chunk_id": "geo-s10950-021-10042-z_28",
+            "document_id": "geo-s10950-021-10042-z",
+            "physical_page": 4,
+            "chunk_index": 28,
+            "score": 46.77371816069836,
+            "rank": 1,
+            "source": "bm25",
+            "content_chars": 499,
+            "document_type": "paper",
+            "language": "en"
+          },
+          {
+            "chunk_id": "geo-s10950-021-10042-z_87",
+            "document_id": "geo-s10950-021-10042-z",
+            "physical_page": 12,
+            "chunk_index": 87,
+            "score": 24.312245064202617,
+            "rank": 4,
+            "source": "bm25",
+            "content_chars": 500,
+            "document_type": "paper",
+            "language": "en"
+          },
+          {
+            "chunk_id": "geo-s10950-021-10042-z_88",
+            "document_id": "geo-s10950-021-10042-z",
+            "physical_page": 12,
+            "chunk_index": 88,
+            "score": 25.181237412984427,
+            "rank": 2,
+            "source": "bm25",
+            "content_chars": 499,
+            "document_type": "paper",
+            "language": "en"
+          }
+        ],
+        "gold_in_top_k_seed": {
+          "geo-s10950-021-10042-z_28": true
+        },
+        "gold_in_expanded_candidates": {
+          "geo-s10950-021-10042-z_28": true
+        },
+        "gold_in_final_bounded_context": {
+          "geo-s10950-021-10042-z_28": true
+        },
+        "final_context_supports_all_preannotated_gold_chunks": true,
+        "filter_compliant": true,
+        "context_chunk_count": 4,
+        "context_chunk_limit": 4,
+        "per_chunk_character_cap": 900,
+        "context_chars": {
+          "geo-s10950-021-10042-z_27": 497,
+          "geo-s10950-021-10042-z_28": 499,
+          "geo-s10950-021-10042-z_87": 500,
+          "geo-s10950-021-10042-z_88": 499
+        },
+        "truncated": {
+          "geo-s10950-021-10042-z_27": false,
+          "geo-s10950-021-10042-z_28": false,
+          "geo-s10950-021-10042-z_87": false,
+          "geo-s10950-021-10042-z_88": false
+        }
+      }
+    },
+    {
+      "question_id": "geo-day3-005",
+      "question": "According to the New River report, what components are required for continuous seismic profiling, and what raw recording is usually retained for later analysis?",
+      "expected_status": "answered",
+      "filters": {
+        "document_ids": [
+          "geo-report-1989-4195"
+        ],
+        "document_types": [
+          "report"
+        ],
+        "languages": [
+          "en"
+        ]
+      },
+      "retrieval": {
+        "filtered_corpus_chunk_count": 117,
+        "gold_evidence_in_filtered_corpus": {
+          "geo-report-1989-4195_47": true
+        },
+        "gold_full_filtered_rank": {
+          "geo-report-1989-4195_47": 1
+        },
+        "seed_chunks": [
+          {
+            "chunk_id": "geo-report-1989-4195_47",
+            "document_id": "geo-report-1989-4195",
+            "physical_page": 14,
+            "chunk_index": 47,
+            "score": 36.13279151402305,
+            "rank": 1,
+            "source": "bm25",
+            "content_chars": 499,
+            "document_type": "report",
+            "language": "en"
+          },
+          {
+            "chunk_id": "geo-report-1989-4195_10",
+            "document_id": "geo-report-1989-4195",
+            "physical_page": 5,
+            "chunk_index": 10,
+            "score": 30.926237979879478,
+            "rank": 2,
+            "source": "bm25",
+            "content_chars": 500,
+            "document_type": "report",
+            "language": "en"
+          },
+          {
+            "chunk_id": "geo-report-1989-4195_102",
+            "document_id": "geo-report-1989-4195",
+            "physical_page": 34,
+            "chunk_index": 102,
+            "score": 28.479395870829073,
+            "rank": 3,
+            "source": "bm25",
+            "content_chars": 500,
+            "document_type": "report",
+            "language": "en"
+          },
+          {
+            "chunk_id": "geo-report-1989-4195_21",
+            "document_id": "geo-report-1989-4195",
+            "physical_page": 8,
+            "chunk_index": 21,
+            "score": 28.192114657204655,
+            "rank": 4,
+            "source": "bm25",
+            "content_chars": 500,
+            "document_type": "report",
+            "language": "en"
+          },
+          {
+            "chunk_id": "geo-report-1989-4195_48",
+            "document_id": "geo-report-1989-4195",
+            "physical_page": 14,
+            "chunk_index": 48,
+            "score": 27.835094482988808,
+            "rank": 5,
+            "source": "bm25",
+            "content_chars": 500,
+            "document_type": "report",
+            "language": "en"
+          }
+        ],
+        "expanded_chunks": [
+          {
+            "chunk_id": "geo-report-1989-4195_47",
+            "document_id": "geo-report-1989-4195",
+            "physical_page": 14,
+            "chunk_index": 47,
+            "score": 36.13279151402305,
+            "rank": 1,
+            "source": "bm25",
+            "content_chars": 499,
+            "document_type": "report",
+            "language": "en"
+          },
+          {
+            "chunk_id": "geo-report-1989-4195_10",
+            "document_id": "geo-report-1989-4195",
+            "physical_page": 5,
+            "chunk_index": 10,
+            "score": 30.926237979879478,
+            "rank": 2,
+            "source": "bm25",
+            "content_chars": 500,
+            "document_type": "report",
+            "language": "en"
+          },
+          {
+            "chunk_id": "geo-report-1989-4195_102",
+            "document_id": "geo-report-1989-4195",
+            "physical_page": 34,
+            "chunk_index": 102,
+            "score": 28.479395870829073,
+            "rank": 3,
+            "source": "bm25",
+            "content_chars": 500,
+            "document_type": "report",
+            "language": "en"
+          },
+          {
+            "chunk_id": "geo-report-1989-4195_101",
+            "document_id": "geo-report-1989-4195",
+            "physical_page": 34,
+            "chunk_index": 101,
+            "score": 0.0,
+            "rank": null,
+            "source": "bm25-adjacent",
+            "content_chars": 500,
+            "document_type": "report",
+            "language": "en"
+          },
+          {
+            "chunk_id": "geo-report-1989-4195_21",
+            "document_id": "geo-report-1989-4195",
+            "physical_page": 8,
+            "chunk_index": 21,
+            "score": 28.192114657204655,
+            "rank": 4,
+            "source": "bm25",
+            "content_chars": 500,
+            "document_type": "report",
+            "language": "en"
+          }
+        ],
+        "final_bounded_context": [
+          {
+            "chunk_id": "geo-report-1989-4195_10",
+            "document_id": "geo-report-1989-4195",
+            "physical_page": 5,
+            "chunk_index": 10,
+            "score": 30.926237979879478,
+            "rank": 2,
+            "source": "bm25",
+            "content_chars": 500,
+            "document_type": "report",
+            "language": "en"
+          },
+          {
+            "chunk_id": "geo-report-1989-4195_47",
+            "document_id": "geo-report-1989-4195",
+            "physical_page": 14,
+            "chunk_index": 47,
+            "score": 36.13279151402305,
+            "rank": 1,
+            "source": "bm25",
+            "content_chars": 499,
+            "document_type": "report",
+            "language": "en"
+          },
+          {
+            "chunk_id": "geo-report-1989-4195_101",
+            "document_id": "geo-report-1989-4195",
+            "physical_page": 34,
+            "chunk_index": 101,
+            "score": 0.0,
+            "rank": null,
+            "source": "bm25-adjacent",
+            "content_chars": 500,
+            "document_type": "report",
+            "language": "en"
+          },
+          {
+            "chunk_id": "geo-report-1989-4195_102",
+            "document_id": "geo-report-1989-4195",
+            "physical_page": 34,
+            "chunk_index": 102,
+            "score": 28.479395870829073,
+            "rank": 3,
+            "source": "bm25",
+            "content_chars": 500,
+            "document_type": "report",
+            "language": "en"
+          }
+        ],
+        "gold_in_top_k_seed": {
+          "geo-report-1989-4195_47": true
+        },
+        "gold_in_expanded_candidates": {
+          "geo-report-1989-4195_47": true
+        },
+        "gold_in_final_bounded_context": {
+          "geo-report-1989-4195_47": true
+        },
+        "final_context_supports_all_preannotated_gold_chunks": true,
+        "filter_compliant": true,
+        "context_chunk_count": 4,
+        "context_chunk_limit": 4,
+        "per_chunk_character_cap": 900,
+        "context_chars": {
+          "geo-report-1989-4195_10": 500,
+          "geo-report-1989-4195_47": 499,
+          "geo-report-1989-4195_101": 500,
+          "geo-report-1989-4195_102": 500
+        },
+        "truncated": {
+          "geo-report-1989-4195_10": false,
+          "geo-report-1989-4195_47": false,
+          "geo-report-1989-4195_101": false,
+          "geo-report-1989-4195_102": false
+        }
+      }
+    },
+    {
+      "question_id": "geo-day3-006",
+      "question": "Where along Lines A and B did the Presidio report locate the low-velocity zones, and what overall feature orientation did those locations suggest?",
+      "expected_status": "answered",
+      "filters": {
+        "document_ids": [
+          "geo-of12-1191"
+        ],
+        "document_types": [
+          "report"
+        ],
+        "languages": [
+          "en"
+        ]
+      },
+      "retrieval": {
+        "filtered_corpus_chunk_count": 80,
+        "gold_evidence_in_filtered_corpus": {
+          "geo-of12-1191_61": true,
+          "geo-of12-1191_62": true
+        },
+        "gold_full_filtered_rank": {
+          "geo-of12-1191_61": 6,
+          "geo-of12-1191_62": 1
+        },
+        "seed_chunks": [
+          {
+            "chunk_id": "geo-of12-1191_62",
+            "document_id": "geo-of12-1191",
+            "physical_page": 14,
+            "chunk_index": 62,
+            "score": 40.2868854199382,
+            "rank": 1,
+            "source": "bm25",
+            "content_chars": 500,
+            "document_type": "report",
+            "language": "en"
+          },
+          {
+            "chunk_id": "geo-of12-1191_52",
+            "document_id": "geo-of12-1191",
+            "physical_page": 13,
+            "chunk_index": 52,
+            "score": 30.30598743004187,
+            "rank": 2,
+            "source": "bm25",
+            "content_chars": 498,
+            "document_type": "report",
+            "language": "en"
+          },
+          {
+            "chunk_id": "geo-of12-1191_49",
+            "document_id": "geo-of12-1191",
+            "physical_page": 12,
+            "chunk_index": 49,
+            "score": 30.136616596470347,
+            "rank": 3,
+            "source": "bm25",
+            "content_chars": 500,
+            "document_type": "report",
+            "language": "en"
+          },
+          {
+            "chunk_id": "geo-of12-1191_67",
+            "document_id": "geo-of12-1191",
+            "physical_page": 17,
+            "chunk_index": 67,
+            "score": 29.55698006286684,
+            "rank": 4,
+            "source": "bm25",
+            "content_chars": 499,
+            "document_type": "report",
+            "language": "en"
+          },
+          {
+            "chunk_id": "geo-of12-1191_32",
+            "document_id": "geo-of12-1191",
+            "physical_page": 8,
+            "chunk_index": 32,
+            "score": 28.18632154595638,
+            "rank": 5,
+            "source": "bm25",
+            "content_chars": 500,
+            "document_type": "report",
+            "language": "en"
+          }
+        ],
+        "expanded_chunks": [
+          {
+            "chunk_id": "geo-of12-1191_62",
+            "document_id": "geo-of12-1191",
+            "physical_page": 14,
+            "chunk_index": 62,
+            "score": 40.2868854199382,
+            "rank": 1,
+            "source": "bm25",
+            "content_chars": 500,
+            "document_type": "report",
+            "language": "en"
+          },
+          {
+            "chunk_id": "geo-of12-1191_61",
+            "document_id": "geo-of12-1191",
+            "physical_page": 14,
+            "chunk_index": 61,
+            "score": 0.0,
+            "rank": null,
+            "source": "bm25-adjacent",
+            "content_chars": 500,
+            "document_type": "report",
+            "language": "en"
+          },
+          {
+            "chunk_id": "geo-of12-1191_52",
+            "document_id": "geo-of12-1191",
+            "physical_page": 13,
+            "chunk_index": 52,
+            "score": 30.30598743004187,
+            "rank": 2,
+            "source": "bm25",
+            "content_chars": 498,
+            "document_type": "report",
+            "language": "en"
+          },
+          {
+            "chunk_id": "geo-of12-1191_49",
+            "document_id": "geo-of12-1191",
+            "physical_page": 12,
+            "chunk_index": 49,
+            "score": 30.136616596470347,
+            "rank": 3,
+            "source": "bm25",
+            "content_chars": 500,
+            "document_type": "report",
+            "language": "en"
+          },
+          {
+            "chunk_id": "geo-of12-1191_67",
+            "document_id": "geo-of12-1191",
+            "physical_page": 17,
+            "chunk_index": 67,
+            "score": 29.55698006286684,
+            "rank": 4,
+            "source": "bm25",
+            "content_chars": 499,
+            "document_type": "report",
+            "language": "en"
+          }
+        ],
+        "final_bounded_context": [
+          {
+            "chunk_id": "geo-of12-1191_49",
+            "document_id": "geo-of12-1191",
+            "physical_page": 12,
+            "chunk_index": 49,
+            "score": 30.136616596470347,
+            "rank": 3,
+            "source": "bm25",
+            "content_chars": 500,
+            "document_type": "report",
+            "language": "en"
+          },
+          {
+            "chunk_id": "geo-of12-1191_52",
+            "document_id": "geo-of12-1191",
+            "physical_page": 13,
+            "chunk_index": 52,
+            "score": 30.30598743004187,
+            "rank": 2,
+            "source": "bm25",
+            "content_chars": 498,
+            "document_type": "report",
+            "language": "en"
+          },
+          {
+            "chunk_id": "geo-of12-1191_61",
+            "document_id": "geo-of12-1191",
+            "physical_page": 14,
+            "chunk_index": 61,
+            "score": 0.0,
+            "rank": null,
+            "source": "bm25-adjacent",
+            "content_chars": 500,
+            "document_type": "report",
+            "language": "en"
+          },
+          {
+            "chunk_id": "geo-of12-1191_62",
+            "document_id": "geo-of12-1191",
+            "physical_page": 14,
+            "chunk_index": 62,
+            "score": 40.2868854199382,
+            "rank": 1,
+            "source": "bm25",
+            "content_chars": 500,
+            "document_type": "report",
+            "language": "en"
+          }
+        ],
+        "gold_in_top_k_seed": {
+          "geo-of12-1191_61": false,
+          "geo-of12-1191_62": true
+        },
+        "gold_in_expanded_candidates": {
+          "geo-of12-1191_61": true,
+          "geo-of12-1191_62": true
+        },
+        "gold_in_final_bounded_context": {
+          "geo-of12-1191_61": true,
+          "geo-of12-1191_62": true
+        },
+        "final_context_supports_all_preannotated_gold_chunks": true,
+        "filter_compliant": true,
+        "context_chunk_count": 4,
+        "context_chunk_limit": 4,
+        "per_chunk_character_cap": 900,
+        "context_chars": {
+          "geo-of12-1191_49": 500,
+          "geo-of12-1191_52": 498,
+          "geo-of12-1191_61": 500,
+          "geo-of12-1191_62": 500
+        },
+        "truncated": {
+          "geo-of12-1191_49": false,
+          "geo-of12-1191_52": false,
+          "geo-of12-1191_61": false,
+          "geo-of12-1191_62": false
+        }
+      }
+    },
+    {
+      "question_id": "geo-day3-007",
+      "question": "Under a technical-report-only filter, what sweep rate, firing rate, and power setting were used for most of the New River survey?",
+      "expected_status": "insufficient_evidence",
+      "filters": {
+        "document_types": [
+          "technical_report"
+        ],
+        "languages": [
+          "en"
+        ]
+      },
+      "retrieval": {
+        "filtered_corpus_chunk_count": 48,
+        "gold_evidence_in_filtered_corpus": {},
+        "gold_full_filtered_rank": {},
+        "seed_chunks": [
+          {
+            "chunk_id": "geo-fs11503_11",
+            "document_id": "geo-fs11503",
+            "physical_page": 2,
+            "chunk_index": 11,
+            "score": 38.02257255695126,
+            "rank": 1,
+            "source": "bm25",
+            "content_chars": 496,
+            "document_type": "technical_report",
+            "language": "en"
+          },
+          {
+            "chunk_id": "geo-fs11503_23",
+            "document_id": "geo-fs11503",
+            "physical_page": 4,
+            "chunk_index": 23,
+            "score": 34.99113303093397,
+            "rank": 2,
+            "source": "bm25",
+            "content_chars": 498,
+            "document_type": "technical_report",
+            "language": "en"
+          },
+          {
+            "chunk_id": "geo-fs11503_01",
+            "document_id": "geo-fs11503",
+            "physical_page": 1,
+            "chunk_index": 1,
+            "score": 34.15128458255029,
+            "rank": 3,
+            "source": "bm25",
+            "content_chars": 498,
+            "document_type": "technical_report",
+            "language": "en"
+          },
+          {
+            "chunk_id": "geo-fs11503_06",
+            "document_id": "geo-fs11503",
+            "physical_page": 1,
+            "chunk_index": 6,
+            "score": 33.76360156726544,
+            "rank": 4,
+            "source": "bm25",
+            "content_chars": 498,
+            "document_type": "technical_report",
+            "language": "en"
+          },
+          {
+            "chunk_id": "geo-fs11503_10",
+            "document_id": "geo-fs11503",
+            "physical_page": 2,
+            "chunk_index": 10,
+            "score": 31.80101508838522,
+            "rank": 5,
+            "source": "bm25",
+            "content_chars": 496,
+            "document_type": "technical_report",
+            "language": "en"
+          }
+        ],
+        "expanded_chunks": [
+          {
+            "chunk_id": "geo-fs11503_11",
+            "document_id": "geo-fs11503",
+            "physical_page": 2,
+            "chunk_index": 11,
+            "score": 38.02257255695126,
+            "rank": 1,
+            "source": "bm25",
+            "content_chars": 496,
+            "document_type": "technical_report",
+            "language": "en"
+          },
+          {
+            "chunk_id": "geo-fs11503_10",
+            "document_id": "geo-fs11503",
+            "physical_page": 2,
+            "chunk_index": 10,
+            "score": 31.80101508838522,
+            "rank": 5,
+            "source": "bm25",
+            "content_chars": 496,
+            "document_type": "technical_report",
+            "language": "en"
+          },
+          {
+            "chunk_id": "geo-fs11503_23",
+            "document_id": "geo-fs11503",
+            "physical_page": 4,
+            "chunk_index": 23,
+            "score": 34.99113303093397,
+            "rank": 2,
+            "source": "bm25",
+            "content_chars": 498,
+            "document_type": "technical_report",
+            "language": "en"
+          },
+          {
+            "chunk_id": "geo-fs11503_01",
+            "document_id": "geo-fs11503",
+            "physical_page": 1,
+            "chunk_index": 1,
+            "score": 34.15128458255029,
+            "rank": 3,
+            "source": "bm25",
+            "content_chars": 498,
+            "document_type": "technical_report",
+            "language": "en"
+          },
+          {
+            "chunk_id": "geo-fs11503_00",
+            "document_id": "geo-fs11503",
+            "physical_page": 1,
+            "chunk_index": 0,
+            "score": 0.0,
+            "rank": null,
+            "source": "bm25-adjacent",
+            "content_chars": 500,
+            "document_type": "technical_report",
+            "language": "en"
+          }
+        ],
+        "final_bounded_context": [
+          {
+            "chunk_id": "geo-fs11503_01",
+            "document_id": "geo-fs11503",
+            "physical_page": 1,
+            "chunk_index": 1,
+            "score": 34.15128458255029,
+            "rank": 3,
+            "source": "bm25",
+            "content_chars": 498,
+            "document_type": "technical_report",
+            "language": "en"
+          },
+          {
+            "chunk_id": "geo-fs11503_10",
+            "document_id": "geo-fs11503",
+            "physical_page": 2,
+            "chunk_index": 10,
+            "score": 31.80101508838522,
+            "rank": 5,
+            "source": "bm25",
+            "content_chars": 496,
+            "document_type": "technical_report",
+            "language": "en"
+          },
+          {
+            "chunk_id": "geo-fs11503_11",
+            "document_id": "geo-fs11503",
+            "physical_page": 2,
+            "chunk_index": 11,
+            "score": 38.02257255695126,
+            "rank": 1,
+            "source": "bm25",
+            "content_chars": 496,
+            "document_type": "technical_report",
+            "language": "en"
+          },
+          {
+            "chunk_id": "geo-fs11503_23",
+            "document_id": "geo-fs11503",
+            "physical_page": 4,
+            "chunk_index": 23,
+            "score": 34.99113303093397,
+            "rank": 2,
+            "source": "bm25",
+            "content_chars": 498,
+            "document_type": "technical_report",
+            "language": "en"
+          }
+        ],
+        "gold_in_top_k_seed": {},
+        "gold_in_expanded_candidates": {},
+        "gold_in_final_bounded_context": {},
+        "final_context_supports_all_preannotated_gold_chunks": false,
+        "filter_compliant": true,
+        "context_chunk_count": 4,
+        "context_chunk_limit": 4,
+        "per_chunk_character_cap": 900,
+        "context_chars": {
+          "geo-fs11503_01": 498,
+          "geo-fs11503_10": 496,
+          "geo-fs11503_11": 496,
+          "geo-fs11503_23": 498
+        },
+        "truncated": {
+          "geo-fs11503_01": false,
+          "geo-fs11503_10": false,
+          "geo-fs11503_11": false,
+          "geo-fs11503_23": false
+        }
+      }
+    },
+    {
+      "question_id": "geo-day3-008",
+      "question": "What exact fuel consumption, in gallons, did the New River seismic survey use over its four-day field campaign?",
+      "expected_status": "insufficient_evidence",
+      "filters": {
+        "document_ids": [
+          "geo-report-1989-4195"
+        ],
+        "document_types": [
+          "report"
+        ],
+        "languages": [
+          "en"
+        ]
+      },
+      "retrieval": {
+        "filtered_corpus_chunk_count": 117,
+        "gold_evidence_in_filtered_corpus": {},
+        "gold_full_filtered_rank": {},
+        "seed_chunks": [
+          {
+            "chunk_id": "geo-report-1989-4195_11",
+            "document_id": "geo-report-1989-4195",
+            "physical_page": 5,
+            "chunk_index": 11,
+            "score": 25.474205228094284,
+            "rank": 1,
+            "source": "bm25",
+            "content_chars": 500,
+            "document_type": "report",
+            "language": "en"
+          },
+          {
+            "chunk_id": "geo-report-1989-4195_18",
+            "document_id": "geo-report-1989-4195",
+            "physical_page": 7,
+            "chunk_index": 18,
+            "score": 21.7469534559217,
+            "rank": 2,
+            "source": "bm25",
+            "content_chars": 500,
+            "document_type": "report",
+            "language": "en"
+          },
+          {
+            "chunk_id": "geo-report-1989-4195_52",
+            "document_id": "geo-report-1989-4195",
+            "physical_page": 16,
+            "chunk_index": 52,
+            "score": 21.5793250391937,
+            "rank": 3,
+            "source": "bm25",
+            "content_chars": 500,
+            "document_type": "report",
+            "language": "en"
+          },
+          {
+            "chunk_id": "geo-report-1989-4195_102",
+            "document_id": "geo-report-1989-4195",
+            "physical_page": 34,
+            "chunk_index": 102,
+            "score": 21.376766732666628,
+            "rank": 4,
+            "source": "bm25",
+            "content_chars": 500,
+            "document_type": "report",
+            "language": "en"
+          },
+          {
+            "chunk_id": "geo-report-1989-4195_103",
+            "document_id": "geo-report-1989-4195",
+            "physical_page": 34,
+            "chunk_index": 103,
+            "score": 20.375457170454993,
+            "rank": 5,
+            "source": "bm25",
+            "content_chars": 499,
+            "document_type": "report",
+            "language": "en"
+          }
+        ],
+        "expanded_chunks": [
+          {
+            "chunk_id": "geo-report-1989-4195_11",
+            "document_id": "geo-report-1989-4195",
+            "physical_page": 5,
+            "chunk_index": 11,
+            "score": 25.474205228094284,
+            "rank": 1,
+            "source": "bm25",
+            "content_chars": 500,
+            "document_type": "report",
+            "language": "en"
+          },
+          {
+            "chunk_id": "geo-report-1989-4195_10",
+            "document_id": "geo-report-1989-4195",
+            "physical_page": 5,
+            "chunk_index": 10,
+            "score": 0.0,
+            "rank": null,
+            "source": "bm25-adjacent",
+            "content_chars": 500,
+            "document_type": "report",
+            "language": "en"
+          },
+          {
+            "chunk_id": "geo-report-1989-4195_18",
+            "document_id": "geo-report-1989-4195",
+            "physical_page": 7,
+            "chunk_index": 18,
+            "score": 21.7469534559217,
+            "rank": 2,
+            "source": "bm25",
+            "content_chars": 500,
+            "document_type": "report",
+            "language": "en"
+          },
+          {
+            "chunk_id": "geo-report-1989-4195_17",
+            "document_id": "geo-report-1989-4195",
+            "physical_page": 7,
+            "chunk_index": 17,
+            "score": 0.0,
+            "rank": null,
+            "source": "bm25-adjacent",
+            "content_chars": 499,
+            "document_type": "report",
+            "language": "en"
+          },
+          {
+            "chunk_id": "geo-report-1989-4195_52",
+            "document_id": "geo-report-1989-4195",
+            "physical_page": 16,
+            "chunk_index": 52,
+            "score": 21.5793250391937,
+            "rank": 3,
+            "source": "bm25",
+            "content_chars": 500,
+            "document_type": "report",
+            "language": "en"
+          }
+        ],
+        "final_bounded_context": [
+          {
+            "chunk_id": "geo-report-1989-4195_10",
+            "document_id": "geo-report-1989-4195",
+            "physical_page": 5,
+            "chunk_index": 10,
+            "score": 0.0,
+            "rank": null,
+            "source": "bm25-adjacent",
+            "content_chars": 500,
+            "document_type": "report",
+            "language": "en"
+          },
+          {
+            "chunk_id": "geo-report-1989-4195_11",
+            "document_id": "geo-report-1989-4195",
+            "physical_page": 5,
+            "chunk_index": 11,
+            "score": 25.474205228094284,
+            "rank": 1,
+            "source": "bm25",
+            "content_chars": 500,
+            "document_type": "report",
+            "language": "en"
+          },
+          {
+            "chunk_id": "geo-report-1989-4195_17",
+            "document_id": "geo-report-1989-4195",
+            "physical_page": 7,
+            "chunk_index": 17,
+            "score": 0.0,
+            "rank": null,
+            "source": "bm25-adjacent",
+            "content_chars": 499,
+            "document_type": "report",
+            "language": "en"
+          },
+          {
+            "chunk_id": "geo-report-1989-4195_18",
+            "document_id": "geo-report-1989-4195",
+            "physical_page": 7,
+            "chunk_index": 18,
+            "score": 21.7469534559217,
+            "rank": 2,
+            "source": "bm25",
+            "content_chars": 500,
+            "document_type": "report",
+            "language": "en"
+          }
+        ],
+        "gold_in_top_k_seed": {},
+        "gold_in_expanded_candidates": {},
+        "gold_in_final_bounded_context": {},
+        "final_context_supports_all_preannotated_gold_chunks": false,
+        "filter_compliant": true,
+        "context_chunk_count": 4,
+        "context_chunk_limit": 4,
+        "per_chunk_character_cap": 900,
+        "context_chars": {
+          "geo-report-1989-4195_10": 500,
+          "geo-report-1989-4195_11": 500,
+          "geo-report-1989-4195_17": 499,
+          "geo-report-1989-4195_18": 500
+        },
+        "truncated": {
+          "geo-report-1989-4195_10": false,
+          "geo-report-1989-4195_11": false,
+          "geo-report-1989-4195_17": false,
+          "geo-report-1989-4195_18": false
+        }
+      }
+    }
+  ]
+}
