@@ -8,7 +8,6 @@
 - **答案可以核对来源**：保留文档、chunk、物理页码和语料指纹，前端展示引用。
 - **区分回答与证据**：配置模型时生成结构化答案；未配置模型时返回检索证据，证据不足与执行失败有独立状态。
 - **完整交互链路**：支持 JSON / SSE、会话持久化和前端历史记录。
-- **评测可追溯**：保留冻结题集、历史输出、失败案例及结果校验和；离线测试使用合成数据。
 
 ## 核心链路
 
@@ -19,17 +18,6 @@ React → FastAPI → 元数据过滤 → BM25 top-5
 ```
 
 历史基线采用 `pypdf`、500 字符分块与 60 字符重叠；生成上下文最多 4 个块，每块最多 900 字符。正式路径使用 BM25；Dense、Hybrid 和 reranker 的兼容实验代码不作为已完成的正式功能展示。实现与边界见[架构说明](docs/ARCHITECTURE.md)。
-
-## 评测结果与改进方向
-
-| 题集 | 已记录结果 | 解释 |
-| --- | --- | --- |
-| Acceptance，10 题 | 状态匹配 8/10；未整体通过验收 | 两个失败案例仍有证据召回或最终上下文覆盖问题 |
-| Day 3，另行冻结的 8 题 | 同语料检查状态匹配 8/8 | 小样本、同语料检查，不代表新文档泛化 |
-
-Acceptance 的历史人工汇总为可回答题 6/8 正确且完整、拒答题 2/2 正确；原始 JSON 仍标注 PDF 人工复核待完成，本次发布未重新复核。Day 3 报告分别记录 6/6 可回答题完整、2/2 正确拒答，两组成绩不合并。
-
-下一步需要改进多证据召回与上下文覆盖，并扩展到独立文档和更大题集。详见[评测摘要与失败案例](docs/evaluation-summary.md)、[历史结果](evals/results/README.md)及[复现实验协议](docs/evaluation-protocol.md)。
 
 ## 本地启动
 
@@ -70,7 +58,7 @@ uv run --no-sync python -m mypy
 uv run --no-sync python -m pytest -q --cov=app --cov=eval --cov-fail-under=70
 ```
 
-前端在 `frontend` 目录执行 `npm test` 和 `npm run build`。CI 覆盖 Python 3.11 / 3.12 的格式、类型和测试检查，以及前端测试与构建；实际运行状态见仓库的 Actions 页面。合成数据测试通过不等于六份 PDF 上的真实问答评测通过。
+前端在 `frontend` 目录执行 `npm test` 和 `npm run build`。CI 覆盖 Python 3.11 / 3.12 的格式、类型和测试检查，以及前端测试与构建；实际运行状态见仓库的 Actions 页面。
 
 ## 阅读入口
 
@@ -78,9 +66,8 @@ uv run --no-sync python -m pytest -q --cov=app --cov=eval --cov-fail-under=70
 | --- | --- |
 | 环境、语料与配置 | [快速开始](docs/02-getting-started.md) · [依赖与配置](docs/dependencies-and-configuration.md) |
 | 正式请求路径与实验边界 | [架构](docs/ARCHITECTURE.md) · [实验代码说明](app/experiments/README.md) |
-| 题集、指标与复现实验 | [评测资产](evals/README.md) · [评测协议](docs/evaluation-protocol.md) |
 | 本地演示与发布范围 | [演示指南](docs/project-delivery.md) · [发布范围](docs/release-scope.md) |
 
 ## 来源与许可
 
-本项目基于既有开源应用基础改造成地学文献 RAG 原型，保留原 [MIT License](LICENSE)。本仓库展示正式 BM25 问答链路、元数据过滤、引用与语料身份、前端交互及评测记录；不将继承的全部基础代码声明为从零原创。PDF 的来源与再分发权限需独立核实。
+本项目基于既有开源应用基础改造成地学文献 RAG 原型，保留原 [MIT License](LICENSE)。本仓库展示正式 BM25 问答链路、元数据过滤、引用与语料身份及前端交互；不将继承的全部基础代码声明为从零原创。PDF 的来源与再分发权限需独立核实。
